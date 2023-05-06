@@ -45,7 +45,7 @@ if ($result->num_rows > 0) {
     echo "<td>" . $row['NameProduct'] . "</td>";
     echo "<td>" .$row['ProductDetail']. "</td>";
     echo "<td>" . $row['Amount'] . "</td>";
-    echo "<td>" . $row['Price'] . "</td>";
+    echo "<td>" .number_format($row['Price'], 0, ',', '.') . "đ</td>";
     echo "<td>" .
       "<ul class = \"content_btn\">" .
       // nút sửa
