@@ -1,0 +1,31 @@
+<?php
+session_start();
+$email = $_POST['username'];
+$password_current = $_POST['password'];
+include("DAL_Connect.php");
+$sql = "SELECT Password,Role,FirstName,LastName FROM account WHERE Email='$email';";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+  // output data of each row
+  while ($row = $result->fetch_assoc()) {
+    $pass = $row["Password"];
+    $role = $row["Role"];
+    if (strcmp($pass, $password_current) == 0) {
+      if (strcmp($role, "Admin") == 0 || strcmp($role, "Manager" || strcmp($role, "Employee")) == 0 || strcmp($role, "Employee") == 0) {
+        $_SESSION['login']['role'] = $role;
+        $_SESSION['login']['name'] = $row["FirstName"] . " " . $row["LastName"];
+       echo 1;
+      } else {
+        $_SESSION['login']['role'] = $role;
+        $_SESSION['login']['name'] = $row["FirstName"] . " " . $row["LastName"];
+        echo 2;
+      }
+    } else {
+      echo 3;
+    }
+  }
+} else {
+  echo 3;
+}
+$conn->close();
+?>

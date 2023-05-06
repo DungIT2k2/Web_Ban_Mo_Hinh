@@ -1,0 +1,662 @@
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: "Roboto", sans-serif;
+  }
+
+  .user_name {
+    color: white;
+    padding: 10px;
+  }
+
+  .sidebar {
+    position: fixed;
+    width: 20%;
+    height: 100%;
+    left: 0;
+    background-color: #1b1b1b;
+  }
+
+  nav ul {
+    background-color: #1b1b1b;
+    height: 100%;
+    width: 100%;
+  }
+
+  /* CSS menu cha */
+  nav ul li {
+    line-height: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+  }
+
+  nav ul li a i {
+    margin-right: 16px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding-left: 20px;
+    text-align: start;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+  }
+
+  nav ul li a:hover {
+    color: cyan;
+    background: #1e1e1e;
+    border-left-color: cyan;
+  }
+
+  nav ul li .active {
+    color: cyan;
+    background: #1e1e1e;
+    border-left-color: cyan;
+  }
+
+  /* CSS menu con */
+  nav ul ul {
+    position: static;
+    display: none;
+  }
+
+  nav ul .show_sanpham.show {
+    display: block;
+  }
+
+  nav ul ul li {
+    line-height: 42px;
+    border-bottom: none;
+  }
+
+  nav ul ul li a {
+    font-size: 17px;
+    color: #e6e6e6;
+    padding-left: 60px;
+  }
+
+  .Menu {
+    float: left;
+    width: 20%;
+  }
+
+  .Content {
+    position: fixed;
+    background-color: #fff;
+    right: 0%;
+    width: 80%;
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+  /* scrollbar Content */
+  ::-webkit-scrollbar .Content_User {
+    background-color: rgb(210, 243, 243);
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar .Content_SP {
+    background-color: rgb(210, 243, 243);
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 4px;
+  }
+
+  .pagenumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+  }
+
+  .pagenumber_item {}
+
+  .content_btn {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+  }
+
+  .btn_Sua {
+    margin: 5px;
+    align-items: center;
+    color: #1b1b1b;
+  }
+
+  .btn_Xoa {
+    margin: 5px;
+    align-items: center;
+    color: #1b1b1b;
+  }
+
+  .pagenumber_item_link {
+    text-decoration: none;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 3px;
+    margin: 5px;
+    color: white;
+    min-width: 40px;
+    height: 30px;
+    background-color: #1b1b1b;
+    display: block;
+  }
+
+  .pagenumber_item_link:hover {
+    color: cyan;
+    border: 1px solid cyan;
+  }
+
+  .Content_SP {
+    position: relative;
+    margin: 20px;
+    color: black;
+    display: none;
+  }
+
+  .Content_User {
+    position: relative;
+    margin: 20px;
+    color: black;
+    display: block;
+  }
+
+  .Content_Orders {
+    position: relative;
+    margin: 20px;
+    color: black;
+    display: none;
+  }
+
+  .Content_DoanhThu {
+    position: relative;
+    margin: 20px;
+    color: black;
+    display: none;
+  }
+
+  .header_content {
+    transition: all 0.2s ease;
+  }
+
+  .Content_SP.show,
+  .Content_Orders.show,
+  .Content_User.show,
+  .Content_DoanhThu.show,
+  .form_add_sanpham.show {
+    display: block;
+  }
+
+  table thead tr th {
+    color: black;
+    border: 2px solid black;
+    padding: 20px;
+    font-size: 20px;
+  }
+
+  table tbody tr td {
+    color: black;
+    border: 2px solid black;
+    padding: 20px;
+  }
+
+  .text {
+    text-align: left;
+  }
+
+  .change {
+    float: left;
+    color: black;
+    padding: 2px;
+    margin: 3px;
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .delete {
+    margin: 3px;
+    padding: 2px;
+    color: black;
+    background-color: red;
+    border: 1px solid black;
+  }
+
+  .Header {
+    text-align: left;
+    margin: 20px;
+    margin-top: 10px;
+    font-size: 20px;
+  }
+
+  .header__img {
+    border-radius: 10px;
+  }
+
+  .Button {
+    width: 80%;
+    margin: 20px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+
+  .Detail_1 {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 8px;
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    display: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    text-align: center;
+  }
+
+  .column5 {
+    width: 5%;
+  }
+
+  .column10 {
+    width: 10%;
+  }
+
+  .column15 {
+    width: 15%;
+  }
+
+  .column20 {
+    width: 20%;
+  }
+
+  .column25 {
+    width: 25%;
+  }
+
+  .column30 {
+    width: 30%;
+  }
+
+  .column35 {
+    width: 35%;
+  }
+
+  .column40 {
+    width: 40%;
+  }
+
+  /* CSS add SP */
+  .form_add_sanpham {
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+
+  .Content_form__add_SanPham {
+    color: black;
+    position: relative;
+    border: 1px solid black;
+    background-color: rgb(210, 243, 243);
+    height: 100%;
+    width: 100%;
+  }
+
+  .Content_form__add_SanPham div h1 {
+    color: black;
+    font-weight: 1000;
+    text-align: center;
+    margin: 20px;
+  }
+
+  .form__item {
+    display: flex;
+  }
+
+  .labelDetail_SP {
+    width: 200px;
+    color: black;
+    margin: 25px;
+    font-size: 22px;
+    font-weight: 550;
+  }
+
+  .input_SP {
+    border: 0.1 solid black;
+    border-radius: 10px;
+    padding: 2px;
+    margin: 10px;
+    color: black;
+    font-size: 18px;
+    width: 600px;
+  }
+
+  .select_books {
+    position: relative;
+  }
+
+  .select_books option {
+    color: #1b1b1b;
+    text-align: center;
+    font-size: 18px;
+    padding: 5px;
+  }
+
+  .Content_form__add_SanPham div textarea {
+    position: absolute;
+    left: 260px;
+    width: 890px;
+    height: 140px;
+    font-size: 25px;
+    color: black;
+    resize: none;
+    border-radius: 10px;
+  }
+
+  .view_image {
+    position: absolute;
+    left: 890px;
+    top: 88px;
+    border: 1px solid black;
+    width: 250px;
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .add_Img_input {
+    position: absolute;
+    right: 0;
+    top: 340px;
+    display: none;
+  }
+
+  .add_Img_input span {
+    color: black;
+  }
+
+  .add_Img_input input {
+    width: 180px;
+    color: black;
+  }
+
+  .add_Img_input button {
+    color: black;
+  }
+
+  .btn__addImage_SP {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: black;
+  }
+
+  .btn_XacNhan_Add_SP {
+    position: absolute;
+    right: 45%;
+    top: 90%;
+    color: black;
+    width: 200px;
+    height: 60px;
+    border-radius: 10px;
+  }
+
+
+
+  .main_title {
+    font-size: 30px;
+    font-weight: 1000;
+    text-align: center;
+    margin: 20px;
+    color: black;
+  }
+
+  .lableDetail__addSP {
+    width: 250px;
+    color: black;
+    font-size: 30px;
+    margin: 5px;
+  }
+
+  .input_addSP {
+    flex: 1;
+    padding: 10px;
+    margin: 5px;
+    color: black;
+    border-radius: 10px;
+  }
+
+  .btn_confirm_addSP {
+    position: absolute;
+    right: 13px;
+    bottom: 8px;
+    width: 120px;
+    height: 50px;
+    color: black;
+  }
+
+  .header_DoanhThu {
+    text-align: center;
+    align-items: center;
+    font-size: 30px;
+    color: black;
+    margin: 15px;
+  }
+
+  .header_content span {
+    font-size: 18px;
+    text-align: center;
+    color: black;
+  }
+
+  .cb_thongke {
+    color: black;
+    font-size: 25px;
+  }
+
+  .cb_thongke option {
+    color: black;
+    font-size: 25px;
+  }
+
+  .overplay_OrderDetail {
+    display: none;
+  }
+
+  .overplay__behind_OrderDetail {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+  .form_OrdersDetail {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    border: 2px solid cyan;
+    border-radius: 10px;
+    background-color: white;
+    width: 50%;
+    height: 600px;
+    color: black;
+  }
+
+  .form_OrderDetail_item {
+    display: flex;
+  }
+
+  .form_OrderDetail_item div span {
+    color: #1b1b1b;
+  }
+
+  .input_OrderDetail {
+    flex: 1;
+    color: black;
+    text-align: left;
+    font-size: 25px;
+    margin: 20px;
+    /* background-color: black; */
+  }
+
+  .title_OrderDetail {
+    color: black;
+    font-size: 40px;
+    font-weight: 1000;
+    text-align: center;
+    margin: 15px;
+  }
+
+  .lableDetail__OrderDetail {
+    color: black;
+    margin: 20px;
+    font-size: 25px;
+  }
+
+  .btn_X {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: 2px solid red;
+    background-color: red;
+    border-radius: 10px;
+    color: black;
+    font-size: 20px;
+    padding: 5px;
+  }
+
+  .loc_orders {
+    font-size: 20px;
+    color: black;
+  }
+
+  .Date {
+    padding: 5px;
+    color: black;
+    margin: 10px;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  .find_Orders {
+    position: relative;
+    top: 2px;
+    color: black;
+    padding: 2px;
+    font-size: 20px;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  .header_DoanhThu {
+    text-align: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: 1000;
+    color: black;
+    margin: 15px;
+  }
+
+  .btn_themtk {
+    position: relative;
+    margin: 25px;
+    left: 40%;
+    padding: 15px;
+  }
+
+  .btn_QLquyen {
+    position: relative;
+    margin: 25px;
+    left: 50%;
+    padding: 15px;
+  }
+
+  .cb_Quyen_QLTK {
+    position: relative;
+    padding: 10px;
+    left: 45%;
+  }
+
+  /* css QL_Product --> start*/
+  .btn_add_sp {
+    padding: 5px 22.5px 5px 22.5px;
+  }
+
+  .overplay_addSP {
+    display: none;
+  }
+
+  .overplay__behind_addSP {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+  .form__addSP {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    border: 2px solid cyan;
+    border-radius: 20px;
+    background-color: white;
+    width: 50%;
+    height: 650px;
+    color: black;
+  }
+
+  .form__item_addSP {
+    display: flex;
+    /* justify-content: center; */
+  }
+
+  .form__item_addSP select {
+    color: black;
+  }
+
+  .form__item_addSP textarea {
+    margin-left: 4px;
+    width: 65%;
+    height: 100px;
+    resize: none;
+    border-radius: 15px;
+    color: black;
+  }
+
+  .display_img_product {
+    position: relative;
+    left: 350px;
+    border: 2px solid red;
+    width: 150px;
+    height: 150px;
+    background-size: 150px 150px;
+
+  }
+
+  .btn_confirm_add_sp {
+    position: relative;
+    top: 10px;
+    left: 330px;
+  }
+
+  /* css QL_Product --> end*/

@@ -1,0 +1,217 @@
+.clear {
+  clear: both;
+}
+
+.modal-overlay {
+  transform: scale(0);
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 50%;
+  z-index: 9;
+  height: 100vh;
+}
+
+.modal-overlay.show {
+  transform: scale(1);
+}
+
+#modal {
+  background-color: #fff;
+  width: 56%;
+  max-height: 95vh;
+  position: absolute;
+  border-radius: 5px;
+  top: 20px;
+  left: calc(50% - 400px);
+  display: inline-block;
+  z-index: 10;
+  transform: scale(0);
+  overflow-y: scroll;
+}
+
+#modal.show {
+  transform: scale(1);
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.modal-header p {
+  align-self: end;
+  padding: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+html.show {
+  height: 100%;
+  overflow: hidden;
+  width: calc(100% - 15px);
+  /* margin-right: 20px; */
+}
+
+.modal-body {
+  display: flex;
+  width: 100%;
+}
+
+.modal-header {
+  margin: 0 10px -30px 0;
+}
+
+.modal-body-left {
+  width: 50%;
+}
+
+.modal__img-list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.modal__img-list .card__img {
+  width: calc(25%);
+  object-fit: contain;
+  height: 200px;
+  /* margin: 0 10px; */
+}
+
+.modal-body-right {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.card__author {
+  font-size: 14px;
+  padding: 5px 10px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-body-right .card__title {
+  font-size: 20px;
+  display: block;
+  white-space: break-spaces;
+  height: auto;
+}
+
+.card__price {
+  display: inline-block;
+  text-decoration: line-through;
+  text-transform: unset;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  margin-left: -10px;
+}
+
+.card__currentPrice {
+  color: red;
+  font-size: 28px;
+  padding: 20px;
+  display: inline-block;
+}
+
+.card__quantityInput {
+  display: flex;
+}
+
+.card__quantityInput button {
+  border: none;
+  outline: none;
+  padding: 10px;
+}
+
+.card__quantityInput button:hover {
+  background: rgba(199, 198, 198, 0.5);
+  border-radius: 5px;
+}
+
+.card__quantityInput input {
+  border: 1px solid #ccc;
+  outline: none;
+  color: #000;
+  text-align: center;
+  width: 38px;
+  font-size: 18px;
+  margin: 2px;
+}
+
+.btn-add-to-cart {
+  cursor: pointer;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  min-width: 190px;
+  width: 100%;
+  max-width: 281px;
+  height: 45px;
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 500;
+  text-transform: capitalize;
+  border: none;
+  border-radius: 4px;
+  margin: 33px auto;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 57, 69);
+}
+
+.card__description .table_description {
+  float: left;
+  position: relative;
+  padding-left: 68px;
+  margin-left: 48px;
+}
+
+.card__description .product__detail-modal h3 {
+  text-align: center;
+  margin-top: 23px;
+  border-bottom: 1px solid #ccc;
+}
+
+.card__description .information_product h3 {
+  text-align: center;
+  margin-top: 23px;
+  border-bottom: 1px solid #ccc;
+}
+
+.card__description .information_product {
+  border-top: 1px solid #ccc;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-list li {
+  margin: 0 10px;
+}
+
+.nav-list li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.nav-list li a:hover {
+  background-color: #000;
+  color: #fff;
+}
