@@ -28,7 +28,7 @@
         <!-- action="./DAL/DAL_Add_Product.php -->
         <div class="overplay_addSP overplay_addSP_MHNV">
             <div class="overplay__behind_addSP overplay__behind_addSP_MHNV"></div>
-            <div class="form__addSP form_add_SP_MHS">
+            <div class="form__addSP">
 
                 <div class="main_title">ĐIỀN THÔNG TIN MÔ HÌNH NHÂN VẬT</div>
 
@@ -107,6 +107,7 @@
         <div class="overplay__behind_addSP overplay__behind_addSP_MHS"></div>
         <div class="form__addSP">
             <div class="main_title">ĐIỀN THÔNG TIN SẢN PHẨM MÔ HÌNH SÚNG</div>
+            
             <div class="form__item_addSP">
                 <span class="lableDetail__addSP">ID: </span>
                 <input type="text" class="input_addSP" id="ID_addSP" name="ID_addSP">
@@ -162,12 +163,11 @@
                 <input type="number" class="input_addSP" id="" name="giaSP_addSP">
             </div>
             <div class="form__item_addSP">
-                <input type="submit" value="XÁC NHẬN" name="btn_confirm_add_sp_MHS" class="btn_add_sp btn_confirm_add_sp_MHS">
+                <input type="submit" value="XÁC NHẬN" name="btn_confirm_add_sp_MHS" class="btn_confirm_add_sp btn_confirm_add_sp_MHS">
             </div>
         </div>
     </div>
-    </div>
 </form>
-<!-- form chinh sua thong tin san pham end-->
+
 <script src="./js/QL_Product.js"></script>
 </div>
