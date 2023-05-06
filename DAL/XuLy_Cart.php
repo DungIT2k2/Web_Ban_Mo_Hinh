@@ -69,12 +69,27 @@ function show()
     echo '</div>';
     echo '<button onclick="return handleOrder()" class="cart__btnOrder">Đặt Hàng</button>';
 }
+
+function countCart(){
+    include("./DAL_Connect.php");
+    global $path;
+    $count = 0;
+    $path = "./DAL/Image_SanPham/";
+    foreach ($_SESSION['Cart'] as $key => $value) {
+            $count += 1;
+    }
+    echo $count;
+}
+
 if(isset($phuongthuc)) {
     if ($phuongthuc == "add") {
         add($productid, $soluong);
     }
     if ($phuongthuc == "show") {    
         show();
+    }
+    if ($phuongthuc == "count") {    
+        countCart();
     }
 }
 ?>

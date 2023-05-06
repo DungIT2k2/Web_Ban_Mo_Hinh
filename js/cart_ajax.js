@@ -19,9 +19,8 @@ const cartCount = document.querySelector(".cart__counter");
 var htmls = "";
 cart.addEventListener("click", () => {
   getListCart();
-  console.log(htmls);
+  getCountCart();
   noCart.classList.add("disable")
-  cartItems.innerHTML = htmls; 
   cartItems.classList.toggle("show");      
   itemsCart.classList.toggle("show");
   cartOverlay.classList.toggle("show");
@@ -36,6 +35,7 @@ cartOverlay.addEventListener("click", () => {
 
 if(htmls == ""){
   getListCart();
+  getCountCart();
 }
 // lay du lieu tu cart o session
 function getListCart(){
@@ -47,22 +47,36 @@ function getListCart(){
       // Xử lý kết quả trả về từ PHP
       var response = xhr.responseText;
       htmls = response;
-      // console.log(htmls);
+      cartItems.innerHTML = htmls;
+      console.log(htmls);
     }
   };
   xhr.send("PhuongThuc=show");
 }
+function getCountCart(){
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "./DAL/XuLy_Cart.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      // Xử lý kết quả trả về từ PHP
+      var response = xhr.responseText;
+      cartCount.innerHTML = response;
+    }
+  };
+  xhr.send("PhuongThuc=count");
+}
 
 function deleteItem(id){
-  console
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "./DAL/Remove_session_itemcart.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
       // Xử lý kết quả trả về từ PHP
-      var response = xhr.responseText;  
-      location.reload();
+      var response = xhr.responseText;
+      getCountCart();
+      getListCart();
     }
   };
   xhr.send("ProductID=" + id);

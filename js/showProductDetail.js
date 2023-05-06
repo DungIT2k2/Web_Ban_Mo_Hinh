@@ -168,6 +168,7 @@ function showItemDetail(
         var response = xhr.responseText;
         console.log(response);
         getListCart();
+        getCountCart();
       }
     };
     xhr.send(
@@ -176,17 +177,3 @@ function showItemDetail(
   });
 }
 
-function getListCart() {
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "./DAL/XuLy_Cart.php", true);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-      // Xử lý kết quả trả về từ PHP
-      var response = xhr.responseText;
-      htmls = response;
-      console.log(htmls);
-    }
-  };
-  xhr.send("PhuongThuc=show");
-}
