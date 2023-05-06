@@ -8,20 +8,20 @@ const noCart = document.querySelector(".cart__noCart");
 const footer = document.querySelector(".cart__footer");
 const cartCount = document.querySelector(".cart__counter");
 
-let cartFooter = `<div class="cart__footer">
-<div class="cart__total">
-  <div class="cart__total__title">Tổng tiền:</div>
-  <p>null!</p>
-</div>
-<button onclick="return handleOrder()" class="cart__btnOrder">Đặt Hàng</button>
-`;
+// let cartFooter = `<div class="cart__footer">
+// <div class="cart__total">
+//   <div class="cart__total__title">Tổng tiền:</div>
+//   <p>null!</p>
+// </div>
+// <button onclick="return handleOrder()" class="cart__btnOrder">Đặt Hàng</button>
+// `;
 
 var htmls = "";
 cart.addEventListener("click", () => {
   getListCart();
   console.log(htmls);
   noCart.classList.add("disable")
-  cartItems.innerHTML = htmls + cartFooter; 
+  cartItems.innerHTML = htmls; 
   cartItems.classList.toggle("show");      
   itemsCart.classList.toggle("show");
   cartOverlay.classList.toggle("show");
@@ -34,7 +34,9 @@ cartOverlay.addEventListener("click", () => {
   cart.click();
 });
 
-
+if(htmls == ""){
+  getListCart();
+}
 // lay du lieu tu cart o session
 function getListCart(){
   var xhr = new XMLHttpRequest();
@@ -50,7 +52,6 @@ function getListCart(){
   };
   xhr.send("PhuongThuc=show");
 }
-
 
 function deleteItem(id){
   console

@@ -39,10 +39,10 @@ if (isset($_SESSION['login']['role'])) {
                     <a href="" class="btn_Doanhthu" id="DT"><i class=" fa-solid fa-chart-pie"></i>Doanh Thu</a>
                 </li>
                 <li>
-                    <a href="" class="btn__backHomePage btn_Back"><i class="fa-solid fa-left-long"></i>Quay Lại Trang Chủ</a>
+                    <a href="index.php" class="btn__backHomePage btn_Back"><i class="fa-solid fa-left-long"></i>Quay Lại Trang Chủ</a>
                 </li>
                 <li>
-                    <a href="" class="btn__logout btn_LogOut"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a>
+                    <a href="logout.php" class="btn__logout btn_LogOut"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a>
                 </li>
                 <!-- <li ><a href="#" class="btn__users btn_User">Quản Lý User</a></li>
                 <li><a href="#" class="btn_doanhthu">Doanh Thu</a></li>

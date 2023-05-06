@@ -14,11 +14,11 @@ function checkLogin() {
       console.log(response);
       if (response == 2) {
         alert("Đăng nhập thành công!")
-        window.location.href = "http://localhost/web2/web_2/index.php";
+        window.location.href = "http://localhost/web_2/web_2/index.php";
       }
       if (response == 1) {
         alert("Đăng nhập thành công!")
-        window.location.href = "http://localhost/web2/web_2/admin.php";
+        window.location.href = "http://localhost/web_2/web_2/admin.php";
       }
       if (response == 3){
         // alert("Sai tài khoản hoặc mật khẩu!");

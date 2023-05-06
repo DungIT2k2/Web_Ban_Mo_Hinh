@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php
+    session_start();
+?>
 <link rel="stylesheet" href="./css/modal.css" />
 <link rel="stylesheet" href="./css/pagination.css" />
 <link rel="stylesheet" href="./css/global.css">

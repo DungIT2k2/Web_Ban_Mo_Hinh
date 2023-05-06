@@ -1,7 +1,5 @@
-
 <?php
 session_start();
-
 if(isset($_POST['ProductID'])) {
     $productid = $_POST['ProductID'];
     
@@ -9,7 +7,9 @@ if(isset($_POST['ProductID'])) {
 if(isset($_POST['SoLuong'])) {
     $soluong = $_POST['SoLuong'];    
 }
-$phuongthuc = $_POST['PhuongThuc'];
+if(isset($_POST['PhuongThuc'])) {
+    $phuongthuc = $_POST['PhuongThuc'];    
+}
 
 function add($productid, $soluong)
 {
@@ -19,7 +19,7 @@ function show()
 {
     include("./DAL_Connect.php");
     global $path;
-    global $soluong;
+    $tongtien = 0;
     $path = "./DAL/Image_SanPham/";
     foreach ($_SESSION['Cart'] as $key => $value) {
         $sql = "Select * From product where ProductID='" . $key. "'";
@@ -58,14 +58,23 @@ function show()
                 echo '<i class="fa-solid fa-trash"></i>';
                 echo '</div>';
                 echo '</div>';
+                $tongtien += ($value*$price);
             }
         }
     }
+    echo '<div class="cart__footer">';
+    echo '<div class="cart__total">';
+    echo '<div class="cart__total__title">Tổng tiền:</div>';
+    echo '<p>'.number_format($tongtien, 0, ',', '.').'đ</p>';
+    echo '</div>';
+    echo '<button onclick="return handleOrder()" class="cart__btnOrder">Đặt Hàng</button>';
 }
-if ($phuongthuc == "add") {
-    add($productid, $soluong);
-}
-if ($phuongthuc == "show") {
-    show();
+if(isset($phuongthuc)) {
+    if ($phuongthuc == "add") {
+        add($productid, $soluong);
+    }
+    if ($phuongthuc == "show") {    
+        show();
+    }
 }
 ?>
