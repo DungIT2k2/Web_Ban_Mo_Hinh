@@ -430,7 +430,7 @@
   .lableDetail__addSP {
     width: 250px;
     color: black;
-    font-size: 30px;
+    font-size: 20px;
     margin: 5px;
   }
 
@@ -623,11 +623,28 @@
     width: 50%;
     height: 650px;
     color: black;
+    overflow: auto;
+  }
+
+  .form__addSP::-webkit-scrollbar {
+    width: 2px; /* độ rộng thanh cuộn */
+  }
+  
+  .form__addSP::-webkit-scrollbar-track {
+    background: #f1f1f1; /* màu nền của thanh cuộn */
+  }
+  
+  .form__addSP::-webkit-scrollbar-thumb {
+    background-color: #888; /* màu nền của nút kéo */
+    border-radius: 10px; /* độ cong góc của nút kéo */
+  }
+  
+  .form__addSP::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* màu nền của nút kéo khi hover */
   }
 
   .form__item_addSP {
     display: flex;
-    /* justify-content: center; */
   }
 
   .form__item_addSP select {
@@ -656,7 +673,9 @@
   .btn_confirm_add_sp {
     position: relative;
     top: 10px;
-    left: 330px;
+    left: 285px;
+    margin: 20px;
+    padding: 20px;
   }
 
   /* css QL_Product --> end*/
