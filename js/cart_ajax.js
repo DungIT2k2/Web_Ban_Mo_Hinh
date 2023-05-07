@@ -3,7 +3,6 @@ const cartBtnClose = document.querySelector(".cart__btnClose");
 const cartOverlay = document.querySelector(".cart__overlay");
 const cart = document.querySelector(".cart");
 const cartItems = document.querySelector(".cart__items");
-const cartItemList = document.querySelector(".cart__items");
 const noCart = document.querySelector(".cart__noCart");
 const footer = document.querySelector(".cart__footer");
 const cartCount = document.querySelector(".cart__counter");
@@ -18,9 +17,9 @@ const cartCount = document.querySelector(".cart__counter");
 
 var htmls = "";
 cart.addEventListener("click", () => {
+  // noCart.classList.add("able");
   getListCart();
   getCountCart();
-  noCart.classList.add("disable")
   cartItems.classList.toggle("show");      
   itemsCart.classList.toggle("show");
   cartOverlay.classList.toggle("show");
@@ -49,6 +48,12 @@ function getListCart(){
       htmls = response;
       cartItems.innerHTML = htmls;
       console.log(htmls);
+      if(cartItems.textContent == ""){
+        noCart.classList.remove("disable");
+      }
+      else {
+        noCart.classList.add("disable");
+      }
     }
   };
   xhr.send("PhuongThuc=show");
@@ -67,6 +72,18 @@ function getCountCart(){
   xhr.send("PhuongThuc=count");
 }
 
+// function checkCart0(){
+//   console.warn(cartItems.textContent == "");  
+//   if(cartItems.textContent == ""){
+//     noCart.classList.add("able");
+//     console.info("ON");
+//   }
+//   else {
+//     noCart.classList.add("disable");
+//     console.info("OFF");
+//   }
+  
+// }
 function deleteItem(id){
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "./DAL/Remove_session_itemcart.php", true);
