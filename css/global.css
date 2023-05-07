@@ -1938,3 +1938,7 @@ td {
 .card__description p {
   padding: 30px 20px;
 }
+
+.idQuantity {
+  display: none;
+}

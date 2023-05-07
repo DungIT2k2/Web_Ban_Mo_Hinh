@@ -35,7 +35,6 @@ function show()
     global $path;
     $tongtien = 0;
     $path = "./DAL/Image_SanPham/";
-<<<<<<< Updated upstream
     $check = false;
     if(isset($_SESSION['Cart'])){
         foreach ($_SESSION['Cart'] as $key => $value) {
@@ -47,6 +46,7 @@ function show()
                     $price = $row['Price'];
                     $formatted_price = number_format($price, 0, ',', '.');
                     $srcImg = $path . $row['Image'];
+                    echo '<div class = idQuantity>'.$row["ProductID"].'</div>';
                     echo '<div class="cart__item">';
                     echo "<img class=\"cart__item__img\" src=\"" . $path . $row['Image'] . "\" />";
                     echo '<div class="cart__item_content">';
@@ -78,47 +78,6 @@ function show()
                     echo '</div>';
                     $tongtien += ($value*$price);
                 }
-=======
-    foreach ($_SESSION['Cart'] as $key => $value) {
-        $sql = "Select * From product where ProductID='" . $key. "'";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $price = $row['Price'];
-                $formatted_price = number_format($price, 0, ',', '.');
-                $srcImg = $path . $row['Image'];
-                echo '<div class = idQuantity>'.$row["ProductID"].'</div>';
-                echo '<div class="cart__item">';
-                echo "<img class=\"cart__item__img\" src=\"" . $path . $row['Image'] . "\" />";
-                echo '<div class="cart__item_content">';
-                echo '<div class="cart__item__title">';
-                echo $row['NameProduct'];
-                echo '</div >';
-                echo '<div class="cart__item__quantity">';
-                echo '<button class="cart__btn-down">';
-                echo '<img ';
-                echo 'src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-remove.svg"';
-                echo 'alt="remove-icon"';
-                echo '/>';
-                echo '</button>';
-                echo "<input type=\"text\" class=\"cart__input\" value=\"$value\"/>";
-                echo '<button class="cart__btn-up">';
-                echo '<img ';
-                echo 'src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-add.svg"';
-                echo 'alt="add-icon"';
-                echo '/>';
-                echo '</button>';
-                echo '</div>';
-                echo '';
-                echo "<div class=\"cart__item__price\">" . $formatted_price . " đ" . "</div>";
-                echo '';
-                echo '</div>';
-                echo '<div class="cart__item__trash" onclick="deleteItem(' . $key . ')">';
-                echo '<i class="fa-solid fa-trash"></i>';
-                echo '</div>';
-                echo '</div>';
-                $tongtien += ($value*$price);
->>>>>>> Stashed changes
             }
         }
         if($check == true){

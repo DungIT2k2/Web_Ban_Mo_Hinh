@@ -19,12 +19,7 @@ cart.addEventListener("click", () => {
   // noCart.classList.add("able");
   getListCart();
   getCountCart();
-<<<<<<< Updated upstream
   cartItems.classList.toggle("show");      
-=======
-  noCart.classList.add("disable")
-  cartItems.classList.toggle("show");
->>>>>>> Stashed changes
   itemsCart.classList.toggle("show");
   cartOverlay.classList.toggle("show");
 });
@@ -48,7 +43,6 @@ function getListCart() {
       var response = xhr.responseText;
       htmls = response;
       cartItems.innerHTML = htmls;
-<<<<<<< Updated upstream
       console.log(htmls);
       if(cartItems.textContent == ""){
         noCart.classList.remove("disable");
@@ -56,10 +50,8 @@ function getListCart() {
       else {
         noCart.classList.add("disable");
       }
-=======
       // console.log(htmls);
       handleQuantity();
->>>>>>> Stashed changes
     }
   };
   xhr.send("PhuongThuc=show");
@@ -78,23 +70,7 @@ function getCountCart() {
   xhr.send("PhuongThuc=count");
 }
 
-<<<<<<< Updated upstream
-// function checkCart0(){
-//   console.warn(cartItems.textContent == "");  
-//   if(cartItems.textContent == ""){
-//     noCart.classList.add("able");
-//     console.info("ON");
-//   }
-//   else {
-//     noCart.classList.add("disable");
-//     console.info("OFF");
-//   }
-  
-// }
-function deleteItem(id){
-=======
 function deleteItem(id) {
->>>>>>> Stashed changes
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "./DAL/Remove_session_itemcart.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -111,7 +87,6 @@ function deleteItem(id) {
 
 
 // btn up  and down
-
 // function handleClick() {
 //   console.log('Clicked!');
 //   // code xử lý sự kiện khi click
