@@ -35,34 +35,34 @@ cart.addEventListener("click", () => {
   cartOverlay.classList.toggle("show");
 });
 
-// function handleQuantity(userCart) {
-//   const btnDown = [...document.querySelectorAll(".cart__btn-down")];
-//   const inputQuantity = [...document.querySelectorAll(".cart__input")];
-//   const btnUp = [...document.querySelectorAll(".cart__btn-up")];
+function handleQuantity(userCart) {
+  const btnDown = [...document.querySelectorAll(".cart__btn-down")];
+  const inputQuantity = [...document.querySelectorAll(".cart__input")];
+  const btnUp = [...document.querySelectorAll(".cart__btn-up")];
 
-//   userCart.forEach((item, index) => {
-//     btnDown[index].addEventListener("click", () => {
-//       if (inputQuantity[index].value <= 1) {
-//         // deleteItem(userCart[index].id);
-//         inputQuantity[index].value = 1;
-//       } else {
-//         inputQuantity[index].value--;
-//         userCart[index].quantity--;
-//       }
-//       localStorage.setItem("userCart", JSON.stringify(userCart));
-//       userCart = JSON.parse(localStorage.getItem("userCart"));
-//       renderCart(userCart);
-//     });
-//     btnUp[index].addEventListener("click", () => {
-//       userCart[index].quantity++;
-//       inputQuantity[index].value++;
-//       console.log(userCart);
-//       localStorage.setItem("userCart", JSON.stringify(userCart));
-//       userCart = JSON.parse(localStorage.getItem("userCart"));
-//       renderCart(userCart);
-//     });
-//   });
-// }
+  userCart.forEach((item, index) => {
+    btnDown[index].addEventListener("click", () => {
+      if (inputQuantity[index].value <= 1) {
+        // deleteItem(userCart[index].id);
+        inputQuantity[index].value = 1;
+      } else {
+        inputQuantity[index].value--;
+        userCart[index].quantity--;
+      }
+      localStorage.setItem("userCart", JSON.stringify(userCart));
+      userCart = JSON.parse(localStorage.getItem("userCart"));
+      renderCart(userCart);
+    });
+    btnUp[index].addEventListener("click", () => {
+      userCart[index].quantity++;
+      inputQuantity[index].value++;
+      console.log(userCart);
+      localStorage.setItem("userCart", JSON.stringify(userCart));
+      userCart = JSON.parse(localStorage.getItem("userCart"));
+      renderCart(userCart);
+    });
+  });
+}
 
 cartBtnClose.addEventListener("click", () => {
   cart.click();

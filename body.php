@@ -311,6 +311,3 @@
 <script src="./js/slideBanner.js"></script>
 <script src="./js/slider.js"></script>
 <script src="./js/cart_ajax.js"></script>
-<?php
-  include("./DAL/XuLy_Cart.php");
-?>

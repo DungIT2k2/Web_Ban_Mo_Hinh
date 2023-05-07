@@ -166,7 +166,7 @@ function showItemDetail(
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         // Xử lý kết quả trả về từ PHP
         var response = xhr.responseText;
-        console.log(response);
+        // console.log(response);
         getListCart();
         getCountCart();
       }
