@@ -25,7 +25,6 @@ function add($productid, $soluong)
 function edit($productid, $newsoluong){
     if(isset($_SESSION['Cart'][$productid])) {
         $_SESSION['Cart'][$productid] = $newsoluong;
-        echo "Edited!!!";
     }
 }
 
@@ -43,7 +42,7 @@ function show()
             if ($result->num_rows > 0) {
                 $check = true;
                 while ($row = $result->fetch_assoc()) {
-                    $price = $row['Price'];
+                    $price = $row['Price']*$value;
                     $formatted_price = number_format($price, 0, ',', '.');
                     $srcImg = $path . $row['Image'];
                     echo '<div class = idQuantity>'.$row["ProductID"].'</div>';
@@ -76,7 +75,7 @@ function show()
                     echo '<i class="fa-solid fa-trash"></i>';
                     echo '</div>';
                     echo '</div>';
-                    $tongtien += ($value*$price);
+                    $tongtien += ($value*$row['Price']);
                 }
             }
         }
@@ -84,11 +83,12 @@ function show()
         echo '<div class="cart__footer">';
         echo '<div class="cart__total">';
         echo '<div class="cart__total__title">Tổng tiền:</div>';
-        echo '<p>'.number_format($tongtien, 0, ',', '.').'đ</p>';
+        echo '<p class="order_tongtien">'.number_format($tongtien, 0, ',', '.').'đ</p>';
         echo '</div>';
-        echo '<button onclick="return handleOrder()" class="cart__btnOrder">Đặt Hàng</button>';
+        echo '<button onclick="Order()" class="cart__btnOrder">Đặt Hàng</button>';
         }
     }
+    mysqli_close($conn);
 }
 
 function countCart(){
@@ -104,6 +104,11 @@ function countCart(){
     echo $count;
 }
 
+function Order(){
+    include("./DAL_Connect.php");
+    $sql = 'INSERT INTO donhang (IDDonHang, TenKH, DiaChi, SDT, NgayDat, TongTien, TrangThai) VALUES (NULL,"'.$_SESSION['login']['name'].'","'.$_SESSION['login']['diachi'].'","'.$_SESSION['login']['sdt'].'","","0")';
+    echo $sql;
+}
 if(isset($phuongthuc)) {
     if ($phuongthuc == "add") {
         add($productid, $soluong);
@@ -116,5 +121,8 @@ if(isset($phuongthuc)) {
     }
     if ($phuongthuc == "editsoluong") {    
         edit($productid, $newsoluong);
+    }
+    if ($phuongthuc == "order"){
+        Order();
     }
 }

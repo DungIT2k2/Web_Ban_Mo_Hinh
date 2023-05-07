@@ -733,6 +733,9 @@ header {
 .container__imgLarge-wrap {
   position: relative;
 }
+.container__imgLarge-wrap.disable {
+  display: none;
+}
 
 .container__imgLarge-wrap-icon {
   position: absolute;
@@ -821,6 +824,9 @@ header {
   display: block;
   padding: 10px 0;
   border-radius: 4px;
+}
+.container__row.disable {
+  display: none   ;
 }
 .product__container.disable {
   display: none;
@@ -1941,4 +1947,13 @@ td {
 
 .idQuantity {
   display: none;
+}
+
+.info_user {
+    padding-bottom: 10px;
+    font-weight: 1000;
+}
+.info_user:hover {
+  text-decoration: underline;
+  color: blue;
 }

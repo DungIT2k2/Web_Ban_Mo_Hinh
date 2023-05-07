@@ -85,13 +85,6 @@ function deleteItem(id) {
   xhr.send("ProductID=" + id);
 }
 
-
-// btn up  and down
-// function handleClick() {
-//   console.log('Clicked!');
-//   // code xử lý sự kiện khi click
-// }
-
 function handleQuantity() {
   const btnDown = [...document.querySelectorAll(".cart__btn-down")];
   const inputQuantity = [...document.querySelectorAll(".cart__input")];
@@ -112,6 +105,7 @@ function handleQuantity() {
           // Xử lý kết quả trả về từ PHP
           var response = xhr.responseText;
           console.log(response);
+          getListCart();
         }
       };
       xhr.send("ProductID=" + idQuantity[i].textContent +
@@ -133,6 +127,7 @@ function handleQuantity() {
           // Xử lý kết quả trả về từ PHP
           var response = xhr.responseText;
           console.log(response);
+          getListCart();
         }
       };
       xhr.send("ProductID=" + idQuantity[i].textContent +
@@ -143,7 +138,24 @@ function handleQuantity() {
         if (confirm("Bạn muốn xóa sản phẩm " + nameProduct[i].textContent + " khỏi giỏ hàng không ?")) {
           deleteItem(idQuantity[i].textContent);
         }
+        else{
+          btnUp[i].click();      
+        }
       }
     });
   }
+}
+const tongtien = document.querySelector(".order_tongtien");
+function Order() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "./DAL/XuLy_Cart.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      // Xử lý kết quả trả về từ PHP
+      var response = xhr.responseText;
+    }
+  };
+  console.log(tongtien);
+  xhr.send("PhuongThuc=order&tongtien");
 }

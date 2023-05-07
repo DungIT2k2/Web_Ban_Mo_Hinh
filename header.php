@@ -57,9 +57,43 @@
             <li class="header__login-logout">Đăng Xuất</li>
           </ul> -->
         </div>
+    <div class="info">
+    <div class="info__overlay" id="if_overlay"></div>
+    <div class="info__container" id="if_container">
+      <p class="info__btnClose" id="btn_if_close">
+        <i class="fa-solid fa-xmark"></i>
+      </p>
+      <h3 class="info__containe__heading">THÔNG TIN TÀI KHOẢN</h3>
+      
+      <form action="" onsubmit="return false">
+        <div class="info__main">
+        <div class="info__user">
+          <div class="form_group">
+            <label for="">Họ và Tên</label>
+            <input id="info_name" type="text" placeholder="" required value="<?php echo $_SESSION['login']['name'] ?>" disabled/>
+            <span class="form_message"></span>
+          </div>
+          <div class="form_group">
+            <label for="">Số điện thoại</label>
+            <input id="info_sdt" type="tel"  pattern="[0-9]{10}" placeholder="0123456789" required value="<?php echo $_SESSION['login']['sdt'] ?>"/> 
+            <span class="form_message"></span>
+          </div>
+          <div class="form_group">
+            <label for="">Địa Chỉ</label>
+            <input id="info_diachi" type="text" placeholder="123 đường A, phường B, quận C" required value="<?php echo $_SESSION['login']['diachi'] ?>"/> 
+            <span class="form_message"></span>
+          </div>
+        </div>
+      </div>
+        <div class="form__info-btn-save">
+          <button id="btn_save_info">Lưu Thông Tin</button>
+        </div>
+      </form>
+    </div>
+  </div>
         <?php
         if (isset($_SESSION['login']['name'])) {
-          echo $_SESSION['login']['name'];
+          echo '<div class="info_user" id="info">'.$_SESSION['login']['name'].'</div>';
         ?>
           <div><button class="btn_header" onclick="document.location='logout.php'">Đăng Xuất</button></div>
         <?php

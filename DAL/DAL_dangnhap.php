@@ -3,7 +3,7 @@ session_start();
 $email = $_POST['username'];
 $password_current = $_POST['password'];
 include("DAL_Connect.php");
-$sql = "SELECT Password,Role,FirstName,LastName FROM account WHERE Email='$email';";
+$sql = "SELECT IDAccount,Password,Role,FirstName,LastName,DiaChi,SDT FROM account WHERE Email='$email';";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
@@ -12,10 +12,16 @@ if ($result->num_rows > 0) {
     $role = $row["Role"];
     if (strcmp($pass, $password_current) == 0) {
       if (strcmp($role, "Admin") == 0 || strcmp($role, "Manager" || strcmp($role, "Employee")) == 0 || strcmp($role, "Employee") == 0) {
+        $_SESSION['login']['id'] = $row["IDAccount"];
+        $_SESSION['login']['diachi'] = $row["DiaChi"];
+        $_SESSION['login']['sdt'] = $row["SDT"];
         $_SESSION['login']['role'] = $role;
         $_SESSION['login']['name'] = $row["FirstName"] . " " . $row["LastName"];
        echo 1;
       } else {
+        $_SESSION['login']['id'] = $row["IDAccount"];
+        $_SESSION['login']['diachi'] = $row["DiaChi"];
+        $_SESSION['login']['sdt'] = $row["SDT"];
         $_SESSION['login']['role'] = $role;
         $_SESSION['login']['name'] = $row["FirstName"] . " " . $row["LastName"];
         echo 2;
