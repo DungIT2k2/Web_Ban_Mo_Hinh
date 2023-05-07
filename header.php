@@ -93,8 +93,15 @@
         <?php
         if (isset($_SESSION['login']['name'])) {
           echo '<div class="info_user" id="info">'.$_SESSION['login']['name'].'</div>';
+        if (isset($_SESSION['login']['role'])) {
+          if (($_SESSION['login']['role']) != "User"){
         ?>
-          <div><button class="btn_header" onclick="document.location='logout.php'">Đăng Xuất</button></div>
+        <div><button class="btn_header" onclick="document.location='admin.php'">Đến Trang Quản Lí</button>
+        <?php
+          }
+        }
+        ?>
+          <button class="btn_header" onclick="document.location='logout.php'">Đăng Xuất</button></div>
         <?php
         } else {
         ?>

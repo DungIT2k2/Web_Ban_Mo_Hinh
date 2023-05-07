@@ -680,7 +680,7 @@ header {
 /* =============== */
 .cart {
   position: relative;
-  width: 65px;
+  width: 110px;
 }
 .img_cart {
   position: relative;
@@ -690,7 +690,7 @@ header {
 .cart__counter {
   position: absolute;
   width: auto;
-  right: 0;
+  right: 50;
   padding: 1px 8px;
   font-size: 12px;
   border-radius: 45%;
