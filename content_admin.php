@@ -4,7 +4,7 @@
             include("QL_Product.php");
             break;
         case '2':
-            echo ("Quản lí đơn hàng");
+            include("QL_Order.php");
             break;
         case '3':   
             include("QL_User.php");

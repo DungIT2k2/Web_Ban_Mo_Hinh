@@ -1957,3 +1957,6 @@ td {
   text-decoration: underline;
   color: blue;
 }
+.hidden {
+  display: none;
+}

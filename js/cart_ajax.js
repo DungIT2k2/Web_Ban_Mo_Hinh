@@ -43,7 +43,6 @@ function getListCart() {
       var response = xhr.responseText;
       htmls = response;
       cartItems.innerHTML = htmls;
-      console.log(htmls);
       if(cartItems.textContent == ""){
         noCart.classList.remove("disable");
       }
@@ -145,8 +144,8 @@ function handleQuantity() {
     });
   }
 }
-const tongtien = document.querySelector(".order_tongtien");
 function Order() {
+  const tongtien = document.querySelector(".hidden");
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "./DAL/XuLy_Cart.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -154,8 +153,15 @@ function Order() {
     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
       // Xử lý kết quả trả về từ PHP
       var response = xhr.responseText;
+      console.warn(response);
+      if (response == 1) {
+        alert("Đặt hàng thành công!");
+        getCountCart();
+        cartItems.classList.toggle("show");      
+        itemsCart.classList.toggle("show");
+        cartOverlay.classList.toggle("show");
+      }
     }
   };
-  console.log(tongtien);
-  xhr.send("PhuongThuc=order&tongtien");
+    xhr.send("PhuongThuc=order&tongtien="+tongtien.textContent);
 }

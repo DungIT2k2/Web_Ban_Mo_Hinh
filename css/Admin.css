@@ -177,7 +177,7 @@
     position: relative;
     margin: 20px;
     color: black;
-    display: none;
+    display: block;
   }
 
   .Content_DoanhThu {
@@ -477,6 +477,10 @@
 
   .overplay_OrderDetail {
     display: none;
+    overflow: auto;
+  }
+  .overplay_OrderDetail.show {
+    display: block;
   }
 
   .overplay__behind_OrderDetail {
@@ -489,6 +493,7 @@
   }
 
   .form_OrdersDetail {
+    overflow: auto;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -496,7 +501,7 @@
     border: 2px solid cyan;
     border-radius: 10px;
     background-color: white;
-    width: 50%;
+    width: 65%;
     height: 600px;
     color: black;
   }
@@ -529,6 +534,10 @@
   .lableDetail__OrderDetail {
     color: black;
     margin: 20px;
+    font-size: 25px;
+  }
+  .Detail__OrderDetail{
+    color: black;
     font-size: 25px;
   }
 
@@ -677,5 +686,17 @@
     margin: 20px;
     padding: 20px;
   }
-
+  .xemct {
+    text-decoration: underline;
+    color: blue;
+  }
+  .btn_confirm_DH {
+    margin-left: 37%;
+    font-size: 30px;
+    padding: 10px;
+  }
+  .btn_confirm_DH:disabled {
+    opacity: 1; /* Chỉnh độ mờ của button ở đây */
+    cursor: not-allowed; /* Đổi hình con trỏ chuột */
+  }
   /* css QL_Product --> end*/

@@ -31,7 +31,6 @@
     <div class="header__right">
       <div class="cart">
         <i class="fa-sharp fa-solid fa-cart-shopping img_cart"></i>
-
         <p class="cart__counter">0</p>
         <span>Giỏ Hàng</span>
       </div>

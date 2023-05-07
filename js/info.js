@@ -14,7 +14,6 @@ btn_info.addEventListener("click", () => {
   product_container.classList.add("disable");
   container_row.classList.add("disable");
   banner_img.classList.add("disable");
-  GetInfo();
 });
 infoOverlay.addEventListener("click", () => {
   btn_info.click();

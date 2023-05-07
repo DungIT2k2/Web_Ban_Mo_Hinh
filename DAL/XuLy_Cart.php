@@ -32,7 +32,7 @@ function show()
 {
     include("./DAL_Connect.php");
     global $path;
-    $tongtien = 0;
+    $tongtien =0;
     $path = "./DAL/Image_SanPham/";
     $check = false;
     if(isset($_SESSION['Cart'])){
@@ -84,6 +84,7 @@ function show()
         echo '<div class="cart__total">';
         echo '<div class="cart__total__title">Tổng tiền:</div>';
         echo '<p class="order_tongtien">'.number_format($tongtien, 0, ',', '.').'đ</p>';
+        echo '<div class="hidden">'.$tongtien.'</div>';
         echo '</div>';
         echo '<button onclick="Order()" class="cart__btnOrder">Đặt Hàng</button>';
         }
@@ -104,11 +105,44 @@ function countCart(){
     echo $count;
 }
 
-function Order(){
+function Order($tongtien){
     include("./DAL_Connect.php");
-    $sql = 'INSERT INTO donhang (IDDonHang, TenKH, DiaChi, SDT, NgayDat, TongTien, TrangThai) VALUES (NULL,"'.$_SESSION['login']['name'].'","'.$_SESSION['login']['diachi'].'","'.$_SESSION['login']['sdt'].'","","0")';
-    echo $sql;
+    $sql = 'SELECT MAX(IDDonHang) FROM donhang';
+    $date = date('Y-m-d');
+    $sql = 'INSERT INTO donhang (IDDonHang, IDAccount, TenKH, DiaChi, SDT, NgayDat, TongTien, TrangThai) VALUES (NULL,"'.$_SESSION['login']['id'].'","'.$_SESSION['login']['name'].'","'.$_SESSION['login']['diachi'].'","'.$_SESSION['login']['sdt'].'","'.$date.'","'.$tongtien.'","0")';
+    if ($conn->query($sql) == true){
+        DetailOrder();
+    }
+    mysqli_close($conn);
 }
+function DetailOrder(){
+    include("./DAL_Connect.php");
+    $check = false;
+    $sql = 'SELECT MAX(IDDonHang) FROM donhang';
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $iddonhang = $row['MAX(IDDonHang)'];
+        }
+    }
+    if(isset($_SESSION['Cart'])){
+        foreach ($_SESSION['Cart'] as $key => $value) {
+            $sql = 'INSERT INTO ctdonhang (IDCTDonHang, IDDonHang, ProductID, SoLuong) VALUES (NULL,"'.$iddonhang.'","'.$key.'","'.$value.'")';
+            if($conn->query($sql)){
+                $check = true;
+            }   
+            else{
+                $check = false;
+                break;
+            }
+        }
+    }
+    if($check == true){
+        unset($_SESSION['Cart']);
+        echo 1;
+    }
+}
+
 if(isset($phuongthuc)) {
     if ($phuongthuc == "add") {
         add($productid, $soluong);
@@ -123,6 +157,6 @@ if(isset($phuongthuc)) {
         edit($productid, $newsoluong);
     }
     if ($phuongthuc == "order"){
-        Order();
+        Order($_POST['tongtien']);
     }
 }

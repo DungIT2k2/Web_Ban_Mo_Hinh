@@ -12,11 +12,7 @@ if ($result->num_rows > 0) {
     echo "<td>" . $row['Email'] . "</td>";
     echo "<td>" . $row['Password'] . "</td>";
     echo "<td>" . $row['Role'] . "</td>";
-    if ($row['Status'] == 1){
-        echo '<td><input type="checkbox" name="confirm_user" ' . ($row['Status'] == 1 ? 'checked' : '') . ' onclick="return checkedUser()"></td>';
-    }
-    else{
-    }
+    echo '<td><input type="checkbox" name="confirm_user" ' . ($row['Status'] == 1 ? 'checked' : '') . ' onclick="return checkedUser()"></td>';
     echo "</tr>";
     }
   } else {
