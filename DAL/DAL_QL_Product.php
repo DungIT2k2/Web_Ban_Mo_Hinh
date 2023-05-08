@@ -53,7 +53,7 @@ if ($result->num_rows > 0) {
       "<img src=\"./img/btn_Sua.png\">" .
       "</li></a>".
       // nút xóa
-      "<a href='./DAL/DAL_Remove_Product.php?rm=".$row['ProductID']."'> <li class ='btn_Xoa'>" .
+      "<a href='#' onclick='return confirmDelete(".$row['ProductID'].")'> <li class ='btn_Xoa'>" .
       "<img src  = \"./img/btn_Xoa.png\">" .
       "</li></a>" .
       "</ul>" .

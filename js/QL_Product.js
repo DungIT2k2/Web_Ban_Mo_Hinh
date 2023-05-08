@@ -25,6 +25,7 @@ overplay__behind_addSP_MHS.onclick = function(){
 }
 
 const image_input = document.querySelector("#image_input");
+const image_input_MHS = document.querySelector("#image_input_MHS");
 var uploaded_image = "";
 
 image_input.addEventListener("change", function(){
@@ -37,6 +38,26 @@ image_input.addEventListener("change", function(){
     });
     reader.readAsDataURL(this.files[0]);
 })
+var uploaded_image_MHS = "";
+image_input_MHS.addEventListener("change", function(){
+    console.log(image_input.value);
+    const reader = new FileReader();
+    reader.addEventListener("load", () =>{
+        uploaded_image_MHS = reader.result;
+        document.querySelector("#display_img_product_MHS").style.backgroundImage = `url(${uploaded_image_MHS})`;
+        
+    });
+    reader.readAsDataURL(this.files[0]);
+})
 
  
 
+function confirmDelete(productID) {
+    var r = confirm("Bạn muốn xóa sản phẩm này khỏi giỏ hàng?");
+    if (r == true) {
+        window.location.href = "./DAL/DAL_Remove_Product.php?rm=" + productID;
+        return true;   
+    } else {
+        return false;
+    }
+}

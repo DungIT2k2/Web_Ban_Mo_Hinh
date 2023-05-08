@@ -4,7 +4,7 @@
     global $soluong;
     $path = "./DAL/Image_SanPham/";
     include("./DAL/DAL_Connect.php");
-                $sql = "SELECT * FROM `product` WHERE IDCaterogyProduct IN ('1','7','8','9','10','16')";
+                $sql = "SELECT * FROM `product` WHERE IDCaterogyProduct IN ('1','7','9','10','16')";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     // output data of each row

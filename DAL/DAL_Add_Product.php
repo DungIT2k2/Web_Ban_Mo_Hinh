@@ -1,5 +1,5 @@
 <?php
-$ID  = $_POST['ID_addSP'];
+// $ID  = $_POST['ID_addSP'];
 $IDCaterogyProduct = $_POST['product_type_selected'];
 $Name = $_POST['tenSP_addSP'];
 $Amount = $_POST['soluongSP_addSP'];
@@ -34,7 +34,7 @@ $Image = $_FILES["image_input"]["name"];
 include("DAL_Connect.php");
 
 $sql = "INSERT INTO  product (ProductID, IDCaterogyProduct, NameProduct, Amount, Price, Image, ProductDetail, CharacterName, AnimeOrMangaOrGameFPS, Height, Weight, Material) 
-    Values ('$ID', '$IDCaterogyProduct', '$Name', '$Amount', '$Price', '$Image', '$ProductDetail','$CharacterName','$AnimeOrMangaOrGameFPS','$Height','$Weight','$Material')";
+    Values (NULL, '$IDCaterogyProduct', '$Name', '$Amount', '$Price', '$Image', '$ProductDetail','$CharacterName','$AnimeOrMangaOrGameFPS','$Height','$Weight','$Material')";
 if ($conn->query($sql) === true) {
     echo "<script type = 'text/javascript'> alert('Thêm sản phẩm thành công !!!');</script>";
     Header('Location: ../admin.php?id=1');
