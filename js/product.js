@@ -98,7 +98,29 @@ function getProduct(loaisp) {
             });
         }
     };
-    xhr.send("tenloaisp="+loaisp);
+    xhr.send("tenloaisp="+loaisp+"&start=0");
+}
+function handlePageNumber(loaisp,start){
+    if(start == 1){
+        start = 0;
+    }else{
+        start = (start-1)*3;
+    }
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "./DAL/DAL_Product_List.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            // Xử lý kết quả trả về từ PHP
+            var response = xhr.responseText;
+            createPhanTrang(loaisp, function(htmls){
+                var phantrang = htmls;
+                var htmls = response + phantrang;
+                product_content.innerHTML = htmls;
+            });
+        }
+    };
+    xhr.send("tenloaisp="+loaisp+"&start="+start);
 }
 function createPhanTrang(loaisp, callback){
     var xhr = new XMLHttpRequest();

@@ -1966,8 +1966,8 @@ td {
 .pagenumber {
   display: -webkit-box;
   position: relative;
-  left: 75%;
-  margin: 35 auto;
+  left: 33%;
+  margin: 35 auto;  
 
 }
 

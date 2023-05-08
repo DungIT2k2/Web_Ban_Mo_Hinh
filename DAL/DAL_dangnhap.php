@@ -11,7 +11,7 @@ if ($result->num_rows > 0) {
     $pass = $row["Password"];
     $role = $row["Role"];
     if (strcmp($pass, $password_current) == 0) {
-      if (strcmp($role, "Admin") == 0 || strcmp($role, "Manager" || strcmp($role, "Employee")) == 0 || strcmp($role, "Employee") == 0) {
+      if (strcmp($role, "Admin") == 0 || strcmp($role, "Manager") == 0 || strcmp($role, "Employee") == 0) {
         $_SESSION['login']['id'] = $row["IDAccount"];
         $_SESSION['login']['diachi'] = $row["DiaChi"];
         $_SESSION['login']['sdt'] = $row["SDT"];

@@ -199,7 +199,6 @@
   </div>
   <div class="cart__overlay"></div>
 </div>
-<script src="./js/product.js"></script>
 <script src="./js/showProductDetail.js"></script>
 <script src="./js/slideBanner.js"></script>
 <script src="./js/slider.js"></script>
