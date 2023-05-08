@@ -112,6 +112,10 @@ function checkNull_MHNV() {
     giaSP_addSP.value == ""
   ) {
     alert("Bạn chưa nhập đầy đủ thông tin sản phẩm !!!");
+  } else if (soluongSP_addSP.value <= 0) {
+    alert("Số lượng không được ít hơn 0 !!!");
+  } else if (giaSP_addSP.value <= 0) {
+    alert("Giá tiền không được nhỏ hơn 0 !!!");
   } else {
     btn_confirm_add_sp_MHNV.type = "submit";
     btn_confirm_add_sp_MHNV.click();
@@ -139,6 +143,10 @@ function checkNull_MHS() {
     giaSP_addSP_MHS.value == ""
   ) {
     alert("Bạn chưa nhập đầy đủ thông tin sản phẩm !!!");
+  } else if (soluongSP_addSP_MHS.value <= 0) {
+    alert("Số lượng không được ít hơn 0 !!!");
+  } else if (giaSP_addSP_MHS.value <= 0) {
+    alert("Giá tiền không được nhỏ hơn 0 !!!");
   } else {
     btn_confirm_add_sp_MHS.type = "submit";
     btn_confirm_add_sp_MHS.click();
