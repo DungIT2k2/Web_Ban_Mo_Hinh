@@ -33,10 +33,10 @@
                 <div class="main_title">ĐIỀN THÔNG TIN MÔ HÌNH NHÂN VẬT</div>
 
 
-                <div class="form__item_addSP">
+                <!-- <div class="form__item_addSP">
                     <span class="lableDetail__addSP">ID: </span>
                     <input type="text" class="input_addSP" id="ID_addSP" name="ID_addSP">
-                </div>
+                </div> -->
                 <div class="form__item_addSP">
                     <span class="lableDetail__addSP">LOẠI SẢN PHẨM: </span>
                     <select name="product_type_selected" id="input_LoaiSP" class="input_SP select_books">
@@ -108,10 +108,10 @@
         <div class="form__addSP">
             <div class="main_title">ĐIỀN THÔNG TIN SẢN PHẨM MÔ HÌNH SÚNG</div>
             
-            <div class="form__item_addSP">
+            <!-- <div class="form__item_addSP">
                 <span class="lableDetail__addSP">ID: </span>
                 <input type="text" class="input_addSP" id="ID_addSP" name="ID_addSP">
-            </div>
+            </div> -->
             <div class="form__item_addSP">
                 <span class="lableDetail__addSP">LOẠI SẢN PHẨM: </span>
                 <select name="product_type_selected" id="input_LoaiSP" class="input_SP select_books">
@@ -120,11 +120,11 @@
             </div>
             <div class="form__item_addSP">
                 <span class="lableDetail__addSP">HÌNH ẢNH :</span>
-                <input type="file" id="image_input" name="image_input">
+                <input type="file" id="image_input_MHS" name="image_input">
             </div>
 
             <div class="form__item_addSP">
-                <div class="display_img_product" id="display_img_product"></div>
+                <div class="display_img_product" id="display_img_product_MHS"></div>
             </div>
 
             <div class="form__item_addSP">

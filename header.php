@@ -96,7 +96,7 @@
         if (isset($_SESSION['login']['role'])) {
           if (($_SESSION['login']['role']) != "User"){
         ?>
-        <div><button class="btn_header" onclick="document.location='admin.php'">Đến Trang Quản Lí</button>
+        <div><button class="btn_header" onclick="document.location='admin.php'">Đến Trang Quản Lý</button>
         <?php
           }
         }
