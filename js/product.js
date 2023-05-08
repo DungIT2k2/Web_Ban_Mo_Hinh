@@ -16,6 +16,7 @@ const btn_MHNV = document.getElementById("btn_MHNV");
 const btn_MHS = document.getElementById("btn_MHS");
 const banner = document.getElementById("banner");
 const product_content = document.querySelector(".product_content");
+const pagenumber = document.querySelector(".pagenumber");
 
 btn_naruto.addEventListener("click", function () {
     banner.classList.add("disable");
@@ -90,8 +91,24 @@ function getProduct(loaisp) {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
             // Xử lý kết quả trả về từ PHP
             var response = xhr.responseText;
-            console.log(response);
-            product_content.innerHTML = response;
+            createPhanTrang(loaisp, function(htmls){
+                var phantrang = htmls;
+                var htmls = response + phantrang;
+                product_content.innerHTML = htmls;
+            });
+        }
+    };
+    xhr.send("tenloaisp="+loaisp);
+}
+function createPhanTrang(loaisp, callback){
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "./DAL/DAL_PhanTrang.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            // Xử lý kết quả trả về từ PHP
+            var response = xhr.responseText;
+            callback(response);
         }
     };
     xhr.send("tenloaisp="+loaisp);

@@ -1963,3 +1963,37 @@ td {
 .hidden {
   display: none;
 }
+.pagenumber {
+  display: -webkit-box;
+  position: relative;
+  left: 75%;
+  margin: 35 auto;
+
+}
+
+.pagenumber_item {
+  margin: 0 5px;
+}
+
+.pagenumber_item_link {
+  text-decoration: none;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 3px;
+  color: white;
+  min-width: 40px;
+  height: 30px;
+  background-color: #1b1b1b;
+  display: block;
+}
+
+.pagenumber_item_link:hover {
+  color: cyan;
+  border: 1px solid cyan;
+}
+
+.pagenumber--centered {
+  position: relative;
+  left: auto;
+  transform: translateX(50%);
+}

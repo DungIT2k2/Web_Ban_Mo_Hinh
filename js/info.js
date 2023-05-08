@@ -8,6 +8,7 @@ const banner_img = document.querySelector(".container__imgLarge-wrap");
 const if_sdt = document.getElementById("info_sdt");
 const if_diachi = document.getElementById("info_diachi");
 const btn_save = document.getElementById("btn_save_info")
+
 btn_info.addEventListener("click", () => {
   infoOverlay.classList.toggle("show");
   infoContainer.classList.toggle("show");

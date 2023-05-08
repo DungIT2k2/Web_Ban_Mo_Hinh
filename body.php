@@ -6,7 +6,7 @@
       <ul class="container-tasbar__list">
         <span class="container-tasbar__list-title">DANH MỤC SẢN PHẨM</span>
         <li class="container-tasbar__item">
-            <span class="container-tasbar__item-text container-tasbar__item-text--bold" id="btn_MHNV">Mô Hình Nhân Vật</span>
+          <span class="container-tasbar__item-text container-tasbar__item-text--bold" id="btn_MHNV">Mô Hình Nhân Vật</span>
           <i class="container-tasbar__item-icon fa-solid fa-angle-right"></i>
           <ul class="container-tasbar__subnav">
             <a>
@@ -62,9 +62,9 @@
         </li>
       </ul>
     </div>
-    <div class="product_content">
-      <!-- <?php include("product_content.php") ?> -->
-    </div>
+    <div class="product_content"></div>
+    <div>
+</div>
     <div class="container__imgLarge" id="banner">
       <div class="container__imgLarge-wrap">
         <img src="./img/no-img.png" alt="" class="container__imgLarge-img" />
@@ -191,7 +191,7 @@
         <span>Giỏ Hàng</span>
       </div>
     </div>
-    <div class="cart__noCart" >
+    <div class="cart__noCart">
       Giỏ hàng của bạn đang trống
       <img src="https://bengo.vn/static/version1650994791/frontend/MageBig/martfury_layout01/vi_VN/images/empty-cart.svg" alt="" />
     </div>
