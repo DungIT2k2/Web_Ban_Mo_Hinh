@@ -22,29 +22,28 @@ infoOverlay.addEventListener("click", () => {
   banner_img.classList.remove("disable");
 });
 btnInfoClose.addEventListener("click", () => {
-    btn_info.click();
-    product_container.classList.remove("disable");
-    container_row.classList.remove("disable");
-    banner_img.classList.remove("disable");
+  btn_info.click();
+  product_container.classList.remove("disable");
+  container_row.classList.remove("disable");
+  banner_img.classList.remove("disable");
 });
 
-btn_save.addEventListener("click", function(){
+btn_save.addEventListener("click", function () {
   UpdateInfo();
 });
-
-function UpdateInfo(){
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "./DAL/DAL_Update_Info_User.php", true);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-      // Xử lý kết quả trả về từ PHP
-      var response = xhr.responseText;
-      console.warn(response);
-      if(response == 1){
-        alert("Cập nhật thông tin thành công!")
+function UpdateInfo() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "./DAL/DAL_Update_Info_User.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        // Xử lý kết quả trả về từ PHP
+        var response = xhr.responseText;
+        console.warn(response);
+        if (response == 1) {
+          alert("Cập nhật thông tin thành công!")
+        }
       }
-    }
-  };
-  xhr.send("diachi="+ if_diachi.value + "&sdt=" + if_sdt.value);
+    };
+    xhr.send("diachi=" + if_diachi.value + "&sdt=" + if_sdt.value);
 }

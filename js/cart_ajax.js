@@ -104,6 +104,9 @@ function handleQuantity() {
           // Xử lý kết quả trả về từ PHP
           var response = xhr.responseText;
           console.log(response);
+          if(response == 1){
+            alert("Số sản phẩm còn lại không đủ!");
+          }
           getListCart();
         }
       };
@@ -154,13 +157,27 @@ function Order() {
       // Xử lý kết quả trả về từ PHP
       var response = xhr.responseText;
       console.warn(response);
-      if (response == 1) {
+      if (response == 1){
+        alert("Vui lòng đăng nhập trước khi đặt hàng!");
+        window.location.href = './dangnhap.php';
+      }
+      if (response == 2){
+        alert("Vui lòng cập nhật đủ thông tin trước khi đặt hàng!");
+        const btn_info = document.getElementById("info");
+        cartItems.classList.toggle("show");      
+        itemsCart.classList.toggle("show");
+        cartOverlay.classList.toggle("show");
+        btn_info.click();
+      }
+      if (response == 0) {
         alert("Đặt hàng thành công!");
         getCountCart();
         cartItems.classList.toggle("show");      
         itemsCart.classList.toggle("show");
         cartOverlay.classList.toggle("show");
+        location.reload();
       }
+      
     }
   };
     xhr.send("PhuongThuc=order&tongtien="+tongtien.textContent);

@@ -19,12 +19,25 @@ if(isset($_POST['PhuongThuc'])) {
 
 function add($productid, $soluong)
 {
-    $_SESSION['Cart'][$productid] = $soluong;
+    $check = checkAmountproduct($productid,$soluong);
+    if ($check == 0){
+        $_SESSION['Cart'][$productid] = $soluong;
+
+    }
+    else {
+        echo 1;
+    }
 }
 
 function edit($productid, $newsoluong){
-    if(isset($_SESSION['Cart'][$productid])) {
-        $_SESSION['Cart'][$productid] = $newsoluong;
+    $check = checkAmountproduct($productid,$newsoluong);
+    if ($check == 0){
+        if(isset($_SESSION['Cart'][$productid])) {
+            $_SESSION['Cart'][$productid] = $newsoluong;
+        }
+    }
+    else{
+        echo 1;
     }
 }
 
@@ -106,14 +119,26 @@ function countCart(){
 }
 
 function Order($tongtien){
-    include("./DAL_Connect.php");
-    $sql = 'SELECT MAX(IDDonHang) FROM donhang';
-    $date = date('Y-m-d');
-    $sql = 'INSERT INTO donhang (IDDonHang, IDAccount, TenKH, DiaChi, SDT, NgayDat, TongTien, TrangThai) VALUES (NULL,"'.$_SESSION['login']['id'].'","'.$_SESSION['login']['name'].'","'.$_SESSION['login']['diachi'].'","'.$_SESSION['login']['sdt'].'","'.$date.'","'.$tongtien.'","0")';
-    if ($conn->query($sql) == true){
-        DetailOrder();
+    $check_DN = checkdangnhap();
+    if ($check_DN == 0){
+        echo 1;
     }
-    mysqli_close($conn);
+    else{
+        $check_tt = checkthongtin();
+        if ($check_tt == 0){
+            echo 2;
+        }
+        else{
+            include("./DAL_Connect.php");
+            $sql = 'SELECT MAX(IDDonHang) FROM donhang';
+            $date = date('Y-m-d');
+            $sql = 'INSERT INTO donhang (IDDonHang, IDAccount, TenKH, DiaChi, SDT, NgayDat, TongTien, TrangThai) VALUES (NULL,"'.$_SESSION['login']['id'].'","'.$_SESSION['login']['name'].'","'.$_SESSION['login']['diachi'].'","'.$_SESSION['login']['sdt'].'","'.$date.'","'.$tongtien.'","0")';
+            if ($conn->query($sql) == true){
+                DetailOrder();
+            }
+            mysqli_close($conn);
+        }
+    }
 }
 function DetailOrder(){
     include("./DAL_Connect.php");
@@ -130,6 +155,16 @@ function DetailOrder(){
             $sql = 'INSERT INTO ctdonhang (IDCTDonHang, IDDonHang, ProductID, SoLuong) VALUES (NULL,"'.$iddonhang.'","'.$key.'","'.$value.'")';
             if($conn->query($sql)){
                 $check = true;
+                $sql='Select Amount From product where ProductID="'.$key.'"';
+                $result = $conn->query($sql);
+                if ($result -> num_rows > 0){
+                    while ($row = $result->fetch_assoc()){
+                        $amount = $row['Amount'];
+                        $amount_current = $amount - $value;
+                    }
+                    $sql='Update product SET Amount="'.$amount_current.'" where ProductID="'.$key.'"';
+                    $conn -> query($sql);
+                }
             }   
             else{
                 $check = false;
@@ -139,10 +174,38 @@ function DetailOrder(){
     }
     if($check == true){
         unset($_SESSION['Cart']);
-        echo 1;
+        echo 0;
     }
 }
-
+function checkAmountproduct($productid,$soluong_current){
+    include("./DAL_Connect.php");
+    $sql='Select Amount From product where ProductID="'.$productid.'"';
+    $result = $conn->query($sql);
+    if ($result -> num_rows > 0){
+        while ($row = $result->fetch_assoc()){
+            if ($row['Amount'] < $soluong_current){
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+function checkdangnhap(){
+    if (isset($_SESSION['login']['id'])){
+        return 1;
+    }
+    return 0;
+}
+function checkthongtin(){
+    if (isset($_SESSION['login']['diachi']) && isset($_SESSION['login']['sdt'])){
+        if($_SESSION['login']['diachi'] == "" || $_SESSION['login']['sdt'] == ""){
+            return 0;
+        }
+        else{
+            return 1;
+        }
+    }
+}
 if(isset($phuongthuc)) {
     if ($phuongthuc == "add") {
         add($productid, $soluong);
