@@ -1,6 +1,6 @@
 <?php
 if (isset($_GET['rm'])) {
-    $msg = "Xoá thành công!";
+    $msg = "Xác nhận để quay lại trang chủ !";
     include("DAL_Connect.php");
     $id = $_GET['rm'];
     $sql = "DELETE FROM product where ProductID='" . $id . "'";

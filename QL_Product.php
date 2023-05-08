@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="./css/Admin.css">
 
 <div class="Content_SanPham header_content">
-    <h2 style="text-align : center">Danh sach san pham</h2>
+    <h2 style="text-align : center">DANH SÁCH SẢN PHẨM</h2>
     <button class="btn_add_sp btn_add_sp_MHNV">THÊM NHÂN VẬT</button>
     <button class="btn_add_sp btn_add_sp_MHS">THÊM SÚNG</button>
 
@@ -60,23 +60,23 @@
 
                 <div class="form__item_addSP">
                     <span class="lableDetail__addSP">NHÂN VẬT : </span>
-                    <input type="text" class="input_addSP" id="tenSP_addSP" name="nvSP_addSP">
+                    <input type="text" class="input_addSP" id="tenNVSP_addSP" name="nvSP_addSP">
                 </div>
                 <div class="form__item_addSP">
                     <span class="lableDetail__addSP">ANIME/MANGA: </span>
-                    <input type="text" class="input_addSP" id="tenSP_addSP" name="animeSP_addSP">
+                    <input type="text" class="input_addSP" id="AnimeSP_addSP" name="animeSP_addSP">
                 </div>
                 <div class="form__item_addSP">
                     <span class="lableDetail__addSP">CHIỀU CAO : </span>
-                    <input type="text" class="input_addSP" id="tenSP_addSP" name="heightSP_addSP">
+                    <input type="text" class="input_addSP" id="HeightSP_addSP" name="heightSP_addSP">
                 </div>
                 <div class="form__item_addSP">
                     <span class="lableDetail__addSP">CÂN NẶNG : </span>
-                    <input type="text" class="input_addSP" id="tenSP_addSP" name="weightSP_addSP">
+                    <input type="text" class="input_addSP" id="WeightSP_addSP" name="weightSP_addSP">
                 </div>
                 <div class="form__item_addSP">
                     <span class="lableDetail__addSP">CHẤT LIỆU : </span>
-                    <input type="text" class="input_addSP" id="tenSP_addSP" name="materialSP_addSP">
+                    <input type="text" class="input_addSP" id="MaterialSP_addSP" name="materialSP_addSP">
                 </div>
                 <div class="form__item_addSP">
                     <span class="lableDetail__addSP">CHI TIẾT : </span>
@@ -84,17 +84,17 @@
                 </div>
                 <div class="form__item_addSP">
                     <span class="lableDetail__addSP">SỐ LƯỢNG : </span>
-                    <input type="number" class="input_addSP" id="soluongSP_addSP" name="soluongSP_addSP">
+                    <input type="number" min="0" class="input_addSP" id="soluongSP_addSP" name="soluongSP_addSP">
                 </div>
 
                 <div class="form__item_addSP">
                     <span class="lableDetail__addSP">GIÁ(VND) : </span>
-                    <input type="number" class="input_addSP" id="" name="giaSP_addSP">
+                    <input type="number" min="0" class="input_addSP" id="giaSP_addSP" name="giaSP_addSP">
                 </div>
 
 
                 <div class="form__item_addSP">
-                    <input type="submit" value="XÁC NHẬN" name="btn_confirm_add_sp_MHNV" class="btn_confirm_add_sp btn_confirm_add_sp_MHNV">
+                    <input type="button" value="XÁC NHẬN" name="btn_confirm_add_sp_MHNV" class="btn_confirm_add_sp btn_confirm_add_sp_MHNV">
                 </div>
             </div>
         </div>
@@ -129,41 +129,41 @@
 
             <div class="form__item_addSP">
                 <span class="lableDetail__addSP">TÊN SP : </span>
-                <input type="text" class="input_addSP" id="tenSP_addSP" name="tenSP_addSP">
+                <input type="text" class="input_addSP" id="tenSP_addSP_MHS" name="tenSP_addSP">
             </div>
             <div class="form__item_addSP">
                 <span class="lableDetail__addSP">GAME FPS: </span>
-                <input type="text" class="input_addSP" id="tenSP_addSP" name="animeSP_addSP">
+                <input type="text" class="input_addSP" id="gameSP_addSP_MHS" name="animeSP_addSP">
             </div>
             <div class="form__item_addSP">
                 <span class="lableDetail__addSP">CHIỀU CAO : </span>
-                <input type="text" class="input_addSP" id="tenSP_addSP" name="heightSP_addSP">
+                <input type="text" class="input_addSP" id="HeightSP_addSP_MHS" name="heightSP_addSP">
             </div>
             <div class="form__item_addSP">
                 <span class="lableDetail__addSP">CÂN NẶNG : </span>
-                <input type="text" class="input_addSP" id="tenSP_addSP" name="weightSP_addSP">
+                <input type="text" class="input_addSP" id="WeightSP_addSP_MHS" name="weightSP_addSP">
             </div>
             <div class="form__item_addSP">
                 <span class="lableDetail__addSP">CHẤT LIỆU : </span>
-                <input type="text" class="input_addSP" id="tenSP_addSP" name="materialSP_addSP">
+                <input type="text" class="input_addSP" id="materialSP_addSP_MHS" name="materialSP_addSP">
             </div>
             <div class="form__item_addSP">
                 <span class="lableDetail__addSP">CHI TIẾT : </span>
-                <textarea class="txtArea_ChiTiet_addSP" id="txtArea_ChiTiet_addSP" name="ChiTiet" cols="30" rows="10"></textarea>
+                <textarea class="txtArea_ChiTiet_addSP" id="txtArea_ChiTiet_addSP_MHS" name="ChiTiet" cols="30" rows="10"></textarea>
             </div>
 
 
             <div class="form__item_addSP">
                 <span class="lableDetail__addSP">SỐ LƯỢNG : </span>
-                <input type="number" class="input_addSP" id="soluongSP_addSP" name="soluongSP_addSP">
+                <input type="number" min="0" class="input_addSP" id="soluongSP_addSP_MHS" name="soluongSP_addSP">
             </div>
 
             <div class="form__item_addSP">
                 <span class="lableDetail__addSP">GIÁ(VND) : </span>
-                <input type="number" class="input_addSP" id="" name="giaSP_addSP">
+                <input type="number" min="0" class="input_addSP" id="giaSP_addSP_MHS" name="giaSP_addSP_MHS">
             </div>
             <div class="form__item_addSP">
-                <input type="submit" value="XÁC NHẬN" name="btn_confirm_add_sp_MHS" class="btn_confirm_add_sp btn_confirm_add_sp_MHS">
+                <input type="button" value="XÁC NHẬN" name="btn_confirm_add_sp_MHS" class="btn_confirm_add_sp btn_confirm_add_sp_MHS">
             </div>
         </div>
     </div>
