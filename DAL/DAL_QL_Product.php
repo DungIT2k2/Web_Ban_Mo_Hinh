@@ -49,7 +49,7 @@ if ($result->num_rows > 0) {
     echo "<td>" .
       "<ul class = \"content_btn\">" .
       // nút sửa
-      "<a href=''> <li class ='btn_Sua'>" .
+      "<a href=''> <li class ='btn_Sua' onclick=\"xemThongTinSPtheoID(".$row["ProductID"].")\">" .
       "<img src=\"./img/btn_Sua.png\">" .
       "</li></a>".
       // nút xóa

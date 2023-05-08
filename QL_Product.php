@@ -168,6 +168,5 @@
         </div>
     </div>
 </form>
-
 <script src="./js/QL_Product.js"></script>
 </div>
