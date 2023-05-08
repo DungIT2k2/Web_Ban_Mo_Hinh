@@ -6,65 +6,65 @@
       <ul class="container-tasbar__list">
         <span class="container-tasbar__list-title">DANH MỤC SẢN PHẨM</span>
         <li class="container-tasbar__item">
-          <a href="index.php?chon=nv&id=1&idmh=all_nv" class="btn_disable_row_container" onclick="display_none()">
-            <span class="container-tasbar__item-text container-tasbar__item-text--bold">Mô Hình Nhân Vật</span>
-          </a>
+            <span class="container-tasbar__item-text container-tasbar__item-text--bold" id="btn_MHNV">Mô Hình Nhân Vật</span>
           <i class="container-tasbar__item-icon fa-solid fa-angle-right"></i>
           <ul class="container-tasbar__subnav">
-            <a href="index.php?chon=nv&id=1&idmh=7">
-              <li class="container-tasbar__subnav-item">Naruto</li>
+            <a>
+              <li class="container-tasbar__subnav-item" id="btn_Naruto">Naruto</li>
             </a>
-            <a href="index.php?chon=nv&id=2&idmh=16">
-              <li class="container-tasbar__subnav-item">One Piece</li>
+            <a>
+              <li class="container-tasbar__subnav-item" id="btn_OP">One Piece</li>
             </a>
-            <a href="index.php?chon=nv&id=3&idmh=10">
-              <li class="container-tasbar__subnav-item">League of Legend</li>
+            <a>
+              <li class="container-tasbar__subnav-item" id="btn_LOL">League of Legend</li>
             </a>
-            <a href="index.php?chon=nv&id=4&idmh=8">
-              <li class="container-tasbar__subnav-item">Dragon Ball</li>
+            <a>
+              <li class="container-tasbar__subnav-item" id="btn_DB">Dragon Ball</li>
             </a>
-            <a href="index.php?chon=nv&id=5&idmh=9">
-              <li class="container-tasbar__subnav-item">Kamen Rider</li>
+            <a>
+              <li class="container-tasbar__subnav-item" id="btn_KR">Kamen Rider</li>
             </a>
           </ul>
         </li>
         <li class="container-tasbar__item">
-          <span class="container-tasbar__item-text container-tasbar__item-text--bold">
+          <span class="container-tasbar__item-text container-tasbar__item-text--bold" id="btn_MHS">
             Mô Hình Súng</span>
           <i class="container-tasbar__item-icon fa-solid fa-angle-right"></i>
           <ul class="container-tasbar__subnav">
-            <a href="index.php?chon=s&id=1">
-              <li class="container-tasbar__subnav-item">AR</li>
+            <a>
+              <li class="container-tasbar__subnav-item" id="btn_AR">AR</li>
             </a>
-            <a href="index.php?chon=s&id=2">
-              <li class="container-tasbar__subnav-item">Pistol</li>
+            <a>
+              <li class="container-tasbar__subnav-item" id="btn_Piston">Pistol</li>
             </a>
-            <a href="index.php?chon=s&id=3">
-              <li class="container-tasbar__subnav-item">SMG</li>
+            <a>
+              <li class="container-tasbar__subnav-item" id="btn_SMG">SMG</li>
             </a>
-            <a href="index.php?chon=s&id=4">
-              <li class="container-tasbar__subnav-item">SR</li>
+            <a>
+              <li class="container-tasbar__subnav-item" id="btn_SR">SR</li>
             </a>
-            <a href="index.php?chon=s&id=5">
-              <li class="container-tasbar__subnav-item">Shotgun</li>
+            <a>
+              <li class="container-tasbar__subnav-item" id="btn_Shotgun">Shotgun</li>
             </a>
           </ul>
         </li>
         <li class="container-tasbar__item">
-          <span class="container-tasbar__item-text">Phụ kiện</span>
+          <span class="container-tasbar__item-text" id="btn_PK">Phụ kiện</span>
         </li>
         <li class="container-tasbar__item">
-          <span class="container-tasbar__item-text">Gấu Bông</span>
+          <span class="container-tasbar__item-text" id="btn_GB">Gấu Bông</span>
         </li>
         <li class="container-tasbar__item">
-          <span class="container-tasbar__item-text">Đã qua sử dụng(2ND)</span>
+          <span class="container-tasbar__item-text" id="btn_2ND">Đã qua sử dụng(2ND)</span>
         </li>
         <li class="container-tasbar__item">
-          <span class="container-tasbar__item-text">Các Mô Hình Khác</span>
+          <span class="container-tasbar__item-text" id="btn_Khac">Các Mô Hình Khác</span>
         </li>
       </ul>
     </div>
-    <div class="product_content"><?php include("product_content.php") ?></div>
+    <div class="product_content">
+      <!-- <?php include("product_content.php") ?> -->
+    </div>
     <div class="container__imgLarge" id="banner">
       <div class="container__imgLarge-wrap">
         <img src="./img/no-img.png" alt="" class="container__imgLarge-img" />
@@ -199,6 +199,7 @@
   </div>
   <div class="cart__overlay"></div>
 </div>
+<script src="./js/product.js"></script>
 <script src="./js/showProductDetail.js"></script>
 <script src="./js/slideBanner.js"></script>
 <script src="./js/slider.js"></script>

@@ -711,6 +711,9 @@ header {
   border-radius: 5px;
 }
 
+#banner.disable{
+  display: none;
+}
 .banner.disable {
   display: none;
 }

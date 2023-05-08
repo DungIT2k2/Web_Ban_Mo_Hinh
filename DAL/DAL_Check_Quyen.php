@@ -1,8 +1,9 @@
 <?php
+session_start();
 include("./DAL_Connect.php");
 
 // Câu truy vấn UPDATE
-$tenquyen = $_POST['TenQuyen'];
+$tenquyen = $_SESSION['login']['role'];
 $kv = $_POST['kv'];
 $checkquyen = $_POST['check'];
 $sql = "SELECT * FROM phanquyen pq JOIN quyen q on pq.IDQuyen = q.IDQuyen WHERE q.TenQuyen ='".$tenquyen."' AND pq.KhuVucQuanLi ='".$kv."'";

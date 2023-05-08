@@ -69,3 +69,4 @@
     }
 }
 ?>
+<script src="./js/QL_User.js"></script>
