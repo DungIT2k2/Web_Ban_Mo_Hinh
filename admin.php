@@ -1,6 +1,14 @@
 <?php session_start();
 if (isset($_SESSION['login']['role'])) {
     echo '<script>var role="' .$_SESSION['login']['role'].'";</script>';
+    $check = false;
+    if($_SESSION['login']['role'] == "User"){
+        $check = true;
+    }
+}
+else{
+    echo '<script>var role="";</script>';
+    $check = true;
 }
 ?>
 
@@ -14,9 +22,15 @@ if (isset($_SESSION['login']['role'])) {
             <div class="Header">
                 <?php
                 if (isset($_SESSION['login']['name'])) {
+                    if($check == true){
+
+                    }
+                    else {
                 ?>
-                    <a class='user_name'><?php echo $_SESSION['login']['name']?></a>
+                    <a class='user_name'><i class="user_name_icon fa-regular fa-user"></i><?php echo $_SESSION['login']['name']?></a>
+                    <a class='user_name_role'>(<?php echo $_SESSION['login']['role']?>)</a>
                 <?php }
+                }
                 ?>
                 <!-- <img src="" , height=30px></img> -->
                 <!-- ADMIN CENTER -->

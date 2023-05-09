@@ -1,11 +1,16 @@
-console.log(role);
-
 const btn_User = document.getElementById('User');
 const btn_SP = document.getElementById('SP');
 const btn_DH = document.getElementById('DH');
 const btn_PQ = document.getElementById('PQ');
 const btn_DT = document.getElementById('DT');
 
+checkuser(role)
+function checkuser(role){
+    if (role == "" || role == "User"){
+        alert("Vui lòng đăng nhập tài khoản quản lí!");
+        location.href = "./index.php"
+    }
+}
 function checkphanquyen(kv, phanquyen, callback) {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "./DAL/DAL_Check_Quyen.php", true);
