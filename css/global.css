@@ -2022,9 +2022,12 @@ td {
 .pagenumber {
   display: -webkit-box;
   position: absolute;
-  top: 95%;
-  transform: translateX(710%);
-  margin: 35 auto;
+  top: 374px;
+  left: 406px;
+}
+
+.pagenumber > ul > li {
+  display: inline-block;
 }
 
 .pagenumber_item {
@@ -2055,7 +2058,13 @@ td {
 }
 
 .product_content {
+  display: none;
   position: relative;
+  width: 972px;
+  height: 420px;
+}
+.product_content.show {
+  display:block;
 }
 
 .fa-user {
