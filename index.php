@@ -5,3 +5,4 @@
 ?>
 <script src="./js/product.js"></script>
 <script src="./js/info.js"></script>
+<script src="./js/search.js"></script>

@@ -5,9 +5,9 @@ $sortField = $_GET['sortField'];
 $sortOrder = $_GET['sortOrder'];
 
 if ($sortField == 'Price') {
-  $sql = "SELECT * FROM product ORDER BY Price " . $sortOrder;
+  $sql = "SELECT * FROM product sp JOIN caterogyproduct loaisp on sp.IDCaterogyProduct = loaisp.IDCaterogyProduct ORDER BY Price " . $sortOrder;
 } elseif ($sortField == 'Amount') {
-  $sql = "SELECT * FROM product ORDER BY Amount " . $sortOrder;
+  $sql = "SELECT * FROM product sp JOIN caterogyproduct loaisp on sp.IDCaterogyProduct = loaisp.IDCaterogyProduct ORDER BY Amount " . $sortOrder;
 } else {
   $sql = "SELECT * FROM product sp JOIN caterogyproduct loaisp on sp.IDCaterogyProduct = loaisp.IDCaterogyProduct";
 }
