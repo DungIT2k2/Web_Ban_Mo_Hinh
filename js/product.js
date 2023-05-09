@@ -12,11 +12,8 @@ const btn_PK = document.getElementById("btn_PK");
 const btn_GB = document.getElementById("btn_GB");
 const btn_2ND = document.getElementById("btn_2ND");
 const btn_Khac = document.getElementById("btn_Khac");
-const btn_MHNV = document.getElementById("btn_MHNV");
-const btn_MHS = document.getElementById("btn_MHS");
 const banner = document.getElementById("banner");
 const product_content = document.querySelector(".product_content");
-const pagenumber = document.querySelector(".pagenumber");
 
 btn_naruto.addEventListener("click", function () {
     banner.classList.add("disable");
@@ -88,16 +85,6 @@ btn_Khac.addEventListener("click", function () {
     getProduct(btn_Khac.textContent);
     product_content.style.display = "block";
 });
-btn_MHNV.addEventListener("click", function () {
-    banner.classList.add("disable");
-    getProduct(btn_MHNV.textContent);
-    product_content.style.display = "block";
-});
-btn_MHS.addEventListener("click", function () {
-    banner.classList.add("disable");
-    getProduct(btn_MHS.textContent);
-    product_content.style.display = "block";
-});
 var start_page = 1;
 var end_page = start_page + 2;
 function getProduct(loaisp) {
@@ -108,10 +95,10 @@ function getProduct(loaisp) {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
             // Xử lý kết quả trả về từ PHP
             var response = xhr.responseText;
+            product_content.innerHTML = response;
             createPhanTrang(loaisp,start_page,end_page, function(htmls){
-                var phantrang = htmls;
-                var htmls = response + phantrang;
-                product_content.innerHTML = htmls;
+                const pagenumber = document.querySelector(".pagenumber");
+                pagenumber.innerHTML = htmls;
             });
         }
     };
@@ -121,7 +108,7 @@ function handlePageNumber(loaisp,start){
     if(start == 1){
         start = 0;
     }else{
-        start = (start-1)*3;
+        start = (start-1);
     }
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "./DAL/DAL_Product_List.php", true);
@@ -130,16 +117,39 @@ function handlePageNumber(loaisp,start){
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
             // Xử lý kết quả trả về từ PHP
             var response = xhr.responseText;
-            createPhanTrang(loaisp, function(htmls){
-                var phantrang = htmls;
-                var htmls = response + phantrang;
-                product_content.innerHTML = htmls;
+            product_content.innerHTML = response;
+            createPhanTrang(loaisp,start_page,end_page, function(htmls){
+                const pagenumber = document.querySelector(".pagenumber");
+                pagenumber.innerHTML = htmls;
             });
         }
     };
     xhr.send("tenloaisp="+loaisp+"&start="+start);
 }
-
+function nextRenderPageNumber(loaisp,end_p){
+    const pagenumber = document.querySelector(".pagenumber");
+    start_page = end_p + 1;
+    end_page = end_p + 3;
+    createPhanTrang(loaisp,start_page,end_page, function(htmls){
+        var phantrang = htmls;
+        pagenumber.innerHTML = phantrang;   
+    });
+}
+function backRenderPageNumber(loaisp,start_p){
+    if (start_p <= 3){
+        start_p = 1;
+    }
+    else{
+        start_p = start_p - 3;
+    }
+    const pagenumber = document.querySelector(".pagenumber");
+    start_page = start_p
+    end_page = start_p +2;
+    createPhanTrang(loaisp,start_page,end_page, function(htmls){
+        var phantrang = htmls;
+        pagenumber.innerHTML = phantrang;   
+    });
+}
 function createPhanTrang(loaisp,start,end, callback){
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "./DAL/DAL_PhanTrang.php", true);
@@ -148,6 +158,7 @@ function createPhanTrang(loaisp,start,end, callback){
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
             // Xử lý kết quả trả về từ PHP
             var response = xhr.responseText;
+            console.warn(response);
             callback(response);
         }
     };
