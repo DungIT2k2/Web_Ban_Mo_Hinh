@@ -28,7 +28,7 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
         $total_revenue = 0;
     }
 
-    echo '<div>';
+    echo '<div class="header_doanhthu">';
     echo '<h2>Tổng doanh thu từ ngày ' . $from_date . ' đến ' . $to_date . '</h2>';
     echo '<p>' . number_format($total_revenue) . ' VNĐ</p>';
     echo '</div>';

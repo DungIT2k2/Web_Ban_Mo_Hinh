@@ -21,7 +21,12 @@ function checkLogin() {
         window.location.href = "http://localhost/web_2/web_2/admin.php";
       }
       if (response == 3){
-        // alert("Sai tài khoản hoặc mật khẩu!");
+        alert("Sai tài khoản hoặc mật khẩu!");
+        username.value = "";
+        password.value = "";
+      }
+      if (response == 4){
+        alert("Tài khoản của bạn đã bị khóa!");
         username.value = "";
         password.value = "";
       }
