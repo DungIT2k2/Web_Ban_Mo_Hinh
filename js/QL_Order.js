@@ -98,3 +98,42 @@ function reload_QLDH() {
     }
     xhr.send();
 }
+
+// Thực hiện submit Order
+function submitForm() {
+  var from_date = document.getElementById("from-date").value;
+  var to_date = document.getElementById("to-date").value;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "./DAL/DAL_QL_Order.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      // Xử lý kết quả trả về từ PHP
+      var response = xhr.responseText;
+      tbody_QL_Order.innerHTML = response;
+    }
+  };
+
+  var data = "from_date=" + encodeURIComponent(from_date) + "&to_date=" + encodeURIComponent(to_date);
+  xhr.send(data);
+}
+
+
+window.onload = function () {
+  var from_date = document.getElementById("from-date").value;
+  var to_date = document.getElementById("to-date").value;
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "./DAL/DAL_QL_Order.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      // Xử lý kết quả trả về từ PHP
+      var response = xhr.responseText;
+      tbody_QL_Order.innerHTML = response;
+    }
+  };
+
+  var data = "from_date=" + encodeURIComponent(from_date) + "&to_date=" + encodeURIComponent(to_date);
+  xhr.send(data);
+}
