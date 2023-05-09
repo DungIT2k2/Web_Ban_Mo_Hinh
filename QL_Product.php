@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="./css/Admin.css">
 
 <div class="Content_SanPham header_content">
-    <h2 style="text-align : center">DANH SÁCH SẢN PHẨM</h2>
-
+    <div class="header_DoanhThu">DANH SÁCH SẢN PHẨM</div>
+    <div class="btn_SP" >
     <button class="btn_add_sp btn_add_sp_MHNV">THÊM NHÂN VẬT</button>
     <button class="btn_add_sp btn_add_sp_MHS">THÊM SÚNG</button>
-
+    </div>
     <div class ="clear" style="clear: both;"></div>
     <div sort-buttons>
         <button class="sort_btn_price" onclick="sortData('Price','asc')">Price Asc</button>

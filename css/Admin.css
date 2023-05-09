@@ -12,7 +12,16 @@ body {
   color: white;
   padding: 10px;
 }
-
+.user_name_icon {
+  color: white;
+  margin:5px
+}
+.user_name_role {
+  color: white;
+  padding: 10px;
+  position: relative;
+  left: 50;
+}
 .sidebar {
   position: fixed;
   width: 20%;
@@ -603,8 +612,13 @@ table {
 }
 
 /* css QL_Product --> start*/
+.btn_SP{
+  margin-left: 34%;
+}
 .btn_add_sp {
-  padding: 5px 22.5px 5px 22.5px;
+  padding: 20px;
+  position: relative;
+  margin: 10px;
 }
 
 .overplay_addSP {

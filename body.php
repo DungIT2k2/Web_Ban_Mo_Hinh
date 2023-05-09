@@ -67,23 +67,21 @@
 </div>
     <div class="container__imgLarge" id="banner">
       <div class="container__imgLarge-wrap">
-        <img src="./img/no-img.png" alt="" class="container__imgLarge-img" />
-        <img src="./img/no-img.png" alt="" class="container__imgLarge-img" />
-        <img src="./img/no-img.png" alt="" class="container__imgLarge-img" />
+        <img src="./img/banner1.png" alt="" class="container__imgLarge-img" />
+        <img src="./img/banner2.png" alt="" class="container__imgLarge-img" />
         <div class="container__imgLarge-wrap-icon">
           <i class="container__imgLarge-icon fa-solid fa-circle-left"></i>
           <i class="container__imgLarge-icon fa-solid fa-circle-right"></i>
         </div>
         <div class="container__imgLarge-wrap-circle">
           <i class="container__imgLarge-icon-circle container__imgLarge-icon-circle active fa-solid fa-circle"></i>
-          <i class="container__imgLarge-icon-circle fa-solid fa-circle"></i>
-          <i class="container__imgLarge-icon-circle fa-solid fa-circle"></i>
+            <i class="container__imgLarge-icon-circle fa-solid fa-circle"></i>
         </div>
       </div>
       <div class="banner__thumbnail">
-        <img src="./img/no-img.png" alt="" />
-        <img src="./img/no-img.png" alt="" />
-        <img src="./img/no-img.png" alt="" />
+        <img src="./img/thumbnail1.png" alt="" />
+        <img src="./img/thumbnail2.png" alt="" />
+        <img src="./img/thumbnail3.png" alt="" />
       </div>
     </div>
   </div>

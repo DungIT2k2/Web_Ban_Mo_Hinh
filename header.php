@@ -92,6 +92,9 @@
   </div>
         <?php
         if (isset($_SESSION['login']['name'])) {
+        ?>
+          <i class="header__menu-item-icon fa-regular fa-user"></i>
+        <?php
           echo '<div class="info_user" id="info">'.$_SESSION['login']['name'].'</div>';
         if (isset($_SESSION['login']['role'])) {
           if (($_SESSION['login']['role']) != "User"){
