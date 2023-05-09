@@ -723,33 +723,54 @@ table {
 .clear{
   margin-top: 30px;
 }
-
+.th_header{
+  position: relative;
+}
+.btn_header {
+  position: absolute;
+  top: 30px;
+}
 .sort_btn_price,
 .sort_btn {
-  background-color: coral;;
-  color: white;
-  border: none;
-  cursor: pointer;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  margin-left: 100px; 
+    background-color: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+    /* padding: 5px; */
+    font-size: 15px;
+    border-radius: 5px;
+    margin-left: 100px;
+    /* margin-bottom: 5px; */
 }
 
+.sort_btn_SL{
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  /* padding: 5px; */
+  font-size: 15px;
+  border-radius: 5px;
+  margin-left: 55px;
+}
 .clear_both{
   clear: both;
   margin-bottom: 20px;
 }
 
 /* Style the price sorting buttons */
-.sort_btn_price {
-  background-color: #4CAF50;
-}
 
 .sort_btn_price:hover {
-  background-color:blueviolet;
+  color: blue;
+}
+.sort_btn_SL:hover {
+  color: blue;
 }
 
 .sort_btn:hover{
   background-color: #000;
+}
+
+.header_doanhthu {
+  margin: 40px;
 }

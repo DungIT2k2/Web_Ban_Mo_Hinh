@@ -1,6 +1,7 @@
 <?php session_start();
 if (isset($_SESSION['login']['role'])) {
     echo '<script>var role="' .$_SESSION['login']['role'].'";</script>';
+    $check = false;
     if($_SESSION['login']['role'] == "User"){
         $check = true;
     }
@@ -21,7 +22,7 @@ else{
             <div class="Header">
                 <?php
                 if (isset($_SESSION['login']['name'])) {
-                    if($check = true){
+                    if($check == true){
 
                     }
                     else {
