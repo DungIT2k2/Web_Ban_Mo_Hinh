@@ -7,12 +7,12 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
     $product_type = $_POST['product_type'];
 
     if ($product_type == 'all') {
-    $sql = "SELECT SUM(dh.TongTien) AS total_revenue
+        $sql = "SELECT SUM(dh.TongTien) AS total_revenue
             FROM ctdonhang ctdh
             JOIN donhang dh ON ctdh.IDDonHang = dh.IDDonHang 
             WHERE dh.NgayDat BETWEEN '$from_date' AND '$to_date'";
     } else {
-         $sql = "SELECT pr.NameProduct, SUM(dh.TongTien) AS total_revenue
+        $sql = "SELECT pr.NameProduct, SUM(dh.TongTien) AS total_revenue
             FROM ctdonhang ctdh
             JOIN donhang dh ON ctdh.IDDonHang = dh.IDDonHang 
             JOIN product pr ON ctdh.ProductID = pr.ProductID
@@ -33,37 +33,53 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
     echo '<p>' . number_format($total_revenue) . ' VNĐ</p>';
     echo '</div>';
 
-    $sql_top_product = 
-                    "SELECT pr.ProductID,pr.NameProduct,ctdh.ProductID,pr.Image,SUM(dh.TongTien) AS total_price
+
+    if ($product_type == 'all') {
+        $sql_top_product =
+            "SELECT pr.ProductID,pr.NameProduct,ctdh.ProductID,pr.Image,ctdh.SoLuong
                     FROM ctdonhang ctdh
                     JOIN donhang dh ON ctdh.IDDonHang = dh.IDDonHang 
                     JOIN product pr ON ctdh.ProductID = pr.ProductID
+                    JOIN caterogyproduct ca ON ca.IDCaterogyProduct = pr.IDCaterogyProduct
                     WHERE dh.NgayDat BETWEEN '$from_date' AND '$to_date'
                     GROUP BY pr.ProductID
-                    ORDER BY total_price DESC
+                    ORDER BY ctdh.SoLuong DESC
                     LIMIT 3
                     ";
+    } else {
+        $sql_top_product =
+            "SELECT pr.ProductID,pr.NameProduct,ctdh.ProductID,pr.Image,ctdh.SoLuong
+                    FROM ctdonhang ctdh
+                    JOIN donhang dh ON ctdh.IDDonHang = dh.IDDonHang 
+                    JOIN product pr ON ctdh.ProductID = pr.ProductID
+                    JOIN caterogyproduct ca ON ca.IDCaterogyProduct = pr.IDCaterogyProduct
+                    WHERE ca.NameCaterogyProduct = '$product_type' AND dh.NgayDat BETWEEN '$from_date' AND '$to_date'
+                    GROUP BY pr.ProductID
+                    ORDER BY ctdh.SoLuong DESC
+                    LIMIT 3
+                    ";
+    }
+    echo '<h1>Top sản phẩm bán chạy </h1>';
 
-    echo '<h2>Top sản phẩm bán chạy từ ngày ' . $from_date . ' đến ' . $to_date . '</h2>';
-    // Tính toán giá trị thống kê
     $result_top = $conn->query($sql_top_product);
-
+    echo '<div class="product-top_container">';
     if ($result_top->num_rows > 0) {
         $i = 1;
         while ($row = $result_top->fetch_assoc()) {
-            echo "<tr>";
+            echo "<div>";
             $path = "./DAL/Image_SanPham/";
-            echo "<td><div class=product_top>Top :  $i  </div></td>";
-            echo '<td><div class="product_top_name">Name :' . $row['NameProduct'] . '</div></td>';
-            echo "<td><div class=product_top_image><img src=" . $path . $row['Image'] . " width = '200px' height = '200px'></div></td>";
-            echo "</tr>";
+            echo "<h3 class=product_top>Top :  $i  </h3>";
+            echo '<h4 class="product_top_name">Name :' . $row['NameProduct'] . '</h4>';
+            echo "<div class=product_top_image><img src=" . $path . $row['Image'] . " width = '200px' height = '200px'></div>";
+            echo "</div>";
             $i++;
         }
     } else {
         echo "";
     }
+    echo '</div>';
     // Đóng kết nối
-}else{
+} else {
     echo "";
 }
 $conn->close();

@@ -1,3 +1,10 @@
+.form_thongke {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+}
+
 h2 {
   font-size: 24px;
   margin-bottom: 10px;
@@ -6,12 +13,8 @@ h2 {
 
 h1 {
   text-align: center;
-  margin-top: 30px;
-}
-
-.form_thongke {
   margin-top: 50px;
-  margin-left: 100px;
+  margin-bottom: 20px;
 }
 
 p {
@@ -21,50 +24,12 @@ p {
   text-align: center;
 }
 
-table {
-  margin-top: 20px;
-  border-collapse: collapse;
-}
-
-td img {
-  max-width: 300px;
-  max-height: 300px;
-}
-
-img {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  text-align: center;
-  margin-bottom: 35px;
-  margin-left: 130px;
-}
-
 img:hover {
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
-h2 + table {
+h2 {
   margin-top: 20px;
-}
-
-td{
-    margin: 35px;
-}
-
-th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-  padding: 10px;
-  text-align: left;
-}
-
-tr:nth-child(odd) {
-  background-color: #f9f9f9;
-}
-
-tr:nth-child(even) {
-  background-color: #fff;
 }
 
 /* Style cho nút Submit */
@@ -88,10 +53,15 @@ button[type="reset"] {
   cursor: pointer;
 }
 
-.product_top_name{
-  margin-left: 120px;;
+.product-top_container{
+  display: flex;
+  justify-content:space-around;
 }
 
 .product_top{
-  margin-left: 191px;
+  color:blue;
 }
+.product_top,.product_top_name{
+  text-align: center;
+}
+
