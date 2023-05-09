@@ -2,10 +2,18 @@
 
 <div class="Content_SanPham header_content">
     <h2 style="text-align : center">DANH SÁCH SẢN PHẨM</h2>
+
     <button class="btn_add_sp btn_add_sp_MHNV">THÊM NHÂN VẬT</button>
     <button class="btn_add_sp btn_add_sp_MHS">THÊM SÚNG</button>
 
-
+    <div class ="clear" style="clear: both;"></div>
+    <div sort-buttons>
+        <button class="sort_btn_price" onclick="sortData('Price','asc')">Price Asc</button>
+        <button class="sort_btn_price" onclick="sortData('Price','desc')">Price Des</button>
+        <button class="sort_btn" onclick="sortData('NameProduct','asc')">Name Asc</button>
+        <button class="sort_btn" onclick="sortData('NameProduct','desc')">Name Desc</button>
+    </div>
+    <div class="clear_both"></div>
     <table>
         <thead>
             <tr>
@@ -18,8 +26,7 @@
                 <th class="column15">Giá (VND)</th>
                 <th class="column5">Thao tác</th>
             </tr>
-        <tbody>
-            <?php include("./DAL/DAL_QL_Product.php") ?>
+        <tbody id="product-list">
         </tbody>
         </thead>
     </table>
@@ -107,7 +114,7 @@
         <div class="overplay__behind_addSP overplay__behind_addSP_MHS"></div>
         <div class="form__addSP">
             <div class="main_title">ĐIỀN THÔNG TIN SẢN PHẨM MÔ HÌNH SÚNG</div>
-            
+
             <!-- <div class="form__item_addSP">
                 <span class="lableDetail__addSP">ID: </span>
                 <input type="text" class="input_addSP" id="ID_addSP" name="ID_addSP">

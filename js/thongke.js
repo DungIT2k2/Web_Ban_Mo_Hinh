@@ -1,25 +1,19 @@
-// Lấy các input field
-var fromDateInput = document.getElementById("from_date");
-var toDateInput = document.getElementById("to_date");
-var salesReportDiv = document.getElementById("sales_report");
+// Thực hiện thống kê
+function submitForm() {
+  var from_date = document.getElementById("from-date").value;
+  var to_date = document.getElementById("to-date").value;
+  var product_type = document.getElementById("product-type").value;
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "./DAL/DAL_thongke.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      // Xử lý kết quả trả về từ PHP
+      var response = xhr.responseText;
+      document.getElementById("result").innerHTML = response;
+    }
+  };
 
-// Thêm sự kiện input cho các input field
-fromDateInput.addEventListener("input", updateSalesReport);
-toDateInput.addEventListener("input", updateSalesReport);
-// Hàm xử lý sự kiện input của các input field
-function updateSalesReport() {
-    var fromDate = fromDateInput.value;
-    var toDate = toDateInput.value;
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "./DAL/DAL_thongke.php", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            // Hiển thị kết quả trả về lên trang web
-            salesReportDiv.innerHTML = xhr.responseText;
-        }
-    };
-
-    // Gửi request tới server
-    xhr.send("from_date=" + fromDate + "&to_date=" + toDate);
+  var data = "from_date=" + encodeURIComponent(from_date) + "&to_date=" + encodeURIComponent(to_date) + "&product_type=" + encodeURIComponent(product_type);
+  xhr.send(data);
 }

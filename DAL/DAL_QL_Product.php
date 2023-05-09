@@ -1,6 +1,17 @@
 <?php
 include("DAL_Connect.php");
-$sql = "SELECT * FROM product";
+
+$sortField = $_GET['sortField'];
+$sortOrder = $_GET['sortOrder'];
+
+if ($sortField == 'Price') {
+  $sql = "SELECT * FROM product ORDER BY Price " . $sortOrder;
+} elseif ($sortField == 'NameProduct') {
+  $sql = "SELECT * FROM product ORDER BY NameProduct " . $sortOrder;
+} else {
+  $sql = "SELECT * FROM product";
+}
+
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row

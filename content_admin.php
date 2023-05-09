@@ -13,6 +13,7 @@
             include("QL_Quyen.php");
             break;
         case '5':
+            include("Quanlythongke.php");
             break;
     }
 }

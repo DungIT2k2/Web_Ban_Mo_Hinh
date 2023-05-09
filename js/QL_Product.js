@@ -181,3 +181,18 @@ document.getElementById("giaSP_addSP").onkeydown = function (event) {
     event.preventDefault();
   }
 };
+
+function sortData(sortField, sortOrder) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("product-list").innerHTML = this.responseText;
+    }
+  };
+  xmlhttp.open("GET","./DAL/DAL_QL_Product.php?sortField=" + sortField + "&sortOrder=" + sortOrder, true);
+  xmlhttp.send();
+}
+
+window.onload = function() {
+  sortData('ProductID', 'asc');
+};

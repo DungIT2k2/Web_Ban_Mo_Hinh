@@ -1,12 +1,19 @@
-<link rel="stylesheet" href="../web_2/css/Admin.css">
-<link rel="stylesheet" href="../web_2/css/thongke.css">
+<link rel="stylesheet" href="./css/Admin.css">
+<link rel="stylesheet" href="./css/thongke.css">
 
-<div class="thongke">
-    <h2 style="text-align : center">Thống Kê</h2>
-    <label for="from_date">Từ ngày:</label>
-    <input type="date" id="from_date">
-    <label for="to_date">Đến ngày:</label>
-    <input type="date" id="to_date">
-    <div id="sales_report"></div>
-</div>
-<script src="../web_2/js/thongke.js"></script>
+<h1>Thống kê kinh doanh sản phẩm</h1>
+<form class="form_thongke" onsubmit="submitForm(); return false;">
+    <label for="from-date">Từ ngày:</label>
+    <input type="date" id="from-date" name="from-date">
+    <label for="to-date">Đến ngày:</label>
+    <input type="date" id="to-date" name="to-date">
+    <label for="product-type">Loại sản phẩm:</label>
+    <select id="product-type" name="product-type">
+        <option value="all">all</option>
+        <?php include('get-products.php'); ?>
+    </select>
+    <button type="submit">Thống kê</button>
+</form>
+<div id="result"></div>
+
+<script src="./js/thongke.js"></script>
