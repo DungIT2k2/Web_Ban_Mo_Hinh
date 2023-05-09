@@ -7,7 +7,6 @@ const noCart = document.querySelector(".cart__noCart");
 const footer = document.querySelector(".cart__footer");
 const cartCount = document.querySelector(".cart__counter");
 
-
 var htmls = "";
 
 if (htmls == "") {
@@ -55,6 +54,7 @@ function getListCart() {
   };
   xhr.send("PhuongThuc=show");
 }
+
 function getCountCart() {
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "./DAL/XuLy_Cart.php", true);
