@@ -62,6 +62,7 @@ function confirmDelete(productID) {
     window.location.href = "./DAL/DAL_Remove_Product.php?rm=" + productID;
     return true;
   } else {
+     window.location.href = "admin.php?id=1";
     return false;
   }
 }
