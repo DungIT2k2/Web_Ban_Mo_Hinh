@@ -91,7 +91,7 @@
   <!-- <i class="fa-solid fa-left-long"></i> -->
   <i class="fa-solid fa-circle-left"></i>
 </div>
-<form class="toolbar__search" style="display: none">
+<form class="toolbar__search" style="display: block">
   <div class="toolbar__search-left">
     <span class="toolbar__search-title">Sắp xếp theo</span>
 
@@ -140,7 +140,6 @@
 </form>
 <div class="toolbar__search-message"></div>
 <div class="product__container display_row_card">
-
   <div class="container__row">
     <div class=container__row-header>MÔ HÌNH NHÂN VẬT</div>
     <div class=container__row-btn-prev>
@@ -153,7 +152,6 @@
       <i class="fa-solid fa-chevron-right"></i>
     </div>
   </div>
-
   <div class="container__row">
     <div class=container__row-header>MÔ HÌNH SÚNG</div>
     <div class=container__row-btn-prev>

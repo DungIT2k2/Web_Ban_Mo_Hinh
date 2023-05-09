@@ -2072,3 +2072,7 @@ td {
   margin: auto;
   top: auto;
 }
+
+.display_row_card.disable {
+  display: none;
+}
