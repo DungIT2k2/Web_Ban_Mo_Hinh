@@ -45,9 +45,6 @@ container__imgLarge_icon_circle[0].onclick = function () {
 container__imgLarge_icon_circle[1].onclick = function () {
     showImg(1);
 }
-container__imgLarge_icon_circle[2].onclick = function () {
-    showImg(2);
-}
 
 menu.addEventListener("click", () => {
     showMenu();

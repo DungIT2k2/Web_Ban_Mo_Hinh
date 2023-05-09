@@ -82,7 +82,8 @@ btn_MHS.addEventListener("click", function () {
     banner.classList.add("disable");
     getProduct(btn_MHS.textContent);
 });
-
+var start_page = 1;
+var end_page = start_page + 2;
 function getProduct(loaisp) {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "./DAL/DAL_Product_List.php", true);
@@ -91,7 +92,7 @@ function getProduct(loaisp) {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
             // Xử lý kết quả trả về từ PHP
             var response = xhr.responseText;
-            createPhanTrang(loaisp, function(htmls){
+            createPhanTrang(loaisp,start_page,end_page, function(htmls){
                 var phantrang = htmls;
                 var htmls = response + phantrang;
                 product_content.innerHTML = htmls;
@@ -122,7 +123,8 @@ function handlePageNumber(loaisp,start){
     };
     xhr.send("tenloaisp="+loaisp+"&start="+start);
 }
-function createPhanTrang(loaisp, callback){
+
+function createPhanTrang(loaisp,start,end, callback){
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "./DAL/DAL_PhanTrang.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -133,5 +135,5 @@ function createPhanTrang(loaisp, callback){
             callback(response);
         }
     };
-    xhr.send("tenloaisp="+loaisp);
+    xhr.send("tenloaisp="+loaisp+"&start="+start+"&end="+end);
 }

@@ -63,7 +63,6 @@
       </ul>
     </div>
     <div class="product_content"></div>
-    <div>
 </div>
     <div class="container__imgLarge" id="banner">
       <div class="container__imgLarge-wrap">
