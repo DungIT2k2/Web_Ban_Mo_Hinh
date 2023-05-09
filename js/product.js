@@ -21,66 +21,82 @@ const pagenumber = document.querySelector(".pagenumber");
 btn_naruto.addEventListener("click", function () {
     banner.classList.add("disable");
     getProduct(btn_naruto.textContent);
+    product_content.style.display = "block";
 });
 btn_OP.addEventListener("click", function () {
     banner.classList.add("disable");
     getProduct(btn_OP.textContent);
+    product_content.style.display = "block";
 });
 btn_LOL.addEventListener("click", function () {
     banner.classList.add("disable");
     getProduct(btn_LOL.textContent);
+    product_content.style.display = "block";
 });
 btn_DB.addEventListener("click", function () {
     banner.classList.add("disable");
     getProduct(btn_DB.textContent);
+    product_content.style.display = "block";
 });
 btn_KR.addEventListener("click", function () {
     banner.classList.add("disable");
     getProduct(btn_KR.textContent);
+    product_content.style.display = "block";
 });
 btn_AR.addEventListener("click", function () {
     banner.classList.add("disable");
     getProduct(btn_AR.textContent);
+    product_content.style.display = "block";
 });
 btn_Piston.addEventListener("click", function () {
     banner.classList.add("disable");
     getProduct(btn_Piston.textContent);
+    product_content.style.display = "block";
 });
 btn_SMG.addEventListener("click", function () {
     banner.classList.add("disable");
     getProduct(btn_SMG.textContent);
+    product_content.style.display = "block";
 });
 btn_SR.addEventListener("click", function () {
     banner.classList.add("disable");
     getProduct(btn_SR.textContent);
+    product_content.style.display = "block";
 });
 btn_Shotgun.addEventListener("click", function () {
     banner.classList.add("disable");
     getProduct(btn_Shotgun.textContent);
+    product_content.style.display = "block";
 });
 btn_PK.addEventListener("click", function () {
     banner.classList.add("disable");
     getProduct(btn_PK.textContent);
+    product_content.style.display = "block";
 });
 btn_GB.addEventListener("click", function () {
     banner.classList.add("disable");
     getProduct(btn_GB.textContent);
+    product_content.style.display = "block";
 });
 btn_2ND.addEventListener("click", function () {
     banner.classList.add("disable");
     getProduct(btn_2ND.textContent);
+    product_content.style.display = "block";
 });
 btn_Khac.addEventListener("click", function () {
     banner.classList.add("disable");
     getProduct(btn_Khac.textContent);
+    product_content.style.display = "block";
 });
 btn_MHNV.addEventListener("click", function () {
     banner.classList.add("disable");
     getProduct(btn_MHNV.textContent);
+    product_content.style.display = "block";
 });
 btn_MHS.addEventListener("click", function () {
     banner.classList.add("disable");
     getProduct(btn_MHS.textContent);
+    product_content.style.display = "block";
 });
 
 function getProduct(loaisp) {

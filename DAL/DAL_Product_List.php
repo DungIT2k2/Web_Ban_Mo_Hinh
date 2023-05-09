@@ -5,7 +5,7 @@
     $start = $_POST['start'];
     $path = "./DAL/Image_SanPham/";
     include("./DAL_Connect.php");
-    $sql = 'SELECT * FROM product sp JOIN caterogyproduct lsp ON sp.IDCaterogyProduct = lsp.IDCaterogyProduct WHERE NameCaterogyProduct="'.$tenloaisp.'" LIMIT '.$start.',3';
+    $sql = 'SELECT * FROM product sp JOIN caterogyproduct lsp ON sp.IDCaterogyProduct = lsp.IDCaterogyProduct WHERE NameCaterogyProduct="'.$tenloaisp.'" LIMIT '.$start.',4';
     $result = $conn->query($sql);
     $soluongsp = $result->num_rows;
         if ($result->num_rows > 0) {
