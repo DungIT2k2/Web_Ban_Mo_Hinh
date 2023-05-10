@@ -74,7 +74,7 @@
           </div>
           <div class="form_group">
             <label for="">Số điện thoại</label>
-            <input id="info_sdt" type="tel"  pattern="[0-9]{10}" placeholder="0123456789" required value="<?php echo $_SESSION['login']['sdt'] ?>"/> 
+            <input id="info_sdt" type="number"  pattern="[0-9]{10}" placeholder="0912345678" required value="<?php echo $_SESSION['login']['sdt'] ?>"/> 
             <span class="form_message"></span>
           </div>
           <div class="form_group">
