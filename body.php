@@ -147,6 +147,7 @@
 </div>
 <div class="main">
   <div class="container-content" style="display: block"></div>
+  <div class="pagination_search" ></div>
 </div>
 <div class="pagenumbers" id="pagination" style="display: none"></div>
 

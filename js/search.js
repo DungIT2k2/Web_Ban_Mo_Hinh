@@ -4,12 +4,18 @@ const header__search = document.querySelector(".header__search");
 const header_search_input = document.querySelector('.header__search__input');
 const controler = document.querySelector(".controler");
 const toolbar__search = document.querySelector(".toolbar__search")
-const pagination = document.getElementById("pagination");
 const cb_loaisp = document.querySelector(".toolbar__search-filter");
 const btn_Loc = document.querySelector(".toolbar__search-icon");
 const price_range = document.getElementsByName("price-range");
 const type_price = document.querySelector(".toolbar__search-range-title");
 
+var start_page;
+var end_page;
+var tensp;
+var kieugia;
+var idcaterogy;
+var to_gia;
+var from_gia;
 btn_search.addEventListener("click", function () {
     const banner = document.querySelector(".banner");
     const product_container = document.querySelector(".display_row_card");
@@ -20,10 +26,17 @@ btn_search.addEventListener("click", function () {
     controler.classList.add("show");
     toolbar__search.style.display = "block";
     pagination.style.display = "block";
-    getDataSearchAll(header_search_input.value, type_price.value, cb_loaisp.value, price_range[0].value, price_range[1].value);
+    start_page = 1;
+    end_page = start_page + 2;
+    tensp = header_search_input.value;
+    kieugia = type_price.value;
+    idcaterogy = cb_loaisp.value;
+    to_gia = price_range[0].value;
+    from_gia = price_range[1].value;
+    getDataSearchAll(0);
 });
 
-function getDataSearchAll(tensp, kieugia, idcaterogy, to_gia, from_gia) {
+function getDataSearchAll(start) {
     if (from_gia < to_gia) {
         alert("Khoảng giá không hợp lệ!");
     }
@@ -39,74 +52,73 @@ function getDataSearchAll(tensp, kieugia, idcaterogy, to_gia, from_gia) {
                 var response = xhr.responseText;
                 console.log(response);
                 container_content.innerHTML = response;
+                taoPhanTrang(start_page,end_page, function(htmls){
+                    const pagination = document.querySelector(".pagination_search");
+                    pagination.innerHTML = htmls;
+                });
 
             }
         };
-        xhr.send("tensp=" + tensp + "&loai=getsearch&kieugia=" + kieugia + "&caterogy=" + idcaterogy + "&to=" + to_gia + "&from=" + from_gia);
+        xhr.send("tensp=" + tensp + "&loai=getsearch&kieugia=" + kieugia + "&caterogy=" + idcaterogy + "&to=" + to_gia + "&from=" + from_gia+"&start="+start);
     }
 };
 
 btn_Loc.addEventListener("click", function () {
-    // console.log(type_price.value);
-    // console.log(header_search_input.value);
-    // console.log(price_range[0].value);
-    // console.log(price_range[1].value);
-    getDataSearchAll(header_search_input.value, type_price.value, cb_loaisp.value, price_range[0].value, price_range[1].value);
+    getDataSearchAll(header_search_input.value, type_price.value, cb_loaisp.value, price_range[0].value, price_range[1].value,0);
 });
 
 controler.addEventListener("click", function (){
     location.href = "index.php";
 });
 
-function handlePageNumber(loaisp,start){
+function chonPageNumber(start){
+    const container_content = document.querySelector(".container-content");
     if(start == 1){
         start = 0;
     }else{
         start = (start-1);
     }
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "./DAL/DAL_Product_List.php", true);
+    xhr.open("POST", "./DAL/DAL_Search_Product.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
             // Xử lý kết quả trả về từ PHP
             var response = xhr.responseText;
-            product_content.innerHTML = response;
-            createPhanTrang(loaisp,start_page,end_page, function(htmls){
-                const pagenumber = document.querySelector(".pagenumber");
-                pagenumber.innerHTML = htmls;
+            container_content.innerHTML = response;
+            taoPhanTrang(start_page,end_page, function(htmls){
+                const pagination = document.querySelector(".pagination_search");
+                pagination.innerHTML = htmls;
             });
         }
     };
-    xhr.send("tenloaisp="+loaisp+"&start="+start);
+    xhr.send("tensp=" + tensp + "&loai=getsearch&kieugia=" + kieugia + "&caterogy=" + idcaterogy + "&to=" + to_gia + "&from=" + from_gia+"&start="+start);
 }
-function nextRenderPageNumber(loaisp,end_p){
-    const pagenumber = document.querySelector(".pagenumber");
+function tienRenderPageNumber(end_p){
     start_page = end_p + 1;
     end_page = end_p + 3;
-    createPhanTrang(loaisp,start_page,end_page, function(htmls){
-        var phantrang = htmls;
-        pagenumber.innerHTML = phantrang;   
+    taoPhanTrang(start_page,end_page, function(htmls){
+        const pagination = document.querySelector(".pagination_search");
+        pagination.innerHTML = htmls;   
     });
 }
-function backRenderPageNumber(loaisp,start_p){
+function luiRenderPageNumber(start_p){
     if (start_p <= 3){
         start_p = 1;
     }
     else{
         start_p = start_p - 3;
     }
-    const pagenumber = document.querySelector(".pagenumber");
     start_page = start_p
     end_page = start_p +2;
-    createPhanTrang(loaisp,start_page,end_page, function(htmls){
-        var phantrang = htmls;
-        pagenumber.innerHTML = phantrang;   
+    taoPhanTrang(start_page,end_page, function(htmls){
+        const pagination = document.querySelector(".pagination_search");
+        pagination.innerHTML = htmls; 
     });
 }
-function createPhanTrang(loaisp,start,end, callback){
+function taoPhanTrang(start,end, callback){
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "./DAL/DAL_PhanTrang.php", true);
+    xhr.open("POST", "./DAL/DAL_Search_Product.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
@@ -116,5 +128,5 @@ function createPhanTrang(loaisp,start,end, callback){
             callback(response);
         }
     };
-    xhr.send("tenloaisp="+loaisp+"&start="+start+"&end="+end);
+    xhr.send("loai=phantrang&tensp=" + tensp + "&kieugia=" + kieugia + "&caterogy=" + idcaterogy + "&to=" + to_gia + "&from=" + from_gia+ "&start="+start+"&end="+end);
 }
