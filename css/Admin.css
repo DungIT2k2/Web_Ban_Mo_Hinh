@@ -782,3 +782,12 @@ table {
   gap: 2rem;
   align-items: center;
 }
+
+.btn_search_order{
+   padding: 10px 20px;
+  background-color: #15c8f5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

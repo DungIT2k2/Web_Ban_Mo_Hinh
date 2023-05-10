@@ -2,11 +2,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 <div class="Content_SanPham header_content">
     <div class="header_DoanhThu">DANH SÁCH SẢN PHẨM</div>
-    <div class="btn_SP" >
-    <button class="btn_add_sp btn_add_sp_MHNV">THÊM NHÂN VẬT</button>
-    <button class="btn_add_sp btn_add_sp_MHS">THÊM SÚNG</button>
+    <div class="btn_SP">
+        <button class="btn_add_sp btn_add_sp_MHNV">THÊM NHÂN VẬT</button>
+        <button class="btn_add_sp btn_add_sp_MHS">THÊM SÚNG</button>
     </div>
-    <div class ="clear" style="clear: both;"></div>
+    <div class="clear" style="clear: both;"></div>
     <div class="clear_both"></div>
     <table>
         <thead>
@@ -18,14 +18,14 @@
                 <th class="column15">Chi tiết SP</th>
                 <th class="column5 th_header">Số lượng
                     <div class="btn_header">
-                    <i class="fas fa-caret-up sort_btn_SL" onclick="sortData('Amount','asc')"></i>
-                    <i class="fas fa-caret-down sort_btn_SL" onclick="sortData('Amount','desc')"></i>
+                        <i class="fas fa-caret-up sort_btn_SL" onclick="sortData('Amount','asc')"></i>
+                        <i class="fas fa-caret-down sort_btn_SL" onclick="sortData('Amount','desc')"></i>
                     </div>
                 </th>
                 <th class="column15 th_header">Giá (VND)
                     <div class="btn_header">
-                    <i class="fas fa-caret-up sort_btn_price" onclick="sortData('Price','asc')"></i>
-                    <i class="fas fa-caret-down sort_btn_price" onclick="sortData('Price','desc')"></i>
+                        <i class="fas fa-caret-up sort_btn_price" onclick="sortData('Price','asc')"></i>
+                        <i class="fas fa-caret-down sort_btn_price" onclick="sortData('Price','desc')"></i>
                     </div>
                 </th>
                 <th class="column5">Thao tác</th>
@@ -98,7 +98,7 @@
                     <input type="number" min="0" class="input_addSP" id="soluongSP_addSP" name="soluongSP_addSP">
                 </div>
 
-                <div class="form__item_addSP" >
+                <div class="form__item_addSP">
                     <span class="lableDetail__addSP">GIÁ(VND) : </span>
                     <input type="number" min="0" class="input_addSP" id="giaSP_addSP" name="giaSP_addSP">
                 </div>

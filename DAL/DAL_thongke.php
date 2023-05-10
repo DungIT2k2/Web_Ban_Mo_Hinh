@@ -10,14 +10,14 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
         $sql = "SELECT SUM(dh.TongTien) AS total_revenue
             FROM ctdonhang ctdh
             JOIN donhang dh ON ctdh.IDDonHang = dh.IDDonHang 
-            WHERE dh.NgayDat BETWEEN '$from_date' AND '$to_date'";
+            WHERE dh.TrangThai = '1'AND dh.NgayDat BETWEEN '$from_date' AND '$to_date'";
     } else {
         $sql = "SELECT pr.NameProduct, SUM(dh.TongTien) AS total_revenue
             FROM ctdonhang ctdh
             JOIN donhang dh ON ctdh.IDDonHang = dh.IDDonHang 
             JOIN product pr ON ctdh.ProductID = pr.ProductID
             JOIN caterogyproduct ca ON ca.IDCaterogyProduct = pr.IDCaterogyProduct
-            WHERE ca.NameCaterogyProduct = '$product_type' AND dh.NgayDat BETWEEN '$from_date' AND '$to_date'";
+            WHERE dh.TrangThai = '1'AND ca.NameCaterogyProduct = '$product_type' AND dh.NgayDat BETWEEN '$from_date' AND '$to_date'";
     }
     $result = mysqli_query($conn, $sql);
 
@@ -41,8 +41,7 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
                     JOIN donhang dh ON ctdh.IDDonHang = dh.IDDonHang 
                     JOIN product pr ON ctdh.ProductID = pr.ProductID
                     JOIN caterogyproduct ca ON ca.IDCaterogyProduct = pr.IDCaterogyProduct
-                    WHERE dh.NgayDat BETWEEN '$from_date' AND '$to_date'
-                    GROUP BY pr.ProductID
+                    WHERE dh.TrangThai = '1'AND dh.NgayDat BETWEEN '$from_date' AND '$to_date'
                     ORDER BY ctdh.SoLuong DESC
                     LIMIT 3
                     ";
@@ -53,8 +52,7 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
                     JOIN donhang dh ON ctdh.IDDonHang = dh.IDDonHang 
                     JOIN product pr ON ctdh.ProductID = pr.ProductID
                     JOIN caterogyproduct ca ON ca.IDCaterogyProduct = pr.IDCaterogyProduct
-                    WHERE ca.NameCaterogyProduct = '$product_type' AND dh.NgayDat BETWEEN '$from_date' AND '$to_date'
-                    GROUP BY pr.ProductID
+                    WHERE dh.TrangThai = '1'AND ca.NameCaterogyProduct = '$product_type' AND dh.NgayDat BETWEEN '$from_date' AND '$to_date'
                     ORDER BY ctdh.SoLuong DESC
                     LIMIT 3
                     ";

@@ -18,7 +18,7 @@
             <label for="to-date">Đến:</label>
             <input type="date" value="2023-12-31" id="to-date" name="to-date">
         </div>
-        <button type="submit">Tìm</button>
+        <button class ="btn_search_order" type="submit">Tìm</button>
     </form>
     <div id="result_order"></div>
 
