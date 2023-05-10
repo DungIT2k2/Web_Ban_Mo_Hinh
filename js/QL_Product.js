@@ -62,7 +62,7 @@ function confirmDelete(productID) {
     window.location.href = "./DAL/DAL_Remove_Product.php?rm=" + productID;
     return true;
   } else {
-     window.location.href = "admin.php?id=1";
+    window.location.href = "admin.php?id=1";
     return false;
   }
 }
@@ -185,15 +185,109 @@ document.getElementById("giaSP_addSP").onkeydown = function (event) {
 
 function sortData(sortField, sortOrder) {
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
+  xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById("product-list").innerHTML = this.responseText;
     }
   };
-  xmlhttp.open("GET","./DAL/DAL_QL_Product.php?sortField=" + sortField + "&sortOrder=" + sortOrder, true);
+  xmlhttp.open(
+    "GET",
+    "./DAL/DAL_QL_Product.php?sortField=" +
+      sortField +
+      "&sortOrder=" +
+      sortOrder,
+    true
+  );
   xmlhttp.send();
 }
 
-window.onload = function() {
-  sortData('ProductID', 'asc');
+window.onload = function () {
+  sortData("ProductID", "asc");
 };
+
+// chinh sua
+
+const btn_add_sp = document.querySelector(".btn_add_sp");
+const overplay_addSP = document.querySelector(".overplay_addSP");
+const form__addSP = document.querySelector(".form_addSP");
+const overplay__behind_addSP = document.querySelector(
+  ".overplay__behind_addSP"
+);
+const btn_sua = document.querySelector(".btn_Sua");
+console.log(btn_sua);
+
+// console.log(btn_add_sp);
+btn_add_sp.onclick = function () {
+  overplay_addSP.style.display = "block";
+};
+
+overplay__behind_addSP.onclick = function () {
+  overplay_addSP.style.display = "none";
+};
+
+var uploaded_image = "";
+
+image_input.addEventListener("change", function () {
+  console.log(image_input.value);
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    console.warn(2);
+    uploaded_image = reader.result;
+    document.querySelector(
+      "#display_img_product"
+    ).style.backgroundImage = `url(${uploaded_image})`;
+  });
+  console.warn(1);
+  reader.readAsDataURL(this.files[0]);
+});
+
+//Chỉnh sửa sản phẩm
+
+const overplay_ChinhSuaSP = document.querySelector(".overplay_ChinhSuaSP");
+const form__ChinhSuaSP = document.querySelector(".form__ChinhSuaSP");
+const overplay__behind_ChinhSuaSP = document.querySelector(
+  ".overplay__behind_ChinhSuaSP"
+);
+const btn_confirm_ChinhSua = document.querySelector(".btn_confirm_ChinhSua");
+const maSP_ChinhSua = document.querySelector("#maSP_ChinhSua");
+const loaiSP_ChinhSua = document.querySelector("#loaiSP_ChinhSua");
+const image_ChinhSua = document.querySelector("#display_img_product_SSP");
+const tenSP_ChinhSua = document.querySelector("#tenSP_ChinhSua");
+const soLuong_ChinhSua = document.querySelector("#soLuongSP_ChinhSua");
+const giaBan_ChinhSua = document.querySelector("#giabanraSP_ChinhSua");
+const ctSP_ChinhSua = document.querySelector("#txtArea_ChiTiet_ChinhSua");
+const temp_file_img = document.getElementById("temp_file_img");
+// console.log(temp_file_img);
+overplay__behind_ChinhSuaSP.onclick = function () {
+  overplay_ChinhSuaSP.style.display = "none";
+};
+
+function xemThongTinSPtheoID(id, loai, image, ten, ctsp, soLuong, gia) {
+  overplay_ChinhSuaSP.style.display = "block";
+  maSP_ChinhSua.value = id;
+  loaiSP_ChinhSua.value = loai;
+  console.log(image);
+  image_ChinhSua.style.backgroundImage = `url(${image})`;
+  console.log(image_ChinhSua);
+  ctSP_ChinhSua.value = ctsp;
+  tenSP_ChinhSua.value = ten;
+  soLuong_ChinhSua.value = soLuong;
+  giaBan_ChinhSua.value = gia;
+  temp_file_img.value = image;
+}
+
+const image_input_SSP = document.querySelector("#image_input_SSP");
+var uploaded_image_SSP = "";
+
+image_input_SSP.addEventListener("change", function () {
+  // console.log(image_input.value);
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    console.warn(2);
+    uploaded_image_SSP = reader.result;
+    document.querySelector(
+      "#display_img_product_SSP"
+    ).style.backgroundImage = `url(${uploaded_image_SSP})`;
+  });
+  reader.readAsDataURL(this.files[0]);
+});
