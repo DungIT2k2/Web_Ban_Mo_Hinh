@@ -1,8 +1,6 @@
 function showItemDetail(
   name,
   amount,
-  character_name,
-  anime_manga,
   height,
   weight,
   material,
@@ -70,14 +68,6 @@ function showItemDetail(
             <h3>Thông tin sản phẩm</h3>
 
                 <table class = "table_description">
-                  <tr>
-                  <td>Nhân vật:</td>
-                  <td>${character_name}</td>
-                  </tr>
-                  <tr>
-                    <td>Anime/Manga:</td>
-                    <td>${anime_manga}</td>
-                  </tr>
                   <tr>
                     <td>Chiều cao:</td>
                     <td>${height}</td>

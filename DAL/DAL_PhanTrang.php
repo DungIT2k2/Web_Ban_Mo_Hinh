@@ -7,12 +7,16 @@
     $sql = 'SELECT * FROM product sp JOIN caterogyproduct lsp ON sp.IDCaterogyProduct = lsp.IDCaterogyProduct WHERE NameCaterogyProduct="'.$tenloaisp.'"';
     $result = $conn->query($sql);
     $soluongsp = $result->num_rows;
-    $sotrang = ceil($soluongsp/3);
-    
+    if ($soluongsp%3 == 0){
+        $sotrang = $soluongsp/3;
+    }
+    else{
+        $sotrang = ceil($soluongsp/3);
+    }   
     if ($sotrang > 3){
         echo '<li class="pagenumber_item" onclick="backRenderPageNumber(\''.$tenloaisp.'\','.$start.')">';
         echo '<a class="pagenumber_item_link fa fa-angle-left"></a></li>';
-    if($end > $sotrang){
+    if($end+1 > $sotrang){
         $temp_end = $end;
         $end = $sotrang;
         $check = true;

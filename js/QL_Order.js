@@ -1,9 +1,15 @@
 const cthoadon_overlay = document.querySelector(".overplay_OrderDetail");
 const cthoadon_close = document.querySelector(".btn_X");
+const from_date = document.getElementById("from-date");
+const to_date = document.getElementById("to-date");
+const btn_search_DH = document.querySelector(".btn_search_order");
+const tbody_QL_Order = document.querySelector(".tbody_QLOrder");
+
 const cthoadon_overlay_behind = document.querySelector(
   ".overplay__behind_OrderDetail"
 );
 const content_orderdetail = document.querySelector(".content_OrderDetail");
+
 function XemChiTiet(iddonhang) {
   taoCTDH(iddonhang);
   cthoadon_overlay.classList.toggle("show");
@@ -13,6 +19,33 @@ cthoadon_close.addEventListener("click", function () {
 });
 cthoadon_overlay_behind.addEventListener("click", function () {
   cthoadon_overlay.classList.toggle("show");
+});
+
+btn_search_DH.addEventListener("click", function () {
+  const tbody_CTDH = document.getElementById("tbody_CTDH");
+  var tu = from_date.value;
+  var den = to_date.value;
+  if (tu > den) {
+    alert("Ngày kết thúc phải lớn hơn ngày bắt đầu");
+  } else {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "./DAL/DAL_QL_Order.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        // Xử lý kết quả trả về từ PHP
+        var response = xhr.responseText;
+        console.log(response);
+        if (response == 0) {
+          alert("Không có đơn hàng nào được tìm thấy!");
+        }
+        else {
+          tbody_QL_Order.innerHTML = response;
+        }
+      }
+    };
+    xhr.send("from_date=" + tu + "&to_date=" + den);
+  }
 });
 
 function taoCTDH(iddonhang) {
@@ -84,7 +117,6 @@ function Confirm_DH() {
   };
   xhr.send("iddh=" + iddonhang.textContent + "&phuongthuc=confirmuser");
 }
-const tbody_QL_Order = document.querySelector(".tbody_QLOrder");
 function reload_QLDH() {
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "./DAL/DAL_QL_Order.php", true);
@@ -97,65 +129,27 @@ function reload_QLDH() {
       tbody_QL_Order.innerHTML = response;
     }
   };
-  xhr.send();
+  console.warn("from_date=" + from_date.value + "&to_date=" + to_date.value);
+  xhr.send("from_date=" + from_date.value + "&to_date=" + to_date.value);
 }
 
-// Thực hiện submit Order
-function submitForm() {
-  var from_date = document.getElementById("from-date").value;
-  var to_date = document.getElementById("to-date").value;
-
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "./DAL/DAL_QL_Order.php", true);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-      // Xử lý kết quả trả về từ PHP
-      var dateStart = new Date(from_date);
-      var dateEnd = new Date(to_date);
-
-      if (dateEnd < dateStart) {
-        alert("Ngày kết thúc phải lớn hơn ngày bắt đầu");
-      } else {
-        var response = xhr.responseText;
-        tbody_QL_Order.innerHTML = response;
-      }
-    }
-  };
-
-  var data =
-    "from_date=" +
-    encodeURIComponent(from_date) +
-    "&to_date=" +
-    encodeURIComponent(to_date);
-  xhr.send(data);
-}
 
 window.onload = function () {
-  var from_date = document.getElementById("from-date").value;
-  var to_date = document.getElementById("to-date").value;
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "./DAL/DAL_QL_Order.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
       // Xử lý kết quả trả về từ PHP
-      var dateStart = new Date(from_date);
-      var dateEnd = new Date(to_date);
-
-      if (dateEnd < dateStart) {
-        alert("Ngày kết thúc phải lớn hơn ngày bắt đầu");
-      } else {
         var response = xhr.responseText;
         tbody_QL_Order.innerHTML = response;
-      }
     }
   };
 
   var data =
     "from_date=" +
-    encodeURIComponent(from_date) +
+    encodeURIComponent(from_date.value) +
     "&to_date=" +
-    encodeURIComponent(to_date);
+    encodeURIComponent(to_date.value);
   xhr.send(data);
 };

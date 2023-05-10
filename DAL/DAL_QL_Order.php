@@ -21,7 +21,7 @@ if (isset($_POST['from_date']) && isset($_POST['to_date'])) {
       echo "</tr>";
       }
     } else {
-      echo "0 results";
+      echo "0";
     }
 }
 $conn->close();

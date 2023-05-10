@@ -43,7 +43,6 @@ window.onload = function () {
   var from_date = document.getElementById("from-date").value;
   var to_date = document.getElementById("to-date").value;
   var product_type = document.getElementById("product-type").value;
-
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "./DAL/DAL_thongke.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");

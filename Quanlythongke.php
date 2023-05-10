@@ -14,7 +14,7 @@
     <div>
         <label for="product-type">Loại sản phẩm:</label>
         <select id="product-type" name="product-type">
-            <option value="all">all</option>
+            <option value="all">Tất Cả</option>
             <?php include('get-products.php'); ?>
         </select>
     </div>

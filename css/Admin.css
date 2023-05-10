@@ -791,7 +791,76 @@ table {
   border-radius: 5px;
   cursor: pointer;
 }
+.overplay_ChinhSuaSP {
+  display: none;
+}
 
+.overplay__behind_ChinhSuaSP {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.form__ChinhSuaSP {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  border: 2px solid cyan;
+  border-radius: 10px;
+  background-color: white;
+  width: 40%;
+  height: 740px;
+  color: black;
+  overflow: auto;
+}
+
+.form__item_ChinhSua {
+  display: flex;
+}
+
+.form__item_ChinhSua select {
+  color: black;
+}
+
+.form__item_ChinhSua textarea {
+  width: 68.5%;
+  height: 100px;
+  resize: none;
+  border-radius: 10px;
+  color: black;
+}
+
+.lableDetail__ChinhSua {
+  width: 171px;
+  color: black;
+  font-size: 22px;
+  margin-right: 2px;
+}
+
+.lableDetail__ChinhSua>.label_chitiet_ChinhSuaSP {
+  margin-right: 100px;
+}
+
+.input_ChinhSua {
+  flex: 1;
+  padding: 10px;
+  margin: 5px;
+  color: black;
+  border-radius: 10px;
+}
+
+.btn_confirm_ChinhSua {
+  position: absolute;
+  right: 5px;
+  bottom: -85px;
+  width: 120px;
+  height: 50px;
+  color: black;
+}
 /* table {
   border-collapse: collapse;
   width: 100%;

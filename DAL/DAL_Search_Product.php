@@ -32,14 +32,13 @@ function getSearchAll(){
         $sql .= "(SELECT MAX(price) FROM product) ";
     }
     $sql .= " ORDER BY Price ".$kieugia;
-    $sql .= " LIMIT ".$start.",10";
+    $sql .= " LIMIT ".$start.",8";
     $result = $conn->query($sql);
-    $soluongsp = $result->num_rows;
         if ($result->num_rows > 0) {
             // output data of each row
             while ($row = $result->fetch_assoc()) {
                 $srcImg = $path . $row['Image'];
-                echo "<div class=\"container__row-card\" onclick=\"showItemDetail('" . $row['NameProduct'] . "', " . $row['Amount'] . ",'" . $row['CharacterName'] . "', '" . $row['AnimeOrMangaOrGameFPS'] . "', '" . $row['Height'] . "', '" . $row['Weight'] . "', '" . $row['Material'] . "', '" . $row['ProductDetail'] . "', '" . $srcImg . "', " . $row['Price'] . ", '" . $row['ProductID'] . "')\">";
+                echo "<div class=\"container__row-card\" onclick=\"showItemDetail('" . $row['NameProduct'] . "', " . $row['Amount'] . ",'" . $row['Height'] . "', '" . $row['Weight'] . "', '" . $row['Material'] . "', '" . $row['ProductDetail'] . "', '" . $srcImg . "', " . $row['Price'] . ", '" . $row['ProductID'] . "')\">";
                 echo "<div class=\"product__price--percent\">";
                 echo "<p>10%";
                 echo "<p>";
@@ -98,7 +97,7 @@ function phantrang(){
     $sql .= " ORDER BY Price ".$kieugia;
     $result = $conn->query($sql);
     $soluongsp = $result->num_rows;
-    $sotrang = ceil($soluongsp);
+    $sotrang = ceil($soluongsp/8);
     if ($sotrang > 3){
         echo '<li class="pagenumber_search_item" onclick="luiRenderPageNumber('.$start.')">';
         echo '<a class="pagenumber_search_item_link fa fa-angle-left"></a></li>';
@@ -121,7 +120,7 @@ function phantrang(){
     }
     }else {
         for ($i = 1; $i <= $sotrang; $i++){
-        echo '<li class="pagenumber_search_item" onclick="chonPageNumber('.$i.')">';
+        echo '<li class="pagenumber_search_item" onclick="chonPageNumber('.(($i-1)*8+1).')">';
         echo '<a class="pagenumber_search_item_link">'.$i.'</a></li>';
         }
     }

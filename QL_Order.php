@@ -4,7 +4,7 @@
     </div>
 
     <!--  Tìm kiếm đơn hàng nhập từ ngày này tới ngày khác -->
-    <form class="form_order" onsubmit="submitForm(); return false;">
+    <form class="form_order" onsubmit="return false;">
         <div>
             <span class="">Lọc: </span>
         </div>
@@ -18,7 +18,7 @@
             <label for="to-date">Đến:</label>
             <input type="date" value="2023-12-31" id="to-date" name="to-date">
         </div>
-        <button class ="btn_search_order" type="submit">Tìm</button>
+        <button class ="btn_search_order">Tìm</button>
     </form>
     <div id="result_order"></div>
 

@@ -28,15 +28,15 @@ btn_search.addEventListener("click", function () {
     pagination.style.display = "block";
     start_page = 1;
     end_page = start_page + 2;
+    getDataSearchAll(0);
+});
+
+function getDataSearchAll(start) {
     tensp = header_search_input.value;
     kieugia = type_price.value;
     idcaterogy = cb_loaisp.value;
     to_gia = price_range[0].value;
     from_gia = price_range[1].value;
-    getDataSearchAll(0);
-});
-
-function getDataSearchAll(start) {
     if (from_gia < to_gia) {
         alert("Khoảng giá không hợp lệ!");
     }
@@ -59,12 +59,13 @@ function getDataSearchAll(start) {
 
             }
         };
+        console.error("tensp=" + tensp + "&loai=getsearch&kieugia=" + kieugia + "&caterogy=" + idcaterogy + "&to=" + to_gia + "&from=" + from_gia+"&start="+start);
         xhr.send("tensp=" + tensp + "&loai=getsearch&kieugia=" + kieugia + "&caterogy=" + idcaterogy + "&to=" + to_gia + "&from=" + from_gia+"&start="+start);
     }
 };
 
 btn_Loc.addEventListener("click", function () {
-    getDataSearchAll(header_search_input.value, type_price.value, cb_loaisp.value, price_range[0].value, price_range[1].value,0);
+    getDataSearchAll(0);
 });
 
 controler.addEventListener("click", function (){
@@ -76,7 +77,7 @@ function chonPageNumber(start){
     if(start == 1){
         start = 0;
     }else{
-        start = (start-1);
+        start = (start-1)*8 + 1;
     }
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "./DAL/DAL_Search_Product.php", true);

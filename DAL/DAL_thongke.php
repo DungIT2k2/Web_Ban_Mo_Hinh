@@ -5,28 +5,26 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
     $from_date = $_POST['from_date'];
     $to_date = $_POST['to_date'];
     $product_type = $_POST['product_type'];
-
+    $check = false;
     if ($product_type == 'all') {
-        $sql = "SELECT SUM(dh.TongTien) AS total_revenue
-            FROM ctdonhang ctdh
-            JOIN donhang dh ON ctdh.IDDonHang = dh.IDDonHang 
-            WHERE dh.TrangThai = '1'AND dh.NgayDat BETWEEN '$from_date' AND '$to_date'";
+        $sql = "SELECT SUM(TongTien) AS total_revenue
+            FROM donhang  
+            WHERE TrangThai = '1' AND NgayDat BETWEEN '$from_date' AND '$to_date'";
     } else {
-        $sql = "SELECT pr.NameProduct, SUM(dh.TongTien) AS total_revenue
+        $check = true;
+        $sql = "SELECT SUM(ctdh.SoLuong*pr.Price) AS total_revenue
             FROM ctdonhang ctdh
             JOIN donhang dh ON ctdh.IDDonHang = dh.IDDonHang 
             JOIN product pr ON ctdh.ProductID = pr.ProductID
             JOIN caterogyproduct ca ON ca.IDCaterogyProduct = pr.IDCaterogyProduct
             WHERE dh.TrangThai = '1'AND ca.NameCaterogyProduct = '$product_type' AND dh.NgayDat BETWEEN '$from_date' AND '$to_date'";
-    }
-    
+    }       
     $result = mysqli_query($conn, $sql);
-
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         $total_revenue = $row['total_revenue'];
     } else {
-        $total_revenue = 0;
+            $total_revenue = 0;
     }
 
     echo '<div class="header_doanhthu">';
