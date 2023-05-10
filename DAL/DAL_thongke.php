@@ -19,6 +19,7 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
             JOIN caterogyproduct ca ON ca.IDCaterogyProduct = pr.IDCaterogyProduct
             WHERE dh.TrangThai = '1'AND ca.NameCaterogyProduct = '$product_type' AND dh.NgayDat BETWEEN '$from_date' AND '$to_date'";
     }
+    
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -36,24 +37,26 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
 
     if ($product_type == 'all') {
         $sql_top_product =
-            "SELECT pr.ProductID,pr.NameProduct,ctdh.ProductID,pr.Image,ctdh.SoLuong
+            "SELECT pr.ProductID,pr.NameProduct,ctdh.ProductID,pr.Image,SUM(ctdh.SoLuong) as TongSoLuong
                     FROM ctdonhang ctdh
                     JOIN donhang dh ON ctdh.IDDonHang = dh.IDDonHang 
                     JOIN product pr ON ctdh.ProductID = pr.ProductID
                     JOIN caterogyproduct ca ON ca.IDCaterogyProduct = pr.IDCaterogyProduct
                     WHERE dh.TrangThai = '1'AND dh.NgayDat BETWEEN '$from_date' AND '$to_date'
-                    ORDER BY ctdh.SoLuong DESC
+                    GROUP BY pr.ProductID
+                    ORDER BY TongSoLuong DESC
                     LIMIT 3
                     ";
     } else {
         $sql_top_product =
-            "SELECT pr.ProductID,pr.NameProduct,ctdh.ProductID,pr.Image,ctdh.SoLuong
+            "SELECT pr.ProductID,pr.NameProduct,ctdh.ProductID,pr.Image,SUM(ctdh.SoLuong) as SoLuong
                     FROM ctdonhang ctdh
                     JOIN donhang dh ON ctdh.IDDonHang = dh.IDDonHang 
                     JOIN product pr ON ctdh.ProductID = pr.ProductID
                     JOIN caterogyproduct ca ON ca.IDCaterogyProduct = pr.IDCaterogyProduct
                     WHERE dh.TrangThai = '1'AND ca.NameCaterogyProduct = '$product_type' AND dh.NgayDat BETWEEN '$from_date' AND '$to_date'
-                    ORDER BY ctdh.SoLuong DESC
+                    GROUP BY pr.ProductID
+                    ORDER BY TongSoLuong DESC
                     LIMIT 3
                     ";
     }
