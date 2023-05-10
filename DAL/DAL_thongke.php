@@ -49,7 +49,7 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
                     ";
     } else {
         $sql_top_product =
-            "SELECT pr.ProductID,pr.NameProduct,ctdh.ProductID,pr.Image,SUM(ctdh.SoLuong) as SoLuong
+            "SELECT pr.ProductID,pr.NameProduct,ctdh.ProductID,pr.Image,SUM(ctdh.SoLuong) as TongSoLuong
                     FROM ctdonhang ctdh
                     JOIN donhang dh ON ctdh.IDDonHang = dh.IDDonHang 
                     JOIN product pr ON ctdh.ProductID = pr.ProductID
