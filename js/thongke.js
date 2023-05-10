@@ -1,8 +1,10 @@
 // Thực hiện thống kê
+var result_date = document.getElementById("result");
 function submitForm() {
   var from_date = document.getElementById("from-date").value;
   var to_date = document.getElementById("to-date").value;
   var product_type = document.getElementById("product-type").value;
+  
   var xhr = new XMLHttpRequest();
 
   console.log(from_date, to_date);
@@ -15,12 +17,14 @@ function submitForm() {
       var dateStart = new Date(from_date);
       var dateEnd = new Date(to_date);
 
-      if (dateEnd < dateStart) {
-        alert("Ngày kết thúc phải lớn hơn ngày bắt đầu");
-      } else {
-        console.log("Ngày kết thúc hợp lệ");
+      var from_date_check = Date.parse(from_date);
+      var to_date_check = Date.parse(to_date);
+
+      if (!isNaN(from_date_check) && !isNaN(to_date_check) && dateStart < dateEnd) {
         var response = xhr.responseText;
-        document.getElementById("result").innerHTML = response;
+        result_date.innerHTML = response;
+      } else {
+        alert("Please enter valid date values.");
       }
     }
   };
@@ -40,8 +44,6 @@ window.onload = function () {
   var to_date = document.getElementById("to-date").value;
   var product_type = document.getElementById("product-type").value;
 
-  console.log(from_date, to_date);
-
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "./DAL/DAL_thongke.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -51,12 +53,14 @@ window.onload = function () {
       var dateStart = new Date(from_date);
       var dateEnd = new Date(to_date);
 
-      if (dateEnd < dateStart) {
-        alert("Ngày kết thúc phải lớn hơn ngày bắt đầu");
-      } else {
-        console.log("Ngày kết thúc hợp lệ");
+      var from_date_check = Date.parse(from_date);
+      var to_date_check = Date.parse(to_date);
+
+      if (!isNaN(from_date_check) && !isNaN(to_date_check) && dateStart < dateEnd) {
         var response = xhr.responseText;
         document.getElementById("result").innerHTML = response;
+      } else {
+        alert("Please enter valid date values.");
       }
     }
   };

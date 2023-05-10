@@ -73,6 +73,7 @@ button[type="reset"] {
 .product_top,
 .product_top_name {
   text-align: center;
+  align-items: center;
 }
 
 img {
