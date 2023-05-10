@@ -7,8 +7,7 @@ const container_row = document.querySelector(".container__row");
 const banner_img = document.querySelector(".container__imgLarge-wrap");
 const if_sdt = document.getElementById("info_sdt");
 const if_diachi = document.getElementById("info_diachi");
-const btn_save = document.getElementById("btn_save_info")
-
+const btn_save = document.getElementById("btn_save_info");
 btn_info.addEventListener("click", () => {
   infoOverlay.classList.toggle("show");
   infoContainer.classList.toggle("show");
@@ -30,21 +29,37 @@ btnInfoClose.addEventListener("click", () => {
 });
 
 btn_save.addEventListener("click", function () {
-  UpdateInfo();
+  if (if_sdt.value.length < 10) {
+    alert("Số diện thoại không được ít hơn 10 số  !");
+  } else if (if_sdt.value.length > 10) {
+    alert("Số điện thoại không được nhiều hơn 10 !");
+  } else {
+    UpdateInfo();
+  }
 });
 function UpdateInfo() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "./DAL/DAL_Update_Info_User.php", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-        // Xử lý kết quả trả về từ PHP
-        var response = xhr.responseText;
-        console.warn(response);
-        if (response == 1) {
-          alert("Cập nhật thông tin thành công!")
-        }
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "./DAL/DAL_Update_Info_User.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      // Xử lý kết quả trả về từ PHP
+      var response = xhr.responseText;
+      console.warn(response);
+      if (response == 1) {
+        alert("Cập nhật thông tin thành công!");
       }
-    };
-    xhr.send("diachi=" + if_diachi.value + "&sdt=" + if_sdt.value);
+    }
+  };
+  xhr.send("diachi=" + if_diachi.value + "&sdt=" + if_sdt.value);
 }
+
+// Kiểm tra xem ký tự nhập vào có phải là dấu "-" hoặc "+" không
+// Nếu là dấu "-" hoặc "+", ngăn người dùng nhập ký tự đó
+if_sdt.onkeydown = function (event) {
+  if (event.key === "-") {
+    event.preventDefault();
+  } else if (event.key === "+") {
+    event.preventDefault();
+  }
+};
