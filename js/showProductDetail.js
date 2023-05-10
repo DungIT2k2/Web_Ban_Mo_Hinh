@@ -46,7 +46,6 @@ function showItemDetail(
   
             <div class="modal-body-right">
                 <div class="card__title">${name}</div>
-                <div name="product_id">ID : ${id}</div>
                 <p class="card__author">Còn lại: ${amount}</p>
                 
                 <div>

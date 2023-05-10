@@ -118,5 +118,3 @@
     <div class="overplay"></div>
   </div>
 </header>
-<script src="./js/search.js"></script>
-
