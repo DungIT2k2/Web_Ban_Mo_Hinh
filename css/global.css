@@ -97,11 +97,11 @@ body {
 }
 
 .controler {
-  font-size: 26px;
+  font-size: 30px;
   display: none;
-  margin-left: 20px;
+  margin-left: 15px;
   position: absolute;
-  /* top: -50px; */
+  top: 115px;
   left: 0%;
   color: red;
 }
@@ -1025,7 +1025,6 @@ header {
 
 .card__img,
 .container__row-card img {
-
   height: 240px;
 }
 
@@ -1442,31 +1441,30 @@ header {
 
 .price-range {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
 }
 
 .price-range input {
   padding: 8px 10px;
   max-width: 120px;
   font-size: 14px;
-}
-
-.price-range span {
-  height: 1px;
-  width: 14px;
-  background: #ccc;
-  align-self: center;
-  flex: 1;
-  margin: 0 10px;
-  border-radius: 20px;
-}
+  margin: 5px;
+} 
 
 .toolbar__search-icon {
   font-size: 14px;
   margin-left: 20px;
-  padding: 6px 12px;
+  padding: 10px 12px;
   background: red;
   color: #fff;
-  border: none;
+  border-color: red;
+  border-radius: 3px;
+}
+.toolbar__search-icon:hover {
+  background-color: black;
+  border-color: black;
 }
 
 /* ===============Tool Search */
@@ -1476,6 +1474,7 @@ header {
 
 .toolbar__search-range,
 .toolbar__search-filter {
+  padding: 5px;
   margin: 0 20px;
   position: relative;
 }
@@ -1489,7 +1488,7 @@ header {
   justify-content: space-between;
   align-items: center;
   background: #fff;
-
+  margin-left: 20px;
 }
 
 .toolbar__search-range-list,
@@ -2023,7 +2022,7 @@ td {
   display: -webkit-box;
   position: absolute;
   top: 374px;
-  left: 406px;
+  left: 314px;
 }
 
 .pagenumber > ul > li {
@@ -2075,4 +2074,8 @@ td {
 
 .display_row_card.disable {
   display: none;
+}
+
+.product-image {
+  width: 250px;
 }

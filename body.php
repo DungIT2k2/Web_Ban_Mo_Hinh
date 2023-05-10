@@ -64,7 +64,7 @@
     </div>
     <div class="product_content"></div>
     <div>
-</div>
+    </div>
     <div class="container__imgLarge" id="banner">
       <div class="container__imgLarge-wrap">
         <img src="./img/banner1.png" alt="" class="container__imgLarge-img" />
@@ -75,7 +75,7 @@
         </div>
         <div class="container__imgLarge-wrap-circle">
           <i class="container__imgLarge-icon-circle container__imgLarge-icon-circle active fa-solid fa-circle"></i>
-            <i class="container__imgLarge-icon-circle fa-solid fa-circle"></i>
+          <i class="container__imgLarge-icon-circle fa-solid fa-circle"></i>
         </div>
       </div>
       <div class="banner__thumbnail">
@@ -89,53 +89,31 @@
 
 <div class="controler">
   <!-- <i class="fa-solid fa-left-long"></i> -->
-  <i class="fa-solid fa-circle-left"></i>
+  <i class="fa-solid fa-circle-left" ></i> Back
 </div>
-<form class="toolbar__search" style="display: block">
+<form class="toolbar__search" style="display: none" onsubmit="return false">
   <div class="toolbar__search-left">
     <span class="toolbar__search-title">Sắp xếp theo</span>
 
-    <div class="toolbar__search-filter">
-      <div class="toolbar__search-filter-title">
-        <span value="Thể loại"></span>
-        <i class="fa-solid fa-caret-down"></i>
-      </div>
-
-      <div class="toolbar__search-filter-list">
-        <div class="toolbar__search-range-item" value="skill_books">
-          Sách Kĩ Năng<i class="fa-solid fa-check"></i>
-        </div>
-        <div class="toolbar__search-range-item" value="economic_books">
-          Sách Kinh Tế<i class="fa-solid fa-check"></i>
-        </div>
-        <div class="toolbar__search-range-item" value="children_books">
-          Sách Trẻ Em<i class="fa-solid fa-check"></i>
-        </div>
-        <div class="toolbar__search-range-item" value="full_books">
-          Tất cả<i class="fa-solid fa-check"></i>
-        </div>
-      </div>
-    </div>
-    <div class="toolbar__search-range">
-      <div class="toolbar__search-range-title">
-        <span value="Giá"></span>
-        <i class="fa-solid fa-caret-down"></i>
-      </div>
-      <div class="toolbar__search-range-list">
-        <div class="toolbar__search-range-item-up">
-          Giá: Thấp đến Cao<i class="fa-solid fa-check"></i>
-        </div>
-        <div class="toolbar__search-range-item-down">
-          Giá: Cao đến Thấp<i class="fa-solid fa-check"></i>
-        </div>
-      </div>
-    </div>
+    <select class="toolbar__search-filter">
+      <?php include("./DAL/DAL_Loai_SP.php"); ?>
+    </select>
+    <span class="toolbar__search-title">Giá</span>
+    <select class="toolbar__search-range-title">
+      <option class="toolbar__search-range-item-up" value="ASC">
+        Thấp đến Cao<i class="fa-solid fa-check"></i>
+      </option>
+      <option class="toolbar__search-range-item-down" value="DESC">
+        Cao đến Thấp<i class="fa-solid fa-check"></i>
+      </option>
+    </select>
   </div>
   <div class="price-range">
-    <input placeholder="10.000đ" type="number" name="" step="10000" required />
-    <span></span>
-    <input placeholder="1.000.000đ" type="number" name="" step="10000" required />
-    <button type="submit" class="toolbar__search-icon">Áp dụng</button>
+  <span class="toolbar__search-title">Khoảng Giá</span>
+    <input name="price-range" placeholder="Thấp" type="number" name="" step="10000" />
+    -
+    <input name="price-range" placeholder="Cao" type="number" name="" step="10000"  />
+    <button class="toolbar__search-icon">Lọc</button>
   </div>
 </form>
 <div class="toolbar__search-message"></div>
@@ -168,7 +146,6 @@
   <!-- <div class="container__row"></div> -->
 </div>
 <div class="main">
-  <div class="container-header"></div>
   <div class="container-content" style="display: block"></div>
 </div>
 <div class="pagenumbers" id="pagination" style="display: none"></div>
@@ -195,6 +172,7 @@
   </div>
   <div class="cart__overlay"></div>
 </div>
+<script src="./js/search.js"></script>
 <script src="./js/showProductDetail.js"></script>
 <script src="./js/slideBanner.js"></script>
 <script src="./js/slider.js"></script>
