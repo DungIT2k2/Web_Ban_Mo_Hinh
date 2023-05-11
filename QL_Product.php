@@ -37,7 +37,7 @@
     </table>
 
     <!-- form them thong tin san pham start-->
-    <form action="./DAL/DAL_Add_Product.php" method="post" enctype="multipart/form-data">
+    <form id="form_ChinhSua_Product" action="./DAL/DAL_Add_Product.php" method="post" enctype="multipart/form-data">
         <!-- action="./DAL/DAL_Add_Product.php -->
         <div class="overplay_addSP">
             <div class="overplay__behind_addSP"></div>
@@ -97,7 +97,7 @@
 
 
                 <div class="form__item_addSP">
-                    <input type="submit" value="XÁC NHẬN" name="btn_confirm_add_sp" class="btn_confirm_add_sp btn_confirm_add_sp_MHNV">
+                    <input value="XÁC NHẬN" name="btn_confirm_add_sp" class="btn_confirm_add_sp btn_confirm_add_sp_MHNV">
                 </div>
             </div>
         </div>
@@ -145,11 +145,11 @@
             </div>
             <div class="form__item_ChinhSua">
                 <span class="lableDetail__ChinhSua">SỐ LƯỢNG: </span>
-                <input type="number" class="input_ChinhSua" id="soLuongSP_ChinhSua" name="soLuong_UD">
+                <input type="number" min="0" class="input_ChinhSua" id="soLuongSP_ChinhSua" name="soLuong_UD">
             </div>
             <div class="form__item_ChinhSua">
                 <span class="lableDetail__ChinhSua">GIÁ BÁN RA: </span>
-                <input type="number" class="input_ChinhSua" id="giabanraSP_ChinhSua" name="gia_UD">
+                <input type="number" min="0" class="input_ChinhSua" id="giabanraSP_ChinhSua" name="gia_UD">
             </div>
             <div class="form__item_ChinhSua">
                 <span class="lableDetail__ChinhSua" style="margin-right:10px">CHI TIẾT: </span>
@@ -168,7 +168,7 @@
                 <input type="text" class="input_ChinhSua" id="MaterialSP_ChinhSua" name="materialSP_ChinhSua">
             </div>
             <div class="form__item_ChinhSua">
-                <button type="submit" class="btn_confirm_ChinhSua">XÁC NHẬN</button>
+                <input value="XÁC NHẬN" class="btn_confirm_ChinhSua">
             </div>
         </div>
     </div>
