@@ -16,7 +16,7 @@
                 <th class="column10">Loại</th>
                 <th class="column10">Tên SP</th>
                 <th class="column15">Chi tiết SP</th>
-                <th class="column10 th_header" >Số lượng
+                <th class="column10 th_header">Số lượng
                     <div class="btn_header" style="left: 65px;">
                         <i class="fas fa-caret-up sort_btn_SL" onclick="sortData('Amount','asc')"></i>
                         <i class="fas fa-caret-down sort_btn_SL" onclick="sortData('Amount','desc')"></i>
@@ -51,7 +51,7 @@
                     <input type="text" class="input_addSP" id="ID_addSP" name="ID_addSP">
                 </div> -->
                 <div class="form__item_addSP">
-                    <span class="lableDetail__addSP" id = "lableDetail_LoaiSP">LOẠI SẢN PHẨM: </span>
+                    <span class="lableDetail__addSP" id="lableDetail_LoaiSP">LOẠI SẢN PHẨM: </span>
                     <select name="product_type_selected" id="input_LoaiSP" class="input_ChinhSua select_books">
                         <?php include("./DAL/DAL_Loai_SP.php") ?>
                     </select>
@@ -68,7 +68,7 @@
                 <div class="form__item_addSP">
                     <span class="lableDetail__addSP">TÊN SP : </span>
                     <input type="text" class="input_addSP" id="tenSP_addSP" name="tenSP_addSP">
-</div>
+                </div>
                 <div class="form__item_addSP">
                     <span class="lableDetail__addSP">CHIỀU CAO : </span>
                     <input type="text" class="input_addSP" id="HeightSP_addSP" name="heightSP_addSP">
@@ -83,8 +83,7 @@
                 </div>
                 <div class="form__item_addSP">
                     <span class="lableDetail__addSP" style="margin-right: 6.5px">CHI TIẾT : </span>
-                    <textarea class="txtArea_ChiTiet_addSP" id="txtArea_ChiTiet_addSP" name="ChiTiet" cols="30"
-                        rows="10"></textarea>
+                    <textarea class="txtArea_ChiTiet_addSP" id="txtArea_ChiTiet_addSP" name="ChiTiet" cols="30" rows="10"></textarea>
                 </div>
                 <div class="form__item_addSP">
                     <span class="lableDetail__addSP">SỐ LƯỢNG : </span>
@@ -98,8 +97,7 @@
 
 
                 <div class="form__item_addSP">
-                    <input type="submit" value="XÁC NHẬN" name="btn_confirm_add_sp"
-                        class="btn_confirm_add_sp btn_confirm_add_sp_MHNV">
+                    <input type="submit" value="XÁC NHẬN" name="btn_confirm_add_sp" class="btn_confirm_add_sp btn_confirm_add_sp_MHNV">
                 </div>
             </div>
         </div>
@@ -132,6 +130,11 @@
             <div class="form__item_ChinhSua">
                 <div class="display_img_product" id="display_img_product_SSP" name="display_img_UD"></div>
             </div>
+            <div class="form__item_ChinhSua">
+                <span class="lableDetail__addSP" style="margin-left: 400px; font-size:12px; font-style:italic; font-weight: 500;">BỎ HÌNH :</span>
+                <input type="checkbox" id="image_input_SSP" name="image_input_SSP" style="margin-right: 177px; margin-top: 13px;">
+            </div>
+
             <div class="form__item_ChinhSua" style="display:none">
                 <input type="text" id="temp_file_img" name="temp_file_img_UD">
             </div>
@@ -150,8 +153,7 @@
             </div>
             <div class="form__item_ChinhSua">
                 <span class="lableDetail__ChinhSua" style="margin-right:10px">CHI TIẾT: </span>
-                <textarea name="chiTiet_UD" class="txtArea_ChiTiet_ChinhSua" id="txtArea_ChiTiet_ChinhSua" cols="30"
-                    rows="10"></textarea>
+                <textarea name="chiTiet_UD" class="txtArea_ChiTiet_ChinhSua" id="txtArea_ChiTiet_ChinhSua" cols="30" rows="10"></textarea>
             </div>
             <div class="form__item_ChinhSua">
                 <span class="lableDetail__ChinhSua">CHIỀU CAO : </span>

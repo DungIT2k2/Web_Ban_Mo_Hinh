@@ -1,9 +1,9 @@
 <?php
     session_start();
 ?>
+<link rel="stylesheet" href="./css/global.css">
 <link rel="stylesheet" href="./css/modal.css" />
 <link rel="stylesheet" href="./css/pagination.css" />
-<link rel="stylesheet" href="./css/global.css">
 <link rel="stylesheet" href="./css/responsive.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="icon" type="image/x-icon" href="/img/img_favicon_cir.png">
@@ -104,11 +104,11 @@
           }
         }
         ?>
-          <button class="btn_header" onclick="document.location='logout.php'">Đăng Xuất</button></div>
+          <button class="btn_header btn_dangxuat" onclick="document.location='logout.php'">Đăng Xuất</button></div>
         <?php
         } else {
         ?>
-          <button class="btn_header" onclick="document.location='dangnhap.php'">Đăng Nhập</button>
+          <button class="btn_header" id="btn_dangnhap" onclick="document.location='dangnhap.php'">Đăng Nhập</button>
 
       </div>
       <div class="header__login-title-login"><span>Hoặc</span></div>

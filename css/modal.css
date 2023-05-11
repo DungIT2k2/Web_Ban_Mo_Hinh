@@ -20,7 +20,7 @@
 
 #modal {
   background-color: #fff;
-  width: 56%;
+  width: 50%;
   max-height: 95vh;
   position: absolute;
   border-radius: 5px;
@@ -30,6 +30,7 @@
   z-index: 10;
   transform: scale(0);
   overflow-y: scroll;
+  font-family: auto;
 }
 
 #modal.show {
@@ -91,7 +92,7 @@ html.show {
 }
 
 .modal-body-right .card__title {
-  font-size: 20px;
+  font-size: 25px;
   display: block;
   white-space: break-spaces;
   height: auto;
@@ -162,26 +163,38 @@ html.show {
 }
 
 .card__description .table_description {
-  float: left;
+  /* float: left; */
   position: relative;
   padding-left: 68px;
-  margin-left: 48px;
+  margin-left: 251px;
+  font-size: 20px;
 }
+
 
 .card__description .product__detail-modal h3 {
   text-align: center;
   margin-top: 23px;
   border-bottom: 1px solid #ccc;
+  font-weight: 1000;
+  font-size: 28px;
 }
 
 .card__description .information_product h3 {
   text-align: center;
   margin-top: 23px;
   border-bottom: 1px solid #ccc;
+  font-weight: 1000;
+  font-size: 28px;
 }
 
 .card__description .information_product {
   border-top: 1px solid #ccc;
+}
+.card__description .information_product > p {
+  font-size: 20px;
+}
+.label_description{
+  font-weight: 600;
 }
 
 .container {

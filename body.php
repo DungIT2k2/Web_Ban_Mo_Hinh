@@ -174,7 +174,7 @@
   <div class="cart__overlay"></div>
 </div>
 <script src="./js/search.js"></script>
-<script src="./js/showProductDetail.js"></script>
+<script src="./js/showProductDetail.js?v=<?php echo time(); ?>"></script>
 <script src="./js/slideBanner.js"></script>
 <script src="./js/slider.js"></script>
 <script src="./js/cart_ajax.js"></script>

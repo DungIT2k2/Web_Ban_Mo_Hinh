@@ -84,8 +84,8 @@ function show()
                     echo "<div class=\"cart__item__price\">" . $formatted_price . " đ" . "</div>";
                     echo '';
                     echo '</div>';
-                    echo '<div class="cart__item__trash" onclick="deleteItem(' . $key . ')">';
-                    echo '<i class="fa-solid fa-trash"></i>';
+                    echo '<div class="cart__item__trash"  onclick="deleteItem(' . $key . ')">';
+                    echo '<i class="fa-solid fa-trash" style = "font-size:22px"></i>';
                     echo '</div>';
                     echo '</div>';
                     $tongtien += ($value*$row['Price']);

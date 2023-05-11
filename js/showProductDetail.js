@@ -26,6 +26,34 @@ function showItemDetail(
     maximumFractionDigits: 0,
   });
   console.log(formatted_Price); // Kết quả: "100.000"
+  // nếu khong có dữ liệu sẽ hiển thị NO DATA
+  if(name == ""){
+    name = "NO DATA !!!"
+  }
+  if(amount == ""){
+    amount = "NO DATA !!!"
+  }
+  if(height == ""){
+    height = "NO DATA !!!"
+  }
+  if(weight == ""){
+    weight = "NO DATA !!!"
+  }
+  if(height == ""){
+    height = "NO DATA !!!"
+  }
+  if(weight == ""){
+    weight = "NO DATA !!!"
+  }
+  if(material == ""){
+    material = "NO DATA !!!"
+  }
+  if(product_detail == ""){
+    product_detail = "NO DATA !!!"
+  }
+  if(price == ""){
+    price = "NO DATA !!!"
+  }
 
   let htmls = `
   
@@ -65,31 +93,25 @@ function showItemDetail(
         </div>
           <div class="card__description">
               <div class = "information_product">
-            <h3>Thông tin sản phẩm</h3>
-
+            <h3>THÔNG TIN SẢN PHẨM</h3>
                 <table class = "table_description">
                   <tr>
-                    <td>Chiều cao:</td>
+                    <td class="label_description">Chiều cao:</td>
                     <td>${height}</td>
                   </tr>
-                </table>
-              
-
-              
-                <table class = "table_description">
-                    <tr>
-                      <td>Vật liệu:</td>
+                  <tr>
+                      <td class="label_description">Vật liệu:</td>
                       <td>${material}</td>
                     </tr>
                     <tr>
-                      <td>Khối lượng:</td>
+                      <td class="label_description">Khối lượng:</td>
                       <td>${weight}</td>
                     </tr>
-                  </table>
+                </table>
               </div>
               <div class = "clear"></div>
               <div class = "product__detail-modal information_product">
-                  <h3>Mô tả sản phẩm</h3>
+                  <h3>MÔ TẢ SẢN PHẨM</h3>
                   <p>${product_detail}</p>
               </div>
             </div>

@@ -64,7 +64,7 @@ function xemThongTinSPtheoID(id, loai, image, ten, ctsp, soLuong, gia, chieucao,
   chieuCao_ChinhSua.value = chieucao;
   canNang_ChinhSua.value = cannang;
   chatLieu_ChinhSua.value = chatlieu;
-  temp_file_img.value = image;
+  // temp_file_img.value = image;
 
 }
 const image_input_SSP = document.querySelector("#image_input_SSP");

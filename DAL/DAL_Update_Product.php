@@ -19,12 +19,17 @@
         move_uploaded_file($tmp_Image, '../DAL/Image_SanPham/' . $image);
         $sql = "UPDATE product SET IDCaterogyProduct='$loaiSP', NameProduct='$tenSP', Amount='$soLuong', Price='$giaBanRa', Image='$image', ProductDetail='$chiTiet', Height='$chieuCao', Weight='$canNang', Material='$chatLieu' where ProductID='$id'";
     } else {
-        $last_slash_pos = strrpos($imageTemp, "/");
-        $imageTemp = substr($imageTemp, $last_slash_pos + 1);
-        echo $imageTemp;
-        $sql = "UPDATE product SET IDCaterogyProduct='$loaiSP', NameProduct='$tenSP', Amount='$soLuong', Price='$giaBanRa', Image='$imageTemp', ProductDetail='$chiTiet', Height='$chieuCao', Weight='$canNang', Material='$chatLieu' where ProductID='$id'";
+        $sql = "SELECT * FROM product where ProductID='$id'";
+        $qry = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($qry);
+        $imageName = $row['Image'];
+        $sql = "UPDATE product SET IDCaterogyProduct='$loaiSP', NameProduct='$tenSP', Amount='$soLuong', Price='$giaBanRa', Image='$imageName', ProductDetail='$chiTiet', Height='$chieuCao', Weight='$canNang', Material='$chatLieu' where ProductID='$id'";
+
+        // $last_slash_pos = strrpos($imageTemp, "/");
+        // $imageTemp = substr($imageTemp, $last_slash_pos + 1);
+        // echo $imageTemp;
+        // $sql = "UPDATE product SET IDCaterogyProduct='$loaiSP', NameProduct='$tenSP', Amount='$soLuong', Price='$giaBanRa', Image='$imageTemp', ProductDetail='$chiTiet', Height='$chieuCao', Weight='$canNang', Material='$chatLieu' where ProductID='$id'";
     }
     $qry = mysqli_query($conn, $sql);
-    
     header('Location: ../admin.php?id=1');
  ?>
