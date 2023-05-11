@@ -641,7 +641,7 @@ table {
 .btn_add_sp {
   position: absolute;
   top: 60px;
-  right: 539px;
+  right: 459px;
   border-radius: 4px;
   background-color: #4CAF50;
   border: none;
@@ -652,7 +652,7 @@ table {
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
-  width: 18%;
+  width: 20%;
 }
 
 .btn_add_sp:hover {
@@ -824,7 +824,7 @@ table {
 
 .btn_header {
   position: absolute;
-  top: 17px;
+  top: 30px;
 }
 
 .sort_btn_price,
@@ -1007,13 +1007,14 @@ tr:nth-child(even) {
   background-color: deepskyblue;
 }
 
-.xemct{
+.xemct {
   text-decoration: none;
-  color: blueviolet;;
+  color: blueviolet;
+  ;
 }
 
-.xemct:hover{
-  color:#ec5393;  
+.xemct:hover {
+  color: #ec5393;
 }
 
 /* table {

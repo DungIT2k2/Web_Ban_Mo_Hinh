@@ -17,7 +17,7 @@
                 <th class="column10">Tên SP</th>
                 <th class="column15">Chi tiết SP</th>
                 <th class="column10 th_header">Số lượng
-                    <div class="btn_header" style="left: 65px;">
+                    <div class="btn_header" style="left: 43px;">
                         <i class="fas fa-caret-up sort_btn_SL" onclick="sortData('Amount','asc')"></i>
                         <i class="fas fa-caret-down sort_btn_SL" onclick="sortData('Amount','desc')"></i>
                     </div>
