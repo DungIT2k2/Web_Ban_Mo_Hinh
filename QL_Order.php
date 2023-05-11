@@ -33,7 +33,7 @@
                 <th class="column15">Ngày đặt hàng</th>
                 <th class="column10">Tổng tiền</th>
                 <th class="column5">Xác nhận</th>
-                <th class="column5">Thao Tác</th>
+                <th class="column10">Thao Tác</th>
             </tr>
         <tbody class="tbody_QLOrder">
             <?php 

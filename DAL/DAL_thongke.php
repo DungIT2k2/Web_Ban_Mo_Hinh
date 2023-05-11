@@ -5,13 +5,13 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
     $from_date = $_POST['from_date'];
     $to_date = $_POST['to_date'];
     $product_type = $_POST['product_type'];
-    $check = false;
+
+    
     if ($product_type == 'all') {
         $sql = "SELECT SUM(TongTien) AS total_revenue
             FROM donhang  
             WHERE TrangThai = '1' AND NgayDat BETWEEN '$from_date' AND '$to_date'";
     } else {
-        $check = true;
         $sql = "SELECT SUM(ctdh.SoLuong*pr.Price) AS total_revenue
             FROM ctdonhang ctdh
             JOIN donhang dh ON ctdh.IDDonHang = dh.IDDonHang 

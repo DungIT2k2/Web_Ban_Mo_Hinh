@@ -1007,6 +1007,14 @@ tr:nth-child(even) {
   background-color: deepskyblue;
 }
 
+.xemct{
+  text-decoration: none;
+  color: blueviolet;;
+}
+
+.xemct:hover{
+  color:#ec5393;  
+}
 
 /* table {
   border-collapse: collapse;

@@ -62,6 +62,7 @@ function taoCTDH(iddonhang) {
   };
   xhr.send("iddh=" + iddonhang + "&phuongthuc=tao");
 }
+
 function getCTDH(iddonhang) {
   const tbody_CTDH = document.getElementById("tbody_CTDH");
   var xhr = new XMLHttpRequest();
@@ -129,11 +130,11 @@ function reload_QLDH() {
       tbody_QL_Order.innerHTML = response;
     }
   };
-  console.warn("from_date=" + from_date.value + "&to_date=" + to_date.value);
   xhr.send("from_date=" + from_date.value + "&to_date=" + to_date.value);
 }
 
 
+// load lại trang 
 window.onload = function () {
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "./DAL/DAL_QL_Order.php", true);
