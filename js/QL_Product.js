@@ -86,6 +86,7 @@ image_input_SSP.addEventListener("change", function () {
 
 
 function confirmDelete(productID) {
+  console.log(productID);
   var r = confirm("Bạn muốn xóa sản phẩm này khỏi giỏ hàng?");
   if (r == true) {
     window.location.href = "./DAL/DAL_Remove_Product.php?rm=" + productID;
