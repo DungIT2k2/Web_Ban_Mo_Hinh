@@ -3,7 +3,6 @@ session_start();
 
 if(isset($_POST['ProductID'])) {
     $productid = $_POST['ProductID'];
-    
 }
 
 if(isset($_POST['SoLuong'])) {
@@ -19,10 +18,27 @@ if(isset($_POST['PhuongThuc'])) {
 
 function add($productid, $soluong)
 {
-    $check = checkAmountproduct($productid,$soluong);
-    if ($check == 0){
-        $_SESSION['Cart'][$productid] = $soluong;
 
+    $check = checkAmountproduct($productid,$soluong);
+    $check_exist = 0;
+    if ($check == 0){
+        foreach ($_SESSION['Cart'] as $key => $value) {
+            if($key == $productid){
+                $check = checkAmountproduct($productid,($soluong+$value));
+                if ($check == 0){
+                $_SESSION['Cart'][$key] = ($value + $soluong);
+                $check_exist = 1;
+                }
+                else{
+                    $check_exist = 1;
+                    echo 1;
+                }
+            }
+            
+        }
+        if($check_exist == 0){
+            $_SESSION['Cart'][$productid] = $soluong;
+        }
     }
     else {
         echo 1;
@@ -206,6 +222,7 @@ function checkthongtin(){
         }
     }
 }
+
 if(isset($phuongthuc)) {
     if ($phuongthuc == "add") {
         add($productid, $soluong);

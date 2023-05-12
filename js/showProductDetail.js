@@ -188,5 +188,24 @@ function showItemDetail(
       "ProductID=" + id + "&SoLuong=" + SL_current.value + "&PhuongThuc=add"
     );
   });
+
+  
+  function checkproduct(id){
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "./DAL/XuLy_Cart.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        // Xử lý kết quả trả về từ PHP
+        var response = xhr.responseText;
+        getListCart();
+        getCountCart();
+        if(response == 1){
+          alert("Số lượng còn lại không đủ!");
+        }
+      }
+    };
+    xhr.send("ProductID=" + id + "&SoLuong=" + SL_current.value + "&PhuongThuc=add");
+  }
 }
 
