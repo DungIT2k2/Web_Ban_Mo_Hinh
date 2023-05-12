@@ -24,9 +24,11 @@ btn_search_DH.addEventListener("click", function () {
   const tbody_CTDH = document.getElementById("tbody_CTDH");
   var tu = from_date.value;
   var den = to_date.value;
+  console.log(tu);
+    console.log(den);
   if (tu > den) {
     alert("Ngày kết thúc phải lớn hơn ngày bắt đầu");
-  } else if (isNaN(tu) == true || isNaN(den) == true) {
+  } else if (isNaN(tu) == false || isNaN(den) == false) {
     alert("Dữ liệu không được để trống");
   } else {
     var xhr = new XMLHttpRequest();

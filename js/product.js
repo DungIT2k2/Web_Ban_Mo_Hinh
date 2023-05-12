@@ -145,7 +145,7 @@ function backRenderPageNumber(loaisp,start_p){
     }
     const pagenumber = document.querySelector(".pagenumber");
     start_page = start_p
-    end_page = start_p +2;
+    end_page = start_p + 2;
     createPhanTrang(loaisp,start_page,end_page, function(htmls){
         var phantrang = htmls;
         pagenumber.innerHTML = phantrang;   
