@@ -5,8 +5,8 @@ const btn_PQ = document.getElementById('PQ');
 const btn_DT = document.getElementById('DT');
 
 checkuser(role)
-function checkuser(role){
-    if (role == "" || role == "User"){
+function checkuser(role) {
+    if (role == "" || role == "User") {
         alert("Vui lòng đăng nhập tài khoản quản lí!");
         location.href = "./index.php"
     }
@@ -26,28 +26,28 @@ function checkphanquyen(kv, phanquyen, callback) {
     xhr.send(data);
 }
 
-btn_User.addEventListener("click", function(){
-    if(btn_User.href == location){
+btn_User.addEventListener("click", function () {
+    if (btn_User.href == location) {
         alert("Bạn không có quyền truy cập!");
     }
 })
-btn_SP.addEventListener("click", function(){
-    if(btn_SP.href == location){
+btn_SP.addEventListener("click", function () {
+    if (btn_SP.href == location) {
         alert("Bạn không có quyền truy cập!");
     }
 })
-btn_DH.addEventListener("click", function(){
-    if(btn_DH.href == location){
+btn_DH.addEventListener("click", function () {
+    if (btn_DH.href == location) {
         alert("Bạn không có quyền truy cập!");
     }
 })
-btn_PQ.addEventListener("click", function(){
-    if(btn_PQ.href == location){
+btn_PQ.addEventListener("click", function () {
+    if (btn_PQ.href == location) {
         alert("Bạn không có quyền truy cập!");
     }
 })
-btn_DT.addEventListener("click", function(){
-    if(btn_DT.href == location){
+btn_DT.addEventListener("click", function () {
+    if (btn_DT.href == location) {
         alert("Bạn không có quyền truy cập!");
     }
 })
@@ -86,3 +86,12 @@ function checkphanquyenAll() {
 
 }
 checkphanquyenAll();
+
+function check_with_user(location) {
+    if (cb_QLQuyen[location].checked == false) {
+        if (confirm("Bạn sẽ không thể vào quản lí quyền. Bạn có chắc muốn thay đổi?")) {
+        } else {
+            cb_QLQuyen[location].checked = true;
+        }
+    }
+}

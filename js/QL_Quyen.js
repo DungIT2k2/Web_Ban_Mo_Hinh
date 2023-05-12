@@ -79,3 +79,5 @@ function updateDataPhanQuyen(idq, kv, temp){
     xhr.send(data);
 }
 
+
+

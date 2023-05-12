@@ -20,6 +20,7 @@
                 </thead>
             </table>
         </div>
+        <script src="./js/QL_User.js"></script>
     <?php
     }
     if ($_GET['c'] == 'them') {
@@ -27,8 +28,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="icon" type="image/x-icon" href="/images/img_favicon_cir.png">
         <link rel="stylesheet" href="./css/dangki_admin.css">
-        <form action="./DAL/DAL_dangki_admin.php" method="GET" class="form dangki admin" id="form_dangki_user">
-
+        <form action="./DAL/DAL_dangki_admin.php" method="GET" class="form dangki admin" id="form_dangki_user" onsubmit="return false">
             <div class="form__field">
                 <label for="dangki__username"><span class="hidden">Tài Khoản</span></label>
                 <input id="dangki_username" type="text" name="username" class="form__input" placeholder="Email" required>
@@ -64,8 +64,10 @@
                 <input type="submit" value="Đăng Kí" id="btn_dangki_admin" name="btn_DK_admin">
             </div>
         </form>
+        <script>
+        </script>
+        <script src="./js/QL_dangki_User.js"></script>
     <?php
     }
 }
 ?>
-<script src="./js/QL_User.js"></script>

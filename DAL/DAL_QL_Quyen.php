@@ -23,8 +23,14 @@ if ($result->num_rows > 0) {
     else{
         echo "<td><input type=\"checkbox\" name=".$row['KhuVucQuanLi']. ($row['Xoa'] == 1 ? ' checked' : '') . "></td>";
     }
-    echo "<td><input type=\"checkbox\" name=".$row['KhuVucQuanLi']. ($row['Sua'] == 1 ? ' checked' : '') . "></td>";
-    echo "<td><input type=\"checkbox\" name=".$row['KhuVucQuanLi']. ($row['Xem'] == 1 ? ' checked' : '') . "></td>";
+    if($kv == "QLQuyen"){
+        echo "<td><input type=\"checkbox\" name=".$row['KhuVucQuanLi']. ($row['Sua'] == 1 ? ' checked' : '') . " onclick='check_with_user(2)'></td>";
+        echo "<td><input type=\"checkbox\" name=".$row['KhuVucQuanLi']. ($row['Xem'] == 1 ? ' checked' : '') . " onclick='check_with_user(3)'></td>";
+    }
+    else{
+        echo "<td><input type=\"checkbox\" name=".$row['KhuVucQuanLi']. ($row['Sua'] == 1 ? ' checked' : '') . "></td>";
+        echo "<td><input type=\"checkbox\" name=".$row['KhuVucQuanLi']. ($row['Xem'] == 1 ? ' checked' : '') . "></td>";
+    }
     echo "</tr>";
     $stt++; 
     }
