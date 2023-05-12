@@ -441,6 +441,7 @@ header {
 .header__right i {
   margin: 10px;
   font-size: 22px;
+  margin-bottom: 3px;
 }
 
 /* Overplay */
@@ -725,6 +726,7 @@ header {
 .cart {
   position: relative;
   width: 110px;
+  cursor: pointer;
 }
 
 .img_cart {
@@ -2342,6 +2344,7 @@ td {
 
 .info_user {
   font-weight: 1000;
+  cursor: pointer;
 }
 
 .info_user:hover {
@@ -2446,6 +2449,7 @@ td {
 .shopping_bag {
   margin-right: 20px;
   margin-bottom: 2px;
+  cursor: pointer;
 }
 
 .fa-shopping-bag {
