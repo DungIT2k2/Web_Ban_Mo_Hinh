@@ -40,8 +40,8 @@ function Create_CTDH($iddh){
             echo        '</tbody>';
             echo        '</thead>';
             echo '</table>';
-            echo '<div class="form_OrderDetail_item">';
-            echo    '<span class="lableDetail__OrderDetail">Tổng tiền:</span>';
+            echo '<div class="form_OrderDetail_item labelDetail_TongTien">';
+            echo    '<span class="lableDetail__OrderDetail" >Tổng tiền:</span>';
             echo    '<span class="input_OrderDetail" id="TongTien">'.$formatted_price.'đ</span>';
             echo '</div>';
             echo '<div class="form_OrderDetail_item">';
@@ -66,7 +66,7 @@ function GetCTDH($iddh){
             $formatted_price = number_format($row['Price'], 0, ',', '.');
             $formatted_price_total = number_format($price, 0, ',', '.');
             echo "<tr>";
-            echo "<td>" . $row['NameProduct'] . "</td>";
+            echo "<td style = "."font-weight:600;".">" . $row['NameProduct'] . "</td>";
             echo "<td>" . $row['SoLuong'] . "</td>";
             echo "<td>" . $formatted_price . "đ</td>";
             echo "<td>" . $formatted_price_total . "đ</td>";
