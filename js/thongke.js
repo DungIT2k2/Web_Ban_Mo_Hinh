@@ -20,11 +20,13 @@ function submitForm() {
       var from_date_check = Date.parse(from_date);
       var to_date_check = Date.parse(to_date);
 
-      if (!isNaN(from_date_check) && !isNaN(to_date_check) && dateStart < dateEnd) {
+      if (isNaN(from_date_check)== true || isNaN(to_date_check) == true) {
+        alert("Dữ liệu không được để trống");
+      }else if(dateStart > dateEnd){
+        alert("Ngày Kết Thúc phải lớn hơn ngày Bắt Đầu!");
+      } else {
         var response = xhr.responseText;
         result_date.innerHTML = response;
-      } else {
-        alert("Please enter valid date values.");
       }
     }
   };
