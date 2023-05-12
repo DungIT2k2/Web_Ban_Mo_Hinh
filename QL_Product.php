@@ -131,8 +131,8 @@
                 <div class="display_img_product" id="display_img_product_SSP" name="display_img_UD"></div>
             </div>
             <div class="form__item_ChinhSua">
-                <span class="lableDetail__addSP" style="margin-left: 400px; font-size:12px; font-style:italic; font-weight: 500;">BỎ HÌNH :</span>
-                <input type="checkbox" id="image_input_SSP" name="checkbox_boHinh" style="margin-right: 177px; margin-top: 13px;">
+                <span class="lableDetail__addSP" style="margin-left: 260px; font-size:12px; font-style:italic; font-weight: 500;">BỎ HÌNH :</span>
+                <input type="checkbox" id="image_input_SSP" name="checkbox_boHinh" style="margin-right: 260px; margin-top: 13px;">
             </div>
 
             <div class="form__item_ChinhSua" style="display:none">

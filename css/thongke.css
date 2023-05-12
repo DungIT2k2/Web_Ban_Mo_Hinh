@@ -19,7 +19,7 @@ h2 {
 
 h1 {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -70,6 +70,7 @@ button[type="reset"] {
 .product_top {
   color: blue;
 }
+
 .product_top,
 .product_top_name {
   text-align: center;
@@ -83,4 +84,10 @@ img {
 .product_top_image {
   display: flex;
   justify-content: center;
+}
+
+.top_sp_header {}
+
+.line_thongke {
+  border: 2px solid;
 }

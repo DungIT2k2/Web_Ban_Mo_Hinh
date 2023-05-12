@@ -59,7 +59,8 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
                     ";
                     
     }
-    echo '<h1>Top sản phẩm bán chạy </h1>';
+    echo '<div class="line_thongke"></div>';
+    echo '<h1 class="top_sp_header">TOP SẢN PHẨM BÁN CHẠY </h1>';
 
     $result_top = $conn->query($sql_top_product);
     echo '<div class="product-top_container">';
@@ -69,7 +70,7 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
             echo "<div>";
             $path = "./DAL/Image_SanPham/";
             echo "<h3 class=product_top>Top :  $i  </h3>";
-            echo '<h4 class="product_top_name">Name :' . $row['NameProduct'] . '</h4>';
+            echo '<h4 class="product_top_name">Tên SP: ' . '<span style = "color:red">'.$row['NameProduct'].'</span>' . '</h4>';
             echo "<div class=product_top_image><img src=" . $path . $row['Image'] . " width = '200px' height = '200px'></div>";
             echo '<h3 class=product_top> Số lượng :  ' . $row['TongSoLuong'] .  '</h3>';
             echo "</div>";

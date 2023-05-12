@@ -10,7 +10,12 @@ body {
 
 .user_name {
   color: white;
-  padding: 10px;
+  background-color: black;
+  border-radius: 20px;
+  margin-left: 103px;
+  padding: 5px;
+  position: relative;
+  left: -60px;
 }
 
 .user_name_icon {
@@ -19,10 +24,13 @@ body {
 }
 
 .user_name_role {
-  color: white;
-  padding: 10px;
   position: relative;
-  left: 50;
+  left: 72px;
+  top: 5px;
+  color: white;
+  padding: 3px 26px;
+  background: darkgreen;
+  border-radius: 9px
 }
 
 .sidebar {
@@ -103,7 +111,6 @@ nav ul ul li a {
 
 .Content {
   position: fixed;
-  background-color: #fff;
   right: 0%;
   width: 80%;
   height: 100%;
@@ -270,8 +277,7 @@ table tbody tr td {
 
 .Header {
   text-align: left;
-  margin: 20px;
-  margin-top: 10px;
+  margin: 0px;
   font-size: 20px;
 }
 
@@ -615,22 +621,42 @@ table {
 
 .btn_themtk {
   position: relative;
-  margin: 25px;
   left: 40%;
-  padding: 15px;
+  border-radius: 4px;
+  background-color: #4CAF50;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 8px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  width: 190px;
 }
 
 .btn_QLquyen {
   position: relative;
-  margin: 25px;
-  left: 50%;
-  padding: 15px;
+  left: -5px;
+  border-radius: 4px;
+  background-color: #4CAF50;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 8px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  width: 190px;
 }
 
 .cb_Quyen_QLTK {
   position: relative;
   padding: 10px;
-  left: 45%;
+  left: 0%;
+  top: -2px;
+  border-radius: 10px;
 }
 
 /* css QL_Product --> start*/
@@ -724,12 +750,13 @@ table {
 }
 
 .form__item_addSP #txtArea_ChiTiet_addSP {
-  width: 64.5%;
+  width: 60.5%;
   height: 100px;
   resize: none;
   border-radius: 10px;
   color: black;
   border: 2px solid black;
+  font-family: auto;
 }
 
 .form__item_addSP #lableDetail_LoaiSP {
@@ -738,7 +765,7 @@ table {
 
 .display_img_product {
   position: relative;
-  left: 350px;
+  left: 224px;
   border: 2px solid red;
   width: 150px;
   height: 150px;
@@ -748,8 +775,9 @@ table {
 .btn_confirm_add_sp {
   position: relative;
   top: 3px;
-  left: 517px;
+  left: 368px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .btn_confirm_add_sp {
@@ -759,7 +787,7 @@ table {
   /* xóa đường viền */
   color: white;
   /* màu chữ */
-  padding: 12px 24px;
+  padding: 12px 2px;
   /* khoảng cách giữa nội dung của button và lề ngoài của button */
   text-align: center;
   /* căn giữa nội dung của button */
@@ -790,6 +818,8 @@ table {
 .xemct {
   text-decoration: underline;
   color: blue;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .btn_confirm_DH {
@@ -936,6 +966,7 @@ table {
   resize: none;
   border-radius: 10px;
   color: black;
+  font-family: auto;
 }
 
 .lableDetail__ChinhSua {
@@ -969,13 +1000,14 @@ table {
   background-color: #4CAF50;
   border: none;
   color: white;
-  padding: 12px 24px;
+  padding: 12px 2px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   font-weight: bold;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .btn_confirm_ChinhSua:hover {
@@ -1015,6 +1047,37 @@ tr:nth-child(even) {
 
 .xemct:hover {
   color: #ec5393;
+}
+
+#image_input_SSP {
+  margin-top: 16px;
+}
+
+#image_input {
+  margin-top: 16px;
+}
+
+.btn_back_QL_User {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  padding: 7px;
+  background-color: #eee;
+  width: 5%;
+  text-align: center;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.btn_back_QL_User:hover {
+  color: #FFFFFF;
+  transition: all 0.2s;
+  background-color: #dc3545;
+}
+
+.admin_info {
+  background-color: cornflowerblue;
+  padding: 10px;
 }
 
 /* table {

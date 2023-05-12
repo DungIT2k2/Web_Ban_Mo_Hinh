@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="./css/Admin.css">
 <link rel="stylesheet" href="./css/thongke.css">
 
-<h1>Thống kê kinh doanh sản phẩm</h1>
+<h1>THỐNG KÊ TÌNH HÌNH KINH DOANH</h1>
 <form class="form_thongke" onsubmit="submitForm(); return false;">
     <div>
         <label for="from-date">Từ ngày:</label>
@@ -18,7 +18,7 @@
             <?php include('get-products.php'); ?>
         </select>
     </div>
-    <button type="submit">Thống kê</button>
+    <button type="submit" style="font-weight:600;" >THỐNG KÊ</button>
 </form>
 <div id="result"></div>
 

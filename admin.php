@@ -1,12 +1,11 @@
 <?php session_start();
 if (isset($_SESSION['login']['role'])) {
-    echo '<script>var role="' .$_SESSION['login']['role'].'";</script>';
+    echo '<script>var role="' . $_SESSION['login']['role'] . '";</script>';
     $check = false;
-    if($_SESSION['login']['role'] == "User"){
+    if ($_SESSION['login']['role'] == "User") {
         $check = true;
     }
-}
-else{
+} else {
     echo '<script>var role="";</script>';
     $check = true;
 }
@@ -16,19 +15,18 @@ else{
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <body>
     <div class="Menu">
         <nav class="sidebar">
-            <div class="Header">
+            <div class="Header admin_info">
                 <?php
                 if (isset($_SESSION['login']['name'])) {
-                    if($check == true){
-
-                    }
-                    else {
-                ?>
-                    <a class='user_name'><i class="user_name_icon fa-regular fa-user"></i><?php echo $_SESSION['login']['name']?></a>
-                    <a class='user_name_role'>(<?php echo $_SESSION['login']['role']?>)</a>
+                    if ($check == true) {
+                    } else {
+                ?>      
+                        <a class='user_name'><i class="user_name_icon fa-regular fa-user"></i><?php echo $_SESSION['login']['name'] ?></a>
+                        <a class='user_name_role'><?php echo $_SESSION['login']['role'] ?></a>
                 <?php }
                 }
                 ?>

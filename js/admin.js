@@ -3,7 +3,7 @@ const btn_SP = document.getElementById('SP');
 const btn_DH = document.getElementById('DH');
 const btn_PQ = document.getElementById('PQ');
 const btn_DT = document.getElementById('DT');
-
+const btn_back_QL_User = document.querySelector(".btn_back_QL_User");
 checkuser(role)
 function checkuser(role) {
     if (role == "" || role == "User") {
@@ -94,4 +94,8 @@ function check_with_user(location) {
             cb_QLQuyen[location].checked = true;
         }
     }
+}
+//back 
+btn_back_QL_User.onclick = function(){
+    btn_User.click();
 }
