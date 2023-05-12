@@ -6,7 +6,15 @@ const overplay__behind_addSP = document.querySelector(
 );
 
 btn_add_sp.onclick = function () {
-  overplay_addSP.style.display = "block";
+  check_PhanQuyen("QLSP", "Them", function (htmls) {
+    var check = htmls;
+    if (check == 0) {
+      alert("Bạn không có quyền thêm!");
+    }
+    else {
+      overplay_addSP.style.display = "block";
+    }
+  })
 };
 
 overplay__behind_addSP.onclick = function () {
@@ -70,7 +78,7 @@ function checkNull_ChinhSua() {
     giaBan_ChinhSua.value == ""
   ) {
     alert("Bạn chưa nhập đầy đủ thông tin sản phẩm !!!");
-  } 
+  }
   else if (soLuong_ChinhSua.value == 0) {
     alert("Số lượng không được ít hơn 0 !!!");
   } else if (giaBan_ChinhSua.value == 0) {
@@ -97,18 +105,26 @@ document.getElementById("giabanraSP_ChinhSua").onkeydown = function (event) {
 };
 
 function xemThongTinSPtheoID(id, loai, image, ten, ctsp, soLuong, gia, chieucao, cannang, chatlieu) {
-  overplay_ChinhSuaSP.style.display = "block";
-  maSP_ChinhSua.value = id;
-  loaiSP_ChinhSua.value = loai;
-  image_ChinhSua.style.backgroundImage = `url(${image})`;
-  ctSP_ChinhSua.value = ctsp;
-  tenSP_ChinhSua.value = ten;
-  soLuong_ChinhSua.value = soLuong;
-  giaBan_ChinhSua.value = gia;
-  chieuCao_ChinhSua.value = chieucao;
-  canNang_ChinhSua.value = cannang;
-  chatLieu_ChinhSua.value = chatlieu;
-  // temp_file_img.value = image;
+  check_PhanQuyen("QLSP", "Sua", function (htmls) {
+    var check = htmls;
+    if (check == 0) {
+      alert("Bạn không có quyền sửa!");
+    }
+    else {
+      overplay_ChinhSuaSP.style.display = "block";
+      maSP_ChinhSua.value = id;
+      loaiSP_ChinhSua.value = loai;
+      image_ChinhSua.style.backgroundImage = `url(${image})`;
+      ctSP_ChinhSua.value = ctsp;
+      tenSP_ChinhSua.value = ten;
+      soLuong_ChinhSua.value = soLuong;
+      giaBan_ChinhSua.value = gia;
+      chieuCao_ChinhSua.value = chieucao;
+      canNang_ChinhSua.value = cannang;
+      chatLieu_ChinhSua.value = chatlieu;
+      // temp_file_img.value = image;
+    }
+  });
 }
 
 const image_input_SSP = document.querySelector("#image_input_SSP");
@@ -125,21 +141,25 @@ image_input_SSP.addEventListener("change", function () {
   reader.readAsDataURL(this.files[0]);
 })
 
-
-
-
 function confirmDelete(productID) {
-  console.log(productID);
-  var r = confirm("Bạn muốn xóa sản phẩm này khỏi giỏ hàng?");
-  if (r == true) {
-    window.location.href = "./DAL/DAL_Remove_Product.php?rm=" + productID;
-    return true;
-  } else {
-    window.location.href = "admin.php?id=1";
-    return false;
-  }
+  check_PhanQuyen("QLSP", "Xoa", function (htmls) {
+    var check = htmls;
+    if (check == 0) {
+      alert("Bạn không có quyền xóa!");
+    }
+    else {
+      console.log(productID);
+      var r = confirm("Bạn muốn xóa sản phẩm này khỏi giỏ hàng?");
+      if (r == true) {
+        window.location.href = "./DAL/DAL_Remove_Product.php?rm=" + productID;
+        return true;
+      } else {
+        window.location.href = "admin.php?id=1";
+        return false;
+      }
+    }
+  });
 }
-
 //Button add san pham
 const btn_confirm_add_sp = document.querySelector(
   ".btn_confirm_add_sp"
@@ -152,8 +172,6 @@ btn_confirm_add_sp.onclick = function () {
     checkNull_MHNV();
   }
 };
-
-
 
 function checkNull_MHNV() {
   const tenSP_addSP = document.querySelector("#tenSP_addSP");
@@ -208,4 +226,19 @@ function sortData(sortField, sortOrder) {
   };
   xmlhttp.open("GET", "./DAL/DAL_QL_Product.php?sortField=" + sortField + "&sortOrder=" + sortOrder, true);
   xmlhttp.send();
+}
+
+function check_PhanQuyen(kv, check, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "./DAL/DAL_Check_Quyen.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      // Xử lý kết quả trả về từ PHP
+      var response = xhr.responseText;
+      console.log(response);
+      callback(response);
+    }
+  };
+  xhr.send("kv=" + kv + "&check=" + check);
 }

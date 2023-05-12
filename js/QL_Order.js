@@ -77,46 +77,64 @@ function getCTDH(iddonhang) {
   };
   xhr.send("iddh=" + iddonhang + "&phuongthuc=get");
 }
-function checkedUser(iddonhang) {
+function checkedUser(iddonhang, location) {
   var checkbox = document.getElementsByName("confirm_user");
-  for (var i = 0; i < checkbox.length; i++) {
-    if (checkbox[i].checked) {
-      checkbox[i].disabled = true;
+  check_PhanQuyen("QLDH", "Sua", function (htmls) {
+    var check = htmls;
+    if (check == 0) {
+      alert("Bạn không có quyền sửa!");
+      checkbox[location].checked = false;
     }
-  }
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "./DAL/DAL_DetailOrder.php", true);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-      // Xử lý kết quả trả về từ PHP
-      var response = xhr.responseText;
-      console.warn(response);
-      if (response == 1) {
-        alert("Xác nhận đơn hàng thành công!");
+    else {
+      for (var i = 0; i < checkbox.length; i++) {
+        if (checkbox[i].checked) {
+          checkbox[i].disabled = true;
+        }
       }
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "./DAL/DAL_DetailOrder.php", true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+          // Xử lý kết quả trả về từ PHP
+          var response = xhr.responseText;
+          console.warn(response);
+          if (response == 1) {
+            alert("Xác nhận đơn hàng thành công!");
+          }
+        }
+      };
+      xhr.send("iddh=" + iddonhang + "&phuongthuc=checkeduser");
     }
-  };
-  xhr.send("iddh=" + iddonhang + "&phuongthuc=checkeduser");
+  });
 }
 function Confirm_DH() {
-  const iddonhang = document.getElementById("MaDH");
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "./DAL/DAL_DetailOrder.php", true);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-      // Xử lý kết quả trả về từ PHP
-      var response = xhr.responseText;
-      if (response == 1) {
-        alert("Xác nhận đơn hàng thành công!");
-        taoCTDH(iddonhang.textContent);
-        getCTDH(iddonhang.textContent);
-        reload_QLDH();
-      }
+  check_PhanQuyen("QLDH", "Sua", function (htmls) {
+    var check = htmls;
+    if (check == 0) {
+      alert("Bạn không có quyền sửa!");
+      checkbox[location].checked = false;
     }
-  };
-  xhr.send("iddh=" + iddonhang.textContent + "&phuongthuc=confirmuser");
+    else {
+      const iddonhang = document.getElementById("MaDH");
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "./DAL/DAL_DetailOrder.php", true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+          // Xử lý kết quả trả về từ PHP
+          var response = xhr.responseText;
+          if (response == 1) {
+            alert("Xác nhận đơn hàng thành công!");
+            taoCTDH(iddonhang.textContent);
+            getCTDH(iddonhang.textContent);
+            reload_QLDH();
+          }
+        }
+      };
+      xhr.send("iddh=" + iddonhang.textContent + "&phuongthuc=confirmuser");
+    }
+  });
 }
 function reload_QLDH() {
   var xhr = new XMLHttpRequest();
@@ -153,3 +171,17 @@ window.onload = function () {
     encodeURIComponent(to_date.value);
   xhr.send(data);
 };
+function check_PhanQuyen(kv, check, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "./DAL/DAL_Check_Quyen.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      // Xử lý kết quả trả về từ PHP
+      var response = xhr.responseText;
+      console.log(response);
+      callback(response);
+    }
+  };
+  xhr.send("kv=" + kv + "&check=" + check);
+}

@@ -1,9 +1,8 @@
 <?php if (isset($_GET['c'])) {
     if ($_GET['c'] == 0) {
-
 ?>
         <div class="Content_User header_content">
-            <a href="admin.php?id=3&c=them"><button class="btn_themtk">Thêm Tài Khoản</button></a>
+            <a href=""><button class="btn_themtk">Thêm Tài Khoản</button></a>
             <table>
                 <thead>
                     <tr>
