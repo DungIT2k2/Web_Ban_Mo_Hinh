@@ -589,6 +589,7 @@ header {
 }
 
 .header__login {
+  
   /* position: relative; */
   display: flex;
   justify-content: center;
@@ -667,19 +668,28 @@ header {
 
 .btn_header {
   border-radius: 5px;
-  background-color: #4CAF50; /* Màu nền của button */
-  border: none; /* Bỏ đường viền */
-  color: white; /* Màu chữ */
+  background-color: #4CAF50;
+  /* Màu nền của button */
+  border: none;
+  /* Bỏ đường viền */
+  color: white;
+  /* Màu chữ */
   padding: 5px 5px;
-  text-align: center; /* Căn giữa nội dung của button */
-  text-decoration: none; /* Bỏ gạch chân dưới */
-  display: inline-block; /* Hiển thị button như một khối hộp vuông */
-  font-size: 16px; /* Cỡ chữ */
-  margin: 4px 2px; /* Khoảng cách giữa các button */
-  cursor: pointer; /* Biểu tượng chuột khi rê chuột lên button */
+  text-align: center;
+  /* Căn giữa nội dung của button */
+  text-decoration: none;
+  /* Bỏ gạch chân dưới */
+  display: inline-block;
+  /* Hiển thị button như một khối hộp vuông */
+  font-size: 16px;
+  /* Cỡ chữ */
+  margin: 4px 2px;
+  /* Khoảng cách giữa các button */
+  cursor: pointer;
+  /* Biểu tượng chuột khi rê chuột lên button */
 }
 
-.btn_header:hover{
+.btn_header:hover {
   transition: all 0.5s;
   background-color: forestgreen;
 }
@@ -690,7 +700,7 @@ header {
 
 .btn_header.btn_dangxuat:hover {
   transition: all 0.5s;
-  background-color:brown;
+  background-color: brown;
 }
 
 
@@ -1382,6 +1392,7 @@ header {
   font-size: 20px;
   font-weight: 600;
 }
+
 /* shopbag */
 .shopbag__heading {
   font-size: 26px;
@@ -1575,9 +1586,11 @@ header {
   font-size: 20px;
   font-weight: 600;
 }
-.tb_dondadat{
+
+.tb_dondadat {
   margin-top: 20px;
 }
+
 .xemct_dondadat {
   text-decoration: underline;
   color: blue;
@@ -1632,7 +1645,6 @@ header {
   color: black;
   text-align: left;
   font-size: 25px;
-  margin: 20px;
   /* background-color: black; */
 }
 
@@ -1642,17 +1654,20 @@ header {
   font-weight: 1000;
   text-align: center;
   margin: 15px;
+  border-bottom: 1px solid;
 }
 
 .lableDetail__OrderDetail {
   color: black;
-  margin: 20px;
   font-size: 25px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  font-weight: 600;
 }
 
 .Detail__OrderDetail {
   color: black;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .btn_X {
@@ -1666,9 +1681,11 @@ header {
   font-size: 20px;
   padding: 5px;
 }
-.btn_confirm_DH{
+
+.btn_confirm_DH {
   display: none;
 }
+
 /* ========Footer ============*/
 
 .footer-container {
@@ -2425,12 +2442,21 @@ td {
 .product-image {
   width: 250px;
 }
+
 .shopping_bag {
-  margin-right: 45px;
+  margin-right: 20px;
   margin-bottom: 2px;
 }
-.fa-shopping-bag{
+
+.fa-shopping-bag {
   position: relative;
-    left: 14px;
-    top: 7px;
+  left: 14px;
+  top: 7px;
+}
+
+.labelDetail_TongTien {
+  margin-top: 15px;
+}
+.form_OrderDetail_item{
+  margin-left: 10px;
 }
