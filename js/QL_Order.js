@@ -27,6 +27,8 @@ btn_search_DH.addEventListener("click", function () {
   var den = to_date.value;
   if (tu > den) {
     alert("Ngày kết thúc phải lớn hơn ngày bắt đầu");
+  } else if (isNaN(tu) == true || isNaN(den) == true) {
+    alert("Dữ liệu không được để trống");
   } else {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "./DAL/DAL_QL_Order.php", true);
@@ -38,8 +40,7 @@ btn_search_DH.addEventListener("click", function () {
         console.log(response);
         if (response == 0) {
           alert("Không có đơn hàng nào được tìm thấy!");
-        }
-        else {
+        } else {
           tbody_QL_Order.innerHTML = response;
         }
       }
@@ -133,8 +134,7 @@ function reload_QLDH() {
   xhr.send("from_date=" + from_date.value + "&to_date=" + to_date.value);
 }
 
-
-// load lại trang 
+// load lại trang
 window.onload = function () {
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "./DAL/DAL_QL_Order.php", true);
@@ -142,8 +142,8 @@ window.onload = function () {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
       // Xử lý kết quả trả về từ PHP
-        var response = xhr.responseText;
-        tbody_QL_Order.innerHTML = response;
+      var response = xhr.responseText;
+      tbody_QL_Order.innerHTML = response;
     }
   };
 
