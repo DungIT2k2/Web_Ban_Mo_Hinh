@@ -53,7 +53,7 @@
             <div class="form__field">
                 <label for="dangki__cf__matkhau"><span class="hidden">Quyền</span></label>
                 <select name="quyen" id="dangki_quyen" class="select_quyen form__input">
-                    <option value="" disabled selected> Chọn Quyền Tài Khoản </option>
+                    <option value="0" disabled selected> Chọn Quyền Tài Khoản </option>
                     <option value="Admin">Admin</option>
                     <option value="Manager">Manager</option>
                     <option value="Employee">Employee</option>

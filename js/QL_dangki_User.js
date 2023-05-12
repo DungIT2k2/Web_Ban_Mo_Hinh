@@ -5,6 +5,7 @@ const pass = document.getElementById('dangki_password');
 const cf_pass = document.getElementById('dangki_cf_password');
 const btn_dangki = document.getElementById('btn_dangki');
 const form_dangki = document.getElementById('form_dangki_user');
+const dangki_quyen = document.getElementById(".dangki_quyen");
 
 form_dangki.addEventListener("submit", check);
 email.addEventListener("change", function () {
@@ -66,6 +67,10 @@ function check() {
         alert("Nhập lại mật khẩu sai!")
         cf_pass.value = ""
         cf_pass.focus()
+        return false;
+    }
+    if (dangki_quyen.value == 0){
+        alert("Vui lòng chọn quyền cho tài khoản!");
         return false;
     }
     form_dangki.submit();
