@@ -76,7 +76,7 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
             $i++;
         }
     } else {
-        echo "Không có sản phẩm nào ";
+        echo "<h1 class=product_top>Không Có Sản Phẩm Nào</h1>";
     }
     echo '</div>';
     // Đóng kết nối
