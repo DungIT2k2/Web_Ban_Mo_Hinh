@@ -35,7 +35,7 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
 
     if ($product_type == 'all') {
         $sql_top_product =
-            "SELECT pr.ProductID,pr.NameProduct,ctdh.ProductID,pr.Image,SUM(ctdh.SoLuong) as TongSoLuong
+            "SELECT pr.ProductID,pr.NameProduct,ctdh.ProductID,pr.Amount,pr.Image,ctdh.SoLuong,SUM(ctdh.SoLuong) as TongSoLuong
                     FROM ctdonhang ctdh
                     JOIN donhang dh ON ctdh.IDDonHang = dh.IDDonHang 
                     JOIN product pr ON ctdh.ProductID = pr.ProductID
@@ -47,7 +47,7 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
                     ";
     } else {
         $sql_top_product =
-            "SELECT pr.ProductID,pr.NameProduct,ctdh.ProductID,pr.Image,SUM(ctdh.SoLuong) as TongSoLuong
+            "SELECT pr.ProductID,pr.NameProduct,ctdh.ProductID,pr.Amount,pr.Image,ctdh.SoLuong,SUM(ctdh.SoLuong) as TongSoLuong
                     FROM ctdonhang ctdh
                     JOIN donhang dh ON ctdh.IDDonHang = dh.IDDonHang 
                     JOIN product pr ON ctdh.ProductID = pr.ProductID
@@ -57,6 +57,7 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
                     ORDER BY TongSoLuong DESC
                     LIMIT 3
                     ";
+                    
     }
     echo '<h1>Top sản phẩm bán chạy </h1>';
 
@@ -70,11 +71,12 @@ if (isset($_POST['product_type']) && isset($_POST['from_date']) && isset($_POST[
             echo "<h3 class=product_top>Top :  $i  </h3>";
             echo '<h4 class="product_top_name">Name :' . $row['NameProduct'] . '</h4>';
             echo "<div class=product_top_image><img src=" . $path . $row['Image'] . " width = '200px' height = '200px'></div>";
+            echo '<h3 class=product_top> Số lượng :  ' . $row['TongSoLuong'] .  '</h3>';
             echo "</div>";
             $i++;
         }
     } else {
-        echo "Không có sản phẩm nào ";
+        echo "<h1 class=product_top>Không Có Sản Phẩm Nào</h1>";
     }
     echo '</div>';
     // Đóng kết nối
