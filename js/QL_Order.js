@@ -4,10 +4,9 @@ const from_date = document.getElementById("from-date");
 const to_date = document.getElementById("to-date");
 const btn_search_DH = document.querySelector(".btn_search_order");
 const tbody_QL_Order = document.querySelector(".tbody_QLOrder");
+const content_OrderDetail = document.querySelector(".content_OrderDetail")
 
-const cthoadon_overlay_behind = document.querySelector(
-  ".overplay__behind_OrderDetail"
-);
+const cthoadon_overlay_behind = document.querySelector(".overplay__behind_OrderDetail");
 const content_orderdetail = document.querySelector(".content_OrderDetail");
 
 function XemChiTiet(iddonhang) {
@@ -142,8 +141,8 @@ window.onload = function () {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
       // Xử lý kết quả trả về từ PHP
-        var response = xhr.responseText;
-        tbody_QL_Order.innerHTML = response;
+      var response = xhr.responseText;
+      tbody_QL_Order.innerHTML = response;
     }
   };
 

@@ -173,6 +173,37 @@
   </div>
   <div class="cart__overlay"></div>
 </div>
+<div class="shopbag__container">
+  <div class="list__shopbag">
+    <div class="shopbag__header">
+      <p class="shopbag__btnClose">
+        <i class="fa-solid fa-xmark"></i>
+      </p>
+      <div class="shopbag__heading">
+        <span>Đơn Hàng Đã Đặt</span>
+      </div>
+    </div>
+    <div class="shopbag__noItem">
+      Bạn Chưa Mua Đơn Hàng Nào
+      <img src="https://bengo.vn/static/version1650994791/frontend/MageBig/martfury_layout01/vi_VN/images/empty-cart.svg" alt="" />
+    </div>
+    <div class="shopbag__items"></div>
+  </div>
+  <div class="shopbag__overlay"></div>
+</div>
+<div class="overplay_OrderDetail">
+    <div class="overplay__behind_OrderDetail"></div>
+    <div class="form_OrdersDetail">
+        <div class="title_OrderDetail">
+            Thông Tin Đơn Hàng
+        </div>
+        <div class="form_OrderDetail_item">
+            <div class="btn_X">X</div>
+        </div>
+        <div class="content_OrderDetail"></div>
+    </div>
+</div>
+<script src="./js/dondadat.js"></script>
 <script src="./js/search.js"></script>
 <script src="./js/showProductDetail.js?v=<?php echo time(); ?>"></script>
 <script src="./js/slideBanner.js"></script>
