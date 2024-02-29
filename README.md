@@ -8,6 +8,7 @@
 + Đăng kí (phải đăng kí trở thành khách hàng mới được phép mua hàng)
 + Khách hàng chọn mua sản phẩm
 + Khách hàng xem lại các đơn hàng đã đặt
+
 **Các chức năng cho người quản trị web (web-admin)**
 + Giao diện admin (phân biệt logout; link thêm, sửa, xóa sản phẩm, quản lý user)
 + Thêm sản phẩm: upload hình
